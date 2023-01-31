@@ -44,3 +44,15 @@ The following packages were updated:
   com.unity.collab-proxy from version 1.13.5 to 1.17.7
   com.unity.timeline from version 1.6.2 to 1.6.4
   com.unity.visualscripting from version 1.7.6 to 1.8.0
+
+=== Tue Jan 31 19:54:06 2023
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were added:
+  com.unity.ai.navigation@1.1.1
+The following packages were updated:
+  com.unity.collab-proxy from version 1.17.7 to 2.0.0
+  com.unity.test-framework from version 1.1.31 to 1.1.33
+  com.unity.timeline from version 1.6.4 to 1.7.2
