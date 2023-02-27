@@ -1,0 +1,342 @@
+MAST Revision Log:
+
+----------------------------------------------------------
+8/26/2020 - Version 1.5.1
+----------------------------------------------------------
+
+- Changes and Additions:
+
+    - When selecting a Prefab in the palette, the grid
+      will now automatically enable.  This only happens
+      for the initial selection, not changing from one
+      prefab to another.
+
+- Bug Fixes:
+    
+    - Prefab Creator now assigns a mesh to the collider.
+    
+    - Grid scaling now changes with the x/z unit size.
+    
+    - Randomizer now immediately rolls a new random seed
+      when another prefab is selected.  Random replacement
+      is not calculated until the prefab has been placed.
+
+----------------------------------------------------------
+8/19/2020 - Version 1.5
+----------------------------------------------------------
+
+- Changes and Additions:
+
+    - Added a Grid Snap button to the Build toolbar and
+      removed the Snap to Grid option from Settings.
+  
+    - Prefab Creator tool:
+        - Combined steps 1 (Find Models) and 2 (Find
+          Materials) into a single step.
+        - Added a third mesh combine option that merges
+          any child meshes that share the same parent.
+          Otherwise, it will retain the original model's
+          hierarchy.
+        - All meshes are now saved within each Prefab
+          instead of as a separate file.
+
+    - Build Grid:
+        - Grid toggle now shows the current grid level
+          number when hovered.  Grid Up and Down also
+          show level number it will change to.
+    
+    - Randomizer (Thanks Stanley Bishop for the help!):
+        - Renamed rotation to rotation step for clarity.
+        - Added rotation minimum and maximum, to limit
+          rotation amount.
+        - Expanded Prefab replacement system to avoid
+          repeats and allow weighting.
+        - Added prefab flipping for each axis.
+    
+    - Placement Raycast:
+        - This new feature will let you determine the
+          placement point by raycasting from the mouse
+          position on the grid.  Easily place trees and
+          other non-modular props directly onto the
+          ground, ceiling, or any other surface.
+        - You can specify the raycast start offset and
+          direction, allowing a lot of customization.
+        - This is not really a greeble tool, since the
+          Prefab rotation is not affected.  An actual
+          greeble tool will be added in a later version
+          of MAST.
+          
+    - MAST Prefab Component:
+        - Added all the new Randomizer changes.
+        - Added the new placement raycast changes.
+        - Renamed class to MAST Prefab Settings.
+        - Renamed variable names and updated tooltips
+          for clarity.
+    
+    - Universal Render Pipeline Support:
+        - Created custom shaders for the grid, eraser,
+          and paint area materials.  They can be found
+          in the MAST/Etc folder.  Simply drag the URP
+          version of the shaders onto the materials to
+          make MAST display correctly in the URP.
+        - Renamed files in MAST/Etc for clarity.
+    
+    - Many internal changes to MAST scripts
+        - Rearranged script hierarchy to be more
+          logical.
+        - Added namespaces to match the new hierarchy
+          and renamed scripts/classes accordingly.
+        - Various code structure improvements.
+
+- Bug Fixes:
+
+    - Thumbnails are now generated correctly for models
+      that are offset from world center.  (Thank you to
+      pryankster for the fix!)
+    
+    - Placement:
+        - The parent destination GameObject is now
+          tracked via a custom tag instead of name.  Now
+          you can have multiple parent GameObjects with
+          the same name and MAST will always reference
+          the correct one.
+    
+    - Prefab Creator tool:
+        - Fixed a mesh naming issue when preserving model
+          hierarchy.  When containing multiple branches,
+          they will no longer have missing meshes.
+        - Implemented several improvements for prefab
+          creation speed and mesh efficiency.
+    
+    - Merge Meshes tool:
+        - When meshes being combined resulted in over
+          65535 vertices, the combined mesh would be cut
+          off and distorted.  Changed the mesh index
+          format to 32 bit, supporting meshes containing
+          up to 4 billion vertices. (Thanks Delamore!)
+    
+    - Project Build Errors:
+        - Fixed issue with classes not being properly
+          wrapped in an editor only test statement,
+          causing the project not to compile. (You must
+          delete the entire MAST folder, then install
+          MAST v1.5)
+    
+    - MAST no longer slows down your compile time.  This
+      isn't a bug fix, but something I should have done
+      from the beginning.  Added an assembly definition
+      file into the MAST/Scripts folder so Unity will only
+      recompile MAST when a change is made directly to it.
+    
+    - MAST now remembers the last used Prefab and Material
+      paths as a project path, and not an absolute path.
+    
+    - When clicking a prefab in the palette with the
+      eraser tool selected, MAST now properly changes to
+      the draw single tool.
+      
+
+----------------------------------------------------------
+5/31/2020 - Version 1.4
+----------------------------------------------------------
+
+- Changes and Additions:
+
+    - In order to accommodate new features, MAST now uses
+      tabs for: Build, Paint, Settings, and Tools.
+  
+    - Added the material painter.  This is on the 2nd tab
+      at the top of the MAST window.  It uses the same
+      palette interface as the current prefab Placement
+      window.
+        - The Paint Material tool replaces whatever
+          material you click on a GameObject with the one
+          selected in the palette.
+        - The Restore Material tool reverts any material
+          you click on a GameObject back to the original
+          prefab material.
+        - The Loads Materials icon sets the root folder
+          for the materials in the palette.
+  
+    - Added the folder selection popup "dropdown" above
+      the palette.  It will display "All Prefabs" as well
+      as every subfolder in the prefab folder you
+      selected.  Change the folder and only the prefabs
+      in that folder will be shown.  The material painter
+      palette also uses this same type of popup.
+  
+    - Added the assembly creator "kit-bashing" tool.  It
+      allows you to create prefabs from selected objects
+      in your scene, also allowing you to choose which
+      GameObject to use as the anchor.  The anchor will
+      be positioned at 0,0,0 when the assembly is saved.
+  
+    - Redesigned the backend of the prefab palette.  It
+      now saves all prefabs in a subfolder inside each
+      prefab folder.  It will only create thumbnails for
+      new prefabs.  This means that MAST now loads the
+      palette much faster and no longer breaks when
+      switching scenes.
+  
+    - The prefab creator can now combine meshes in each
+      prefab during creation, or it can "still" preserve
+      model hierarchy (parent/child) relationships which
+      also keeps the meshes separated.  This option is on
+      the last step of the Prefab Creator.
+    
+    - Hiding the grid now deselects the active draw tool
+      and selected prefab, so the unplaced prefab will no
+      longer appear in the center of the scene.
+    
+    - You can now place objects while under the grid.
+    
+
+- Bug Fixes:
+
+    - Paint Area Tool:
+        - Offsets are now used as defined in Settings or 
+          the MAST Prefab Component.
+        - Correctly applies Prefab rotation when scaling.
+    
+    - When using any X/Z Unit Size other than 1, the
+      prefab anchor is no longer offset incorrectly from
+      the nearest grid position to the mouse pointer.
+      Thanks to Face for posting this fix on Discord!
+    
+    - Fixed Unity layout bug crashes due to serialization
+      timing issues.
+
+
+----------------------------------------------------------
+3/22/2020 - Version 1.3
+----------------------------------------------------------
+
+- Changes and Additions:
+
+    - Replaced the old prefab creator.  The new creator
+      has its own window and breaks the process into
+      several steps.  This allows materials to be managed
+      before the prefabs are ever created.  Also fixed
+      all known bugs in it.  Tested with models in OBJ
+      and FBX formats created in several modeling tools.
+    
+    - Created a grid that doesn't react badly with post
+      -processing effects.  The tint can be customized
+      in MAST Settings under the GUI tab.
+    
+    - Removed transparency from the visualizer.  It was
+      causing issues with custom shaders.
+
+- Bug Fixes:
+
+    - Paint Area tool
+        - Height was incorrectly using the XZ Unit Size.
+          Corrected this to use the Y Unit Size.
+        - Paint Area x/z was hardcoded to 1f.  Updated
+          this to use the XZ Unit Size.
+    
+    - Placement
+        - Prefab link is no longer broken when placing
+          prefabs with MAST.  This way, any changes to
+          to the main prefab will change all instances
+          of that prefab in the scene.
+          (Thanks Jushiip for the fix!)
+    
+    - Hotkeys
+        - Hotkeys will no longer be triggered twice or
+          more times after going to fullscreen and back.
+          This was causing the grid to move by multiple
+          units and rotations to skip steps.
+          (Thanks DustedHam for the fix!)
+    
+    - Thumbnail Generation
+        - Transparent materials were not being rendered.
+          Changed the background to a 25% transparency
+          so they show up somewhat and still allow the
+          selection background to be visible.
+    
+    - Merge Meshes tool
+        - Now properly combines/merges meshes containing
+          submeshes with different materials.  The final
+          GameObject contains a single mesh with all
+          materials merged.  Anything flagged to exclude
+          from the merge will still be added separately.
+
+----------------------------------------------------------
+11/8/2019 - Version 1.2
+----------------------------------------------------------
+- Changes and Additions:
+
+    - Added scaling option (0.5 - 1.0) for MAST GUI
+      buttons located in Settings under the GUI tab
+
+    - Added tooltips to Draw Single, Draw Continuous,
+      Paint Area, Randomizer, and Eraser
+
+    - Replaced each method that loaded from the selected
+      folder, with a folder select dialog window
+
+    - Grid Unit Size has been split into x/z and y, and
+      renamed to "XZ Unit Size" and "Y Unit Size"
+
+    - Randomizer Changes:
+
+        - Added "replaceable" to the MAST Component Script
+            - Randomly replaces currently selected prefab
+              with another in the same category
+
+        - Replaced rotate x, y, and z bools with x, y,
+          and z floats
+            - Set to zero for no rotation, otherwise it
+              will use the value as a rotation factor/step
+                - (ie. A value of 45 randomly chooses
+                   0, 45, 90, 135, 180, 225, 270, or 315)
+
+    - Removed custom inspector for MAST prefab component
+      scripts
+        - It was not allowing the same value to be
+          modified over multiple prefabs at the same time
+        - Formatted the actual MAST prefab component
+          script to have headers and spacing
+
+    - Renamed and rearranged MAST scripts in an attempt
+      to apply some logic to a chaotic situation
+
+- Bug Fixes:
+
+    - MAST no longer causes project build errors
+
+    - Palette no longer loses the column count when
+      returning from fullscreen or playing
+
+    - Snapshot Camera now pulls back properly to take
+      pictures of prefabs without colliders
+
+    - Eraser tool no longer deletes the top parent
+      GameObject if the prefab parent contains a collider
+
+----------------------------------------------------------
+10/29/2019 - Version 1.1
+----------------------------------------------------------
+- Changes and Additions:
+
+    - While in Scene view:  Shift + Mouse Scrollwheel
+      now cycles through all prefabs in the palette.
+
+
+- Bug Fixes:
+
+    - Fixed MAST interface persistence/state issues
+      when going fullscreen or running the game
+        - Prefab palette is now saved to PNG in the
+          Mast/etc/temp folder
+        - Selected draw tool, selected prefab, and grid
+          visibility are saved to a scriptable object
+
+    - Lag issues when going fullscreen or running game
+      are greatly reduced.
+
+- Miscellaneous:
+
+    - Category ID added to the MAST Prefab Component
+      script to be used in upcoming features.
