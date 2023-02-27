@@ -86,7 +86,7 @@ public abstract class Personnage : Update
         Remove_Life(damage_took);
     }
     
-    public bool took(Item item)
+    public bool Took(Item item)
     {
         int i = 0;
         while (i<Inventory.Length)
@@ -103,7 +103,7 @@ public abstract class Personnage : Update
         return false;
     }
     
-    public Item trow(int i)
+    public Item Trow(int i)
     {
         if (i < 0 || i > Inventory.Length)
         {
