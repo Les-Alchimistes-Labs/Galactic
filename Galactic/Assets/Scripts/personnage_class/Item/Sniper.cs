@@ -1,8 +1,8 @@
 namespace personnage_class.Personage
 {
-    public class sniper : Item
+    public class Sniper_a : Item
     {
-        public sniper(int expiry, int energyAmount, bool isEdible) : base(expiry, energyAmount, isEdible)
+        public Sniper_a(int expiry) : base(expiry, 0, false, 0, EnumsItem.Armes)
         {
         }
 

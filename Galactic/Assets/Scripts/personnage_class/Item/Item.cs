@@ -10,15 +10,18 @@ public abstract class Item : Update
     protected int Damage;
     protected int Expiry;
     protected int EnergyAmount;
+    protected int Heal;
     protected bool IsEdible;
     protected EnumsItem Type;
 
-    protected Item(int expiry, int energyAmount, bool isEdible)
+    protected Item(int expiry, int energyAmount, bool isEdible, int heal, EnumsItem type)
     {
 
         Expiry = expiry;
         EnergyAmount = energyAmount;
         IsEdible = isEdible;
+        Heal = heal;
+        Type = type;
     }
     
     
