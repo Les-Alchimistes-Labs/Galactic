@@ -9,6 +9,7 @@ public abstract class Personnage : Update
     
     private string _name;
     protected int Life;
+    protected int MaxLife;
     protected int Damage;
     protected int Boost;
     protected Item[] Inventory ;
@@ -19,7 +20,7 @@ public abstract class Personnage : Update
 
 
 
-    public Personnage(string name , int life = 10,int damage = 5,int boost = 1, int inventorySize = 8)
+    public Personnage(string name , int life = 10 , int maxlife = 20,int damage = 5,int boost = 1, int inventorySize = 8)
     {
         _name = name;
         canMove = true;
@@ -29,6 +30,7 @@ public abstract class Personnage : Update
         Boost = boost;
         level = 0;
         InFight = false;
+        MaxLife = maxlife;
     }
     
     public string name => this._name;
@@ -53,7 +55,7 @@ public abstract class Personnage : Update
 
     public int Getlife => Life;
 
-    public abstract void Add_Life(int i);
+    public abstract bool Add_Life(int i);
     
     public abstract void Remove_Life(int i);
 
@@ -81,7 +83,7 @@ public abstract class Personnage : Update
     
     public void Take_Damage(int damage_took)
     {
-        Damage -= damage_took;
+        Remove_Life(damage_took);
     }
     
     public bool took(Item item)
@@ -112,6 +114,51 @@ public abstract class Personnage : Update
         return temp;
 
     }
+
+    public bool Use(Item item)
+    {
+        
+        if (item.Type != EnumsItem.None)
+        {
+            switch (item.Type)
+            {
+                case EnumsItem.Armes :
+                    return false;
+                case EnumsItem.Boost :
+                    if (item.GetHeal() == 0 && Boost + item.GetEnergyAmount() < 0)
+                    {
+                        Boost += item.GetEnergyAmount();
+                        return true;
+                    }
+                    else if (Add_Life(item.GetHeal()))
+                    {
+                        return true;
+                    }
+                    break;
+                case EnumsItem.Equipement :
+                    break;
+                case EnumsItem.Food :
+                    if (Life + item.GetEnergyAmount() < MaxLife)
+                    {
+                        Boost += (item.GetEnergyAmount());
+                        return true;
+                    }
+                    break;
+            }       
+        }
+        return false;
+    }
+    public bool Use(int i)
+    {
+        if (i >= 0 && i < Inventory.Length && Use(Inventory[i]) )
+        {
+            Inventory[i] = null;
+            return true;
+        }
+        
+        return false;
+    }
+    
     
     public abstract void Update();
     

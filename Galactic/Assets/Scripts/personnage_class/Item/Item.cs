@@ -12,9 +12,10 @@ public abstract class Item : Update
     protected int EnergyAmount;
     protected int Heal;
     protected bool IsEdible;
-    protected EnumsItem Type;
+    public float Boost  {protected set; get; }
+    public EnumsItem Type  {protected set; get; }
 
-    protected Item(int expiry, int energyAmount, bool isEdible, int heal, EnumsItem type)
+    protected Item(int expiry, int energyAmount, bool isEdible, int heal, EnumsItem type ,float boost = 0)
     {
 
         Expiry = expiry;
@@ -22,6 +23,7 @@ public abstract class Item : Update
         IsEdible = isEdible;
         Heal = heal;
         Type = type;
+        Boost = boost;
     }
     
     
@@ -46,6 +48,11 @@ public abstract class Item : Update
     public int GetDamage()
     {
         return Damage;
+    }
+    
+    public int GetHeal()
+    {
+        return Heal;
     }
 }
 }
