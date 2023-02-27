@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Item;
+
+namespace personnage_class.Personage
+{
 
 public abstract class Personnage : Update 
 {
@@ -96,4 +98,5 @@ public abstract class Personnage : Update
     
     public abstract void Update();
     
+    }
 }

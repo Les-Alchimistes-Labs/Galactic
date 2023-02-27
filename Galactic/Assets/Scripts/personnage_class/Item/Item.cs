@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
+namespace personnage_class.Personage
+{
 public abstract class Item : Update
 {
     protected int Damage;
     protected int Expiry;
     protected int EnergyAmount;
     protected bool IsEdible;
+    protected EnumsItem Type;
 
     protected Item(int expiry, int energyAmount, bool isEdible)
     {
@@ -42,4 +44,5 @@ public abstract class Item : Update
     {
         return Damage;
     }
+}
 }
