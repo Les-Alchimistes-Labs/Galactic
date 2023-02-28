@@ -26,10 +26,14 @@ namespace personnage_class.Personage
 
         public override void Update()
         {
-            throw new System.NotImplementedException();
+            foreach (var item in Inventory)
+            {
+                if (item.GetIsEdible() || item.Type == EnumsItem.Boost)
+                    item.Update();
+            }
         }
 
-        public Soldat(string name, int life = 10, int damage = 5, int boost = 1, int inventori_size = 8) : base(name, life, life, damage, boost, inventori_size)
+        public Soldat(string name, int life = 10, int damage = 5, int boost = 1, int inventori_size = 8) : base(name, life*2, life*3, (int)(damage*1.5), boost, inventori_size) // boost life *2 boost damage*1.5 boost max life *3
         {
         }
     }

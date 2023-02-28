@@ -26,10 +26,14 @@ namespace personnage_class.Personage
 
         public override void Update()
         {
-            throw new System.NotImplementedException();
+            foreach (var item in Inventory)
+            {
+                if (item.GetIsEdible() || item.Type == EnumsItem.Boost)
+                    item.Update();
+            }
         }
 
-        public Hacker(string name, int life = 10, int damage = 5, int boost = 1, int inventori_size = 8) : base(name, life,life, damage, boost, inventori_size)
+        public Hacker(string name, int life = 10, int damage = 5, int boost = 1, int inventori_size = 8) : base(name, life,life, damage, boost * 2, inventori_size * 2 ) // inventory size *2 and boost *2
         {
         }
     }

@@ -1,9 +1,11 @@
-namespace personnage_class.Personage
+namespace personnage_class.Personage.Monsters
 {
-    public class Canonnier : Personnage
-
+    public class LittelMonster : Personnage
     {
-
+        public LittelMonster(string name, int life = 10, int maxlife = 20, int damage = 5, int boost = 1, int inventorySize = 2, int level = 0) : base(name, (int) (life * 0.5), (int) (maxlife * 0.5), (int) (damage * 0.5), boost, (int) (inventorySize * 0.5), (int) (level * 0.5)) // all 0.5 without boost
+        {
+            
+        }
 
         public override bool Add_Life(int i)
         {
@@ -25,21 +27,10 @@ namespace personnage_class.Personage
                 Life = 0;
             }
         }
-
+        
         public override void Update()
         {
-            foreach (var item in Inventory)
-            {
-                if (item.GetIsEdible() || item.Type == EnumsItem.Boost)
-                    item.Update();
-            }
             
-            
-
-        }
-
-        public Canonnier(string name, int life = 10, int damage = 5, int boost = 1, int inventori_size = 8) : base(name, life,life, damage, boost * 4, inventori_size) // boost *4
-        {
         }
     }
 }

@@ -2,13 +2,20 @@ namespace personnage_class.Personage
 {
     public class Ordinateur_Kali_Linux : Item
     {
-        public Ordinateur_Kali_Linux() : base(0, 0, false, 0, EnumsItem.Equipement)
+        public Ordinateur_Kali_Linux(float boost , int expiry) : base(expiry,0, EnumsItem.Equipement , boost)
         {
         }
 
         public override void Update()
         {
-            throw new System.NotImplementedException();
+            if (Expiry == 0)
+            {
+                Type = EnumsItem.None;
+            }
+            else
+            {
+                Expiry -= 1;
+            }
         }
     }
 }
