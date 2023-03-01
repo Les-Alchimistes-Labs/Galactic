@@ -9,14 +9,36 @@ public abstract class Personnage : Update
 {
     
     private string _name;
+    private int _xp;
+    private int _maxxp;
     protected int Life;
     protected int MaxLife;
     protected int Damage;
     protected int Boost;
-    protected Item[] Inventory ;
-    private int _xp;
-    private int _max_xp;
-    public Item pricipale_Weapon { protected set; get; }
+    protected Item[]? Inventory ;
+    private int _maxlevel;
+    public int MaxLevel // rajouter
+    {
+        get { return _maxlevel;}
+        set
+        {
+            if (value > MaxLevel)
+                _maxlevel = value;
+        }
+    }
+    
+    public int Maxxp // rajouter
+    {
+        get { return _maxxp;}
+        set
+        {
+            if (value > Maxxp)
+                _maxlevel = value;
+        }
+    }
+    
+
+    public Item? pricipale_Weapon { protected set; get; }
     public int level { protected set; get; }
     public bool canMove { protected set; get; } // if personnage can move
     public bool inFight { protected set; get; } // if personnage is in fight
@@ -24,7 +46,7 @@ public abstract class Personnage : Update
 
 
 
-    public Personnage(string name , int life = 10 , int maxlife = 20,int damage = 5,int boost = 1, int inventorySize = 8, int levelt = 0) // create one personage with name life inventory level and xp 
+    public Personnage(string name , int life = 10 , int maxlife = 20,int damage = 5,int boost = 1, int inventorySize = 8, int levelt = 0, int maxlevel = 0) // create one personage with name life inventory level and xp 
     {
         _name = name;
         canMove = true;
@@ -36,7 +58,8 @@ public abstract class Personnage : Update
         inFight = false;
         MaxLife = maxlife;
         _xp = 0;
-        _max_xp = 30;
+        _maxxp = 30;
+        _maxlevel = maxlevel;
 
     }
     
@@ -69,13 +92,15 @@ public abstract class Personnage : Update
 
     public bool Is_Alive() => Life >= 0;
 
-    private (int damage, Item better_weapon) better_weapon() // return tuple with dammage and the better weapon in inventory
+    public int GetXP() => _xp;
+
+    public (int damage, Item better_weapon) better_weapon() // return tuple with dammage and the better weapon in inventory
     {
         int max = 0;
         Item better = null;
         foreach (var item in Inventory)
         {
-            if (item.Type == EnumsItem.Armes)
+            if (item != null && item.Type == EnumsItem.Armes)
             {
                 if (better != null  &&  better.GetDamage() < item.GetDamage())
                 {
@@ -99,9 +124,24 @@ public abstract class Personnage : Update
         if (Inventory[i] == null || Inventory[i].Type == EnumsItem.Armes) 
             (Inventory[i], pricipale_Weapon) = (pricipale_Weapon, Inventory[i]);
     }
-    
-    
-    public int Get_damage() => pricipale_Weapon.GetDamage() * Boost * level;
+
+
+    public int Get_damage()
+    {
+        if (pricipale_Weapon != null)
+        {
+            if (level != 0)
+                return pricipale_Weapon.GetDamage() * Boost * level;
+            else 
+                return pricipale_Weapon.GetDamage() * Boost ;}
+        else
+        {
+            if (level != 0)
+                return Damage * Boost * level;
+            else 
+                return Damage * Boost ;
+        }
+    }
 
     public void Set_boost(int i) // set boost only if i > 0
     {
@@ -117,6 +157,15 @@ public abstract class Personnage : Update
     public void Attack(Personnage victim) 
     {
         victim.Remove_Life( Get_damage());
+        if (pricipale_Weapon != null)
+        {
+            Add_Xp(pricipale_Weapon.GetDamage() * Boost); // a rajouter 
+            pricipale_Weapon.Update();
+        }
+        else
+        {
+            Add_Xp(  Boost); 
+        }
     }
     
     public void Take_Damage(int damage_took)
@@ -198,9 +247,9 @@ public abstract class Personnage : Update
     }
 
 
-    public bool LevelUp(int maxlevel)
+    public bool LevelUp()
     {
-        if (level < maxlevel && _xp >= level * _max_xp)
+        if (level <= MaxLevel && _xp >= level * _maxxp)
         {
             level ++;
             _xp = 0;
@@ -210,21 +259,23 @@ public abstract class Personnage : Update
         return false;
     }
 
-    public void Add_Xp(int nb , int maxlevel) // add xp and level while xp > 0
+    public void Add_Xp(int nb ) // add xp and level while xp > 0
     {
-        while (nb> 0 || level==  maxlevel)
+        while (nb> 0 && level <=  MaxLevel )
         {
-            if (nb + _xp > level * _max_xp)
+            if (nb + _xp > level * _maxxp  )
             {
-                nb -= level * _max_xp + _xp;
-                _xp = level * _max_xp; 
-                LevelUp(maxlevel);
+                nb -= level * _maxxp + _xp;
+                _xp = level * _maxxp; 
+                if (!LevelUp())
+                    break;
             }
             else
             {
                 _xp += nb;
                 nb = 0;
-                LevelUp(maxlevel);
+                if (!LevelUp())
+                    break;
             }
         }
     }

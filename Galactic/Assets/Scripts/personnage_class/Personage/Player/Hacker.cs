@@ -26,14 +26,22 @@ namespace personnage_class.Personage
 
         public override void Update()
         {
-            foreach (var item in Inventory)
+            for (int i= 0; i< Inventory.Length; i++)
             {
-                if (item.GetIsEdible() || item.Type == EnumsItem.Boost)
-                    item.Update();
+                if (Inventory[i] != null && Inventory[i].Type != EnumsItem.Armes &&
+                    Inventory[i].Type != EnumsItem.Equipement)
+                {
+                    Inventory[i].Update();
+                    if (Inventory[i].Type == EnumsItem.None)
+                    {
+                        Inventory[i] = null;
+                    }
+                }
+                
             }
         }
 
-        public Hacker(string name, int life = 10, int damage = 5, int boost = 1, int inventori_size = 8) : base(name, life,life, damage, boost * 2, inventori_size * 2 ) // inventory size *2 and boost *2
+        public Hacker(string name, int life = 10, int damage = 5, int boost = 1, int inventori_size = 8 , int maxlevel = 0) : base(name, life,life, damage, boost * 2, inventori_size * 2 ,  0, maxlevel) // inventory size *2 and boost *2
         {
         }
     }

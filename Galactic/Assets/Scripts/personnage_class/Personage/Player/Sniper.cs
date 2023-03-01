@@ -27,14 +27,22 @@ namespace personnage_class.Personage
 
         public override void Update()
         {
-            foreach (var item in Inventory)
+            for (int i= 0; i< Inventory.Length; i++)
             {
-                if (item.GetIsEdible() || item.Type == EnumsItem.Boost)
-                    item.Update();
+                if (Inventory[i] != null && Inventory[i].Type != EnumsItem.Armes &&
+                    Inventory[i].Type != EnumsItem.Equipement)
+                {
+                    Inventory[i].Update();
+                    if (Inventory[i].Type == EnumsItem.None)
+                    {
+                        Inventory[i] = null;
+                    }
+                }
+                
             }
         }
 
-        public Sniper(string name, int life = 10, int damage = 5, int boost = 1, int inventori_size = 8) : base(name, (int) (life*0.5), (int) (life*0.8), damage, boost, inventori_size) // life *0.5
+        public Sniper(string name, int life = 10, int damage = 5, int boost = 1, int inventori_size = 8 , int maxlevel = 0) : base(name, (int) (life*0.5), (int) (life*0.8), damage, boost, inventori_size ,  0, maxlevel) // life *0.5
         {
         }
     }
