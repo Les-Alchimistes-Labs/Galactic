@@ -33,12 +33,12 @@ public class Player2 : MonoBehaviour {
 					moveDirection = transform.forward * Input.GetAxis("Vertical") * speed;
 				}
 
-				test.took(new Kit_Heal(5,0,2));
-				test.took(new Kit_Heal(5,0,2));
+				test.Took(new Kit_Heal(5,0));
+				test.Took(new Kit_Heal(5,0));
 				Console.WriteLine(test.Get_Inventory()[0]);
 				test.Remove_Life(10);
 				test.Use(0);
-				test.trow(1);
+				test.Trow(1);
 				Console.WriteLine(test.Get_Inventory()[0]);
 				
 				float turn = Input.GetAxis("Horizontal");
@@ -47,7 +47,6 @@ public class Player2 : MonoBehaviour {
 				controller.Move(moveDirection * Time.deltaTime);
 				moveDirection.y -= gravity * Time.deltaTime;
 			}
-
-
+			
 		}
 }
