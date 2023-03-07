@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Photon.Realtime;
 using System.Collections;
 using personnage_class.Personage;
 

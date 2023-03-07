@@ -4,16 +4,14 @@ using Photon.Realtime;
 using UnityEngine.SceneManagement;
 using Random = System.Random;
 
-
 public class Game_Manager : MonoBehaviourPunCallbacks
 {
     public GameObject player_prefab;
-    
+
     void Start()
     {
-        PhotonNetwork.Instantiate(player_prefab.name, new Vector3(0, 20, 0), Quaternion.identity, 0);
+        PhotonNetwork.Instantiate(player_prefab.name, new Vector3(0, 1, 0), Quaternion.identity, 0);
     }
-
 
     void Update()
     {
@@ -23,11 +21,10 @@ public class Game_Manager : MonoBehaviourPunCallbacks
         }
     }
 
-
     public void PlayerEnterRoom(Player player)
     {
         float rd = new Random().Next(1,3);
-      
+        
         if (rd <= 2)
         {
             print(player.name + " appears suddenly in the room .");
@@ -38,11 +35,10 @@ public class Game_Manager : MonoBehaviourPunCallbacks
         }
     }
 
-
     public void OnPlayerLeftRoom(Player player)
     {
         float rd = new Random().Next(1, 3);
-      
+        
         if (rd <= 2)
         {
             print(player.name + " disappeared from the room .");
@@ -53,16 +49,13 @@ public class Game_Manager : MonoBehaviourPunCallbacks
         }
     }
 
-
     public override void OnLeftRoom()
     {
         SceneManager.LoadScene("SampleScene");
     }
-
 
     public void LeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
     }
 }
-

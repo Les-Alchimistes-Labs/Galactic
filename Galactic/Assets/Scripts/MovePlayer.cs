@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
+using Photon.Pun;
 
 
 public class MovePlayer : MonoBehaviour
