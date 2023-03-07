@@ -3,6 +3,8 @@ using UnityEngine;
 using Photon.Realtime;
 using System.Collections;
 using personnage_class.Personage;
+using Photon.Pun;
+
 
 public class Player2 : MonoBehaviour {
 
@@ -14,16 +16,19 @@ public class Player2 : MonoBehaviour {
 		private Vector3 moveDirection = Vector3.zero;
 		public float gravity = 20.0f;
 		public Personnage test;
+		private PhotonView _photonView;
 		
 		
 		void Start () {
 			controller = GetComponent <CharacterController>();
 			anim = gameObject.GetComponentInChildren<Animator>();
 			test = new Soldat("test");
+			_photonView = GetComponent<PhotonView>();
+			
 		}
 
 		void Update (){
-			if (test.canMove )
+			if (test.canMove && _photonView.IsMine  )
 			{
 				if (Input.GetKey ("w")) {
 					anim.SetInteger ("AnimationPar", 1);
