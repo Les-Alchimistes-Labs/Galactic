@@ -139,10 +139,10 @@ GameObject:
   - component: {fileID: 95340733316770424}
   - component: {fileID: 143350241100547368}
   - component: {fileID: 114551384804589004}
-  - component: {fileID: 4930222106605498611}
-  - component: {fileID: 6259692910998479088}
-  - component: {fileID: 6755367907835312218}
-  - component: {fileID: 389743130320302995}
+  - component: {fileID: 3771675718986851636}
+  - component: {fileID: 8244789329666365640}
+  - component: {fileID: 2634856963443736151}
+  - component: {fileID: 422143691883474134}
   m_Layer: 0
   m_Name: Stylized Astronaut
   m_TagString: Untagged
@@ -228,8 +228,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   turnSpeed: 150
-  gravity: 1
---- !u!114 &4930222106605498611
+  gravity: 20
+--- !u!114 &3771675718986851636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147752367711628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dfced2ea0dcf3146bf72b2d960d0da6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
+  turnSpeed: 400
+  gravity: 20
+--- !u!114 &8244789329666365640
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -248,11 +263,11 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 6259692910998479088}
+  - {fileID: 2634856963443736151}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &6259692910998479088
+--- !u!114 &2634856963443736151
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -268,7 +283,7 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
---- !u!114 &6755367907835312218
+--- !u!114 &422143691883474134
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -277,26 +292,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1147752367711628}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dfced2ea0dcf3146bf72b2d960d0da6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 60
-  turnSpeed: 40
-  gravity: 20
---- !u!114 &389743130320302995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1147752367711628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04b63dbcf44a9d94e826dc4bcd5819ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotate_speed: 160
-  move_speed: 50
 --- !u!1 &1158021920011488
 GameObject:
   m_ObjectHideFlags: 0
