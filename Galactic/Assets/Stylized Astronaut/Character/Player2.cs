@@ -14,7 +14,8 @@ public class Player2 : MonoBehaviour {
 		private Vector3 moveDirection = Vector3.zero;
 		public float gravity = 20.0f;
 		public Personnage test;
-
+		
+		
 		void Start () {
 			controller = GetComponent <CharacterController>();
 			anim = gameObject.GetComponentInChildren<Animator>();
