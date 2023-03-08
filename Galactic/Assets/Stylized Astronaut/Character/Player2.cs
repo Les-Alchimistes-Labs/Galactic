@@ -15,15 +15,22 @@ public class Player2 : MonoBehaviour {
 		public float turnSpeed = 400.0f;
 		private Vector3 moveDirection = Vector3.zero;
 		public float gravity = 20.0f;
+		private Camera _camera; 
 		public Personnage test;
 		private PhotonView _photonView;
 		
 		
 		void Start () {
+			_camera = Camera.main;
 			controller = GetComponent <CharacterController>();
 			anim = gameObject.GetComponentInChildren<Animator>();
 			test = new Soldat("test");
 			_photonView = GetComponent<PhotonView>();
+			_photonView = GetComponent<PhotonView>();
+			if (!_photonView.IsMine)
+			{
+				Destroy(_camera);
+			}
 			
 		}
 
