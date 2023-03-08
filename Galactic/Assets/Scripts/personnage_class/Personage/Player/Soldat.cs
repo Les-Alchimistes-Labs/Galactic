@@ -2,6 +2,7 @@ namespace personnage_class.Personage
 {
     public class Soldat : Personnage
     {
+        public override EnumsPersonage Type() => EnumsPersonage.Player;
 
         public override bool Add_Life(int i)
         {

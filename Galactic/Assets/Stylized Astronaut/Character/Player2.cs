@@ -18,6 +18,7 @@ public class Player2 : MonoBehaviour {
 		private Camera _camera; 
 		public Personnage test;
 		private PhotonView _photonView;
+		private Camera m_camera; 
 		
 		
 		void Start () {
@@ -26,17 +27,19 @@ public class Player2 : MonoBehaviour {
 			anim = gameObject.GetComponentInChildren<Animator>();
 			test = new Soldat("test");
 			_photonView = GetComponent<PhotonView>();
-			_photonView = GetComponent<PhotonView>();
-			if (!_photonView.IsMine)
+			if (!_photonView.IsMine && _camera != null  )
 			{
-				Destroy(_camera);
+				_camera.enabled=false;
+				_camera = Camera.main;
+				_photonView = GetComponent<PhotonView>();
 			}
-			
+
 		}
 
 		void Update (){
 			if (test.canMove && _photonView.IsMine  )
 			{
+
 				if (Input.GetKey ("w")) {
 					anim.SetInteger ("AnimationPar", 1);
 				}  else {

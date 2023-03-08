@@ -36,7 +36,8 @@ public abstract class Personnage : Update
                 _maxlevel = value;
         }
     }
-    
+
+    public abstract EnumsPersonage Type();
 
     public Item? pricipale_Weapon { protected set; get; }
     public int level { protected set; get; }

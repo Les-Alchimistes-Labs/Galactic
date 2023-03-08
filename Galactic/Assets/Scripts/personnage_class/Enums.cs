@@ -8,4 +8,9 @@ namespace personnage_class.Personage
         None,
         Equipement,
     }
+    public enum EnumsPersonage
+    {
+        Monster,
+        Player,
+    }
 }

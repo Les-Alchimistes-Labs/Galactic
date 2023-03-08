@@ -3,7 +3,7 @@ namespace personnage_class.Personage
     public class Canonnier : Personnage
 
     {
-
+        public override EnumsPersonage Type() => EnumsPersonage.Player;
 
         public override bool Add_Life(int i)
         {
