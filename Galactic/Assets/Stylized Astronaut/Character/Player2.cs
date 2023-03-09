@@ -4,6 +4,7 @@ using Photon.Realtime;
 using System.Collections;
 using personnage_class.Personage;
 using Photon.Pun;
+using TMPro;
 
 
 public class Player2 : MonoBehaviour {
@@ -15,31 +16,29 @@ public class Player2 : MonoBehaviour {
 		public float turnSpeed = 400.0f;
 		private Vector3 moveDirection = Vector3.zero;
 		public float gravity = 20.0f;
-		private Camera _camera; 
 		public Personnage test;
 		private PhotonView _photonView;
-		private Camera m_camera; 
-		
-		
+
+
+
 		void Start () {
-			_camera = Camera.main;
 			controller = GetComponent <CharacterController>();
 			anim = gameObject.GetComponentInChildren<Animator>();
 			test = new Soldat("test");
 			_photonView = GetComponent<PhotonView>();
-			if (!_photonView.IsMine && _camera != null  )
+			/*
+			 if (!_photonView.IsMine && _camera != null  )
 			{
 				_camera.enabled=false;
 				_camera = Camera.main;
 				_photonView = GetComponent<PhotonView>();
-			}
+			}*/
 
 		}
 
 		void Update (){
 			if (test.canMove && _photonView.IsMine  )
 			{
-
 				if (Input.GetKey ("w")) {
 					anim.SetInteger ("AnimationPar", 1);
 				}  else {
@@ -66,4 +65,5 @@ public class Player2 : MonoBehaviour {
 			}
 			
 		}
+		
 }

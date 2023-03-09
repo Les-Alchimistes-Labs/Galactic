@@ -12,24 +12,28 @@ public class PlayerCamera : MonoBehaviour {
 		
 		private PhotonView _photonView;
 		public GameObject player;
-		private Vector3 offset = new Vector3(0.25f,0.3f,-0.5f);
+		private Vector3 offset = new Vector3(0f,6f,-4f);
+		private Camera _camera;
 
+		
 
-		void Start () 
-		{
 			
-			controller = GetComponent <CharacterController>();
+		void Start ()
+		{
+			_camera = Camera.main;
+			_photonView = GetComponent<PhotonView>();
 
 		}
 
 		void LateUpdate ()
 		{
-			
+			//Camera positiongood = player.GetComponentInChildren<>();
 			_photonView = GetComponent<PhotonView>();
 			if ( _photonView.IsMine )
 			{
-				transform.position = player.transform.position + offset;
+				_camera.transform.position = player.transform.position + offset ;
+				//_camera.transform.position = positiongood.transform.position;
 			}
-			
+
 		}
 }
