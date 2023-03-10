@@ -1,0 +1,6 @@
+--------------------------------------------------------------------------------
+If you're getting project build errors, you need to delete everything in the
+MAST folder and reinstall MAST.  There was an error in older version of
+MAST that has been fixed in version 1.5, but some of the old files will still
+exist if they aren't deleted manually.
+--------------------------------------------------------------------------------

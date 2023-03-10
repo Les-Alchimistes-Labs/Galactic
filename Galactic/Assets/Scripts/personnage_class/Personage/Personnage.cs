@@ -17,6 +17,8 @@ public abstract class Personnage : Update
     protected int Boost;
     protected Item[]? Inventory ;
     private int _maxlevel;
+
+    
     public int MaxLevel // rajouter
     {
         get { return _maxlevel;}
@@ -37,7 +39,8 @@ public abstract class Personnage : Update
         }
     }
 
-    public abstract EnumsPersonage Type();
+    public abstract EnumsPersonage TypePersonage();
+    public abstract EnumType Type();
 
     public Item? pricipale_Weapon { protected set; get; }
     public int level { protected set; get; }
@@ -91,7 +94,7 @@ public abstract class Personnage : Update
     
     public abstract void Remove_Life(int i);
 
-    public bool Is_Alive() => Life >= 0;
+    public bool IsAlive() => Life >= 0;
 
     public int GetXP() => _xp;
 
@@ -154,6 +157,13 @@ public abstract class Personnage : Update
     {
         Boost = 1;
     }
+
+    public void StartAttack()
+    {
+        canMove = false;
+        inFight = true;
+    }
+    
     
     public void Attack(Personnage victim) 
     {

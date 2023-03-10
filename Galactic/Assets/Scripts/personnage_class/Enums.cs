@@ -13,4 +13,19 @@ namespace personnage_class.Personage
         Monster,
         Player,
     }
+
+    public enum EnumType
+    {
+        Soldat,
+        Sniper,
+        Hacker,
+        Canonnier,
+        Medecin,
+        LittleMonster,
+        IntermediateMonster,
+        FinalBoss
+        
+    }
+
+
 }

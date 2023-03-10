@@ -14,6 +14,7 @@ public class PlayerCamera : MonoBehaviour {
 		public GameObject player;
 		private Vector3 offset = new Vector3(0f,6f,-4f);
 		private Camera _camera;
+		public GameObject poscam;
 
 		
 
@@ -27,12 +28,11 @@ public class PlayerCamera : MonoBehaviour {
 
 		void LateUpdate ()
 		{
-			//Camera positiongood = player.GetComponentInChildren<>();
 			_photonView = GetComponent<PhotonView>();
 			if ( _photonView.IsMine )
 			{
-				_camera.transform.position = player.transform.position + offset ;
-				//_camera.transform.position = positiongood.transform.position;
+				_camera.transform.position = poscam.transform.position;
+				_camera.transform.LookAt(player.transform);
 			}
 
 		}

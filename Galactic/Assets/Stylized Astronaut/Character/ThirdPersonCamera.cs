@@ -1,39 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class ThirdPersonCamera : MonoBehaviour
 {
-    private const float Y_ANGLE_MIN = 0.0f;
-    private const float Y_ANGLE_MAX = 50.0f;
+    private CharacterController controller;
+		
+    private PhotonView _photonView;
+    public GameObject player;
+    private Vector3 offset = new Vector3(0f,6f,-4f);
+    private Camera _camera;
 
-    public Transform lookAt;
-    public Transform camTransform;
-    public float distance = 5.0f;
 
-    private float currentX = 0.0f;
-    private float currentY = 45.0f;
-    private float sensitivityX = 20.0f;
-    private float sensitivityY = 20.0f;
 
-    private void Start()
+
+    void Start ()
     {
-        camTransform = transform;
+        _camera = Camera.main;
+
     }
 
-    private void Update()
+    void LateUpdate ()
     {
-        currentX += Input.GetAxis("Mouse X");
-        currentY += Input.GetAxis("Mouse Y");
+        _photonView = GetComponent<PhotonView>();
+        _camera.transform.position = player.transform.position + offset ;
 
-        currentY = Mathf.Clamp(currentY, Y_ANGLE_MIN, Y_ANGLE_MAX);
-    }
-
-    private void LateUpdate()
-    {
-        Vector3 dir = new Vector3(0, 0, -distance);
-        Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
-        camTransform.position = lookAt.position + rotation * dir;
-        camTransform.LookAt(lookAt.position);
     }
 }

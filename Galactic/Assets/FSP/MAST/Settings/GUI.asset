@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9156dac099ba3d41a7891c597285f3e, type: 3}
+  m_Name: GUI
+  m_EditorClassIdentifier: 
+  grid:
+    xzUnitSize: 1
+    yUnitSize: 1
+    cellCount: 50
+    gridHeight: -1
+    tintColor: {r: 0.23834105, g: 0.389676, b: 0.49056602, a: 0.15686275}
+  palette:
+    bgColor: 0
+    snapshotCameraPitch: 225
+    snapshotCameraYaw: 30
+    overwriteThumbnails: 0
+  toolbar:
+    selectedDrawToolIndex: -1
+    selectedPaintToolIndex: -1
+    position: 0
+    scale: 1

@@ -4,7 +4,7 @@ using Photon.Realtime;
 using System.Collections;
 using personnage_class.Personage;
 using Photon.Pun;
-using TMPro;
+using DefaultNamespace;
 
 
 public class Player2 : MonoBehaviour {
@@ -17,6 +17,7 @@ public class Player2 : MonoBehaviour {
 		private Vector3 moveDirection = Vector3.zero;
 		public float gravity = 20.0f;
 		public Personnage test;
+		public GameObject littelMonster;
 		private PhotonView _photonView;
 
 
@@ -26,13 +27,6 @@ public class Player2 : MonoBehaviour {
 			anim = gameObject.GetComponentInChildren<Animator>();
 			test = new Soldat("test");
 			_photonView = GetComponent<PhotonView>();
-			/*
-			 if (!_photonView.IsMine && _camera != null  )
-			{
-				_camera.enabled=false;
-				_camera = Camera.main;
-				_photonView = GetComponent<PhotonView>();
-			}*/
 
 		}
 
@@ -62,6 +56,13 @@ public class Player2 : MonoBehaviour {
 				
 				controller.Move(moveDirection * Time.deltaTime);
 				moveDirection.y -= gravity * Time.deltaTime;
+				if (moveDirection.x != 0 && moveDirection.z != 0)
+				{
+					LittelMonsterGenerator.tryspawmmonster(littelMonster, this.transform);
+				}
+
+
+
 			}
 			
 		}

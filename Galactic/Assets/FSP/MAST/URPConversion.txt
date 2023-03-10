@@ -1,0 +1,9 @@
+--------------------------------------------------------------------------------
+To use MAST in the Universal Render Pipeline:
+  - Navigate to the FSP/MAST/Etc folder.
+  - Drag Shader_Eraser_URP onto Material_Eraser
+  - Drag Shader_Grid_URP onto Material_Grid
+  - Drag Shader_PaintArea_URP onto Material_PaintArea
+--------------------------------------------------------------------------------
+Yes I did have to explain this.  We have users of less experience using MAST =)
+--------------------------------------------------------------------------------
