@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638138080154145733
-    m_Hash: 3669983207
+      ticks: 638138982248346669
+    m_Hash: 3380821955
   m_LockFileStatus:
     m_FilePath: C:/Users/olivi/Documents/Galactic/Galactic/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638138080154196026
-    m_Hash: 191406913
+      ticks: 638138982248356677
+    m_Hash: 3129555623
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:

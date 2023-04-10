@@ -7,7 +7,6 @@ namespace personnage_class.Personage
 
 public abstract class Personnage : Update 
 {
-    
     private string _name;
     private int _xp;
     private int _maxxp;
@@ -29,6 +28,9 @@ public abstract class Personnage : Update
         }
     }
     
+    public bool InSafeZone { get; set; }
+
+
     public int Maxxp // rajouter
     {
         get { return _maxxp;}
@@ -44,8 +46,8 @@ public abstract class Personnage : Update
 
     public Item? pricipale_Weapon { protected set; get; }
     public int level { protected set; get; }
-    public bool canMove { protected set; get; } // if personnage can move
-    public bool inFight { protected set; get; } // if personnage is in fight
+    public bool canMove { set; get; } // if personnage can move
+    public bool inFight { set; get; } // if personnage is in fight
     
 
 
@@ -64,6 +66,7 @@ public abstract class Personnage : Update
         _xp = 0;
         _maxxp = 30;
         _maxlevel = maxlevel;
+        InSafeZone = true;
 
     }
     

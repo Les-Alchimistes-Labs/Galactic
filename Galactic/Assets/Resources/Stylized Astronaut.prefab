@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 73908130866573465}
   - component: {fileID: 43402931450183054}
   - component: {fileID: 1815823896927333391}
+  - component: {fileID: 4146537103909091342}
   m_Layer: 0
   m_Name: Stylized Astronaut
   m_TagString: Untagged
@@ -283,6 +284,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1528403185902992}
   poscam: {fileID: 1343963671341682}
+--- !u!136 &4146537103909091342
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147752367711628}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.07521884
+  m_Height: 0.26573953
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.122101486, z: 0}
 --- !u!1 &1158021920011488
 GameObject:
   m_ObjectHideFlags: 0
