@@ -53,12 +53,15 @@ public class Player2 : MonoBehaviour {
 				{ 
 					LittelMonsterGenerator.tryspawmmonster(littelMonster, this.transform);
 				}
-				else if (Input.GetKey("q"))
+				else if (Input.GetKeyDown("q"))
 				{
 					Item old = Personnage.Trow(Personnage.PosInv);
 					if (old != null)
-						PhotonNetwork.Instantiate(old.Name,transform.position,transform.rotation,0);
-				
+					{
+						GameObject temp;
+						temp = PhotonNetwork.Instantiate(old.Name,transform.position,transform.rotation,0);
+						temp.GetComponent<ItemInGame>().Item = old;
+					}
 				}
 
 
@@ -85,10 +88,10 @@ public class Player2 : MonoBehaviour {
 				Debug.Log($"in and {Personnage.InSafeZone}");
 			}
 
-			else if (other.tag == "Equipement" && Input.GetKey("e"))
+			else if (other.tag == "Equipement" && Input.GetKeyDown("e"))
 			{
 
-				Item item = other.GetComponent<ItemInGame>().Item;
+				Item item = other.gameObject.GetComponent<ItemInGame>().Item;
 				bool take =Personnage.Took(item);
 				if (take)
 					PhotonNetwork.Destroy(other.gameObject);
@@ -99,6 +102,25 @@ public class Player2 : MonoBehaviour {
 
 
 		}
+		
+		
+		public void OnTriggerStay(Collider other)
+		{
+			if (other.tag == "Equipement" && Input.GetKeyDown("e"))
+			{
+
+				Item item = other.gameObject.GetComponent<ItemInGame>().Item;
+				bool take =Personnage.Took(item);
+				if (take)
+					PhotonNetwork.Destroy(other.gameObject);
+				
+			}
+			
+
+
+
+		}
+		
 
 
 		public void OnTriggerExit(Collider other)
