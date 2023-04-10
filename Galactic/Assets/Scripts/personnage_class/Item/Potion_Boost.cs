@@ -2,7 +2,7 @@ namespace personnage_class.Personage
 {
     public class Potion_Boost : Item
     {
-        public Potion_Boost(int expiry, bool isEdible, int heal, EnumsItem type, float boost = 1) : base(expiry, isEdible, heal, type, boost)
+        public Potion_Boost(string name,int expiry, bool isEdible, int heal, EnumsItem type, float boost = 1) : base(name,expiry, isEdible, heal, type, boost)
         {
         }
 

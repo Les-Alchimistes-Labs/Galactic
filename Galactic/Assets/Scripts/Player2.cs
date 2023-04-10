@@ -5,6 +5,7 @@ using System.Collections;
 using personnage_class.Personage;
 using Photon.Pun;
 using DefaultNamespace;
+using ExitGames.Client.Photon.StructWrapping;
 
 
 public class Player2 : MonoBehaviour {
@@ -43,14 +44,6 @@ public class Player2 : MonoBehaviour {
 					moveDirection = transform.forward * Input.GetAxis("Vertical") * speed;
 				}
 
-				Personnage.Took(new Kit_Heal(5,0));
-				Personnage.Took(new Kit_Heal(5,0));
-				Console.WriteLine(Personnage.Get_Inventory()[0]);
-				Personnage.Remove_Life(10);
-				Personnage.Use(0);
-				Personnage.Trow(1);
-				Console.WriteLine(Personnage.Get_Inventory()[0]);
-				
 				float turn = Input.GetAxis("Horizontal");
 				transform.Rotate(0, turn * turnSpeed * Time.deltaTime, 0);
 				
@@ -59,6 +52,13 @@ public class Player2 : MonoBehaviour {
 				if ((moveDirection.x != 0 || moveDirection.z != 0) && !Personnage.InSafeZone )
 				{ 
 					LittelMonsterGenerator.tryspawmmonster(littelMonster, this.transform);
+				}
+				else if (Input.GetKey("q"))
+				{
+					Item old = Personnage.Trow(Personnage.PosInv);
+					if (old != null)
+						PhotonNetwork.Instantiate(old.Name,transform.position,transform.rotation,0);
+				
 				}
 
 
@@ -89,8 +89,9 @@ public class Player2 : MonoBehaviour {
 			{
 
 				Item item = other.GetComponent<ItemInGame>().Item;
-				Personnage.Took(item);
-				PhotonNetwork.Destroy(other.gameObject);
+				bool take =Personnage.Took(item);
+				if (take)
+					PhotonNetwork.Destroy(other.gameObject);
 				
 			}
 			

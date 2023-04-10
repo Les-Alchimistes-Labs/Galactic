@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -13,8 +14,9 @@ namespace personnage_class.Personage
         protected int Max_expiry;
         protected float Boost;
         public EnumsItem Type  {protected set; get; }
+        public String Name  {set; get; }
         
-        protected Item(int expiry, bool isEdible, int heal, EnumsItem type, float boost = 1)
+        protected Item(string name,int expiry, bool isEdible, int heal, EnumsItem type, float boost = 1)
             {
         
                 Expiry = expiry;
@@ -24,6 +26,7 @@ namespace personnage_class.Personage
                 Boost = boost;
                 Damage = 0;
                 Max_expiry = expiry;
+                Name = name;
             }
         
         protected Item (int expiry , int damage ,EnumsItem type, float boost = 1)

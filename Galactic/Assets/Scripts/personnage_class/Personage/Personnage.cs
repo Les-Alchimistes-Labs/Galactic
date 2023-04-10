@@ -5,8 +5,9 @@ using System.Net.Security;
 namespace personnage_class.Personage
 {
 
-public abstract class Personnage : Update 
+public abstract class Personnage : Update
 {
+    private int _posInv;
     private string _name;
     private int _xp;
     private int _maxxp;
@@ -17,7 +18,15 @@ public abstract class Personnage : Update
     protected Item[]? Inventory ;
     private int _maxlevel;
 
-    
+    public int PosInv // rajouter
+    {
+        get { return _posInv;}
+        set
+        {
+            if (value < Inventory.Length && value>0)
+                _posInv = value;
+        }
+    }
     public int MaxLevel // rajouter
     {
         get { return _maxlevel;}
