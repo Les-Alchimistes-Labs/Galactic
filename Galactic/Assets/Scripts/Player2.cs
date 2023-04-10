@@ -56,8 +56,8 @@ public class Player2 : MonoBehaviour {
 				
 				controller.Move(moveDirection * Time.deltaTime);
 				moveDirection.y -= gravity * Time.deltaTime;
-				if (moveDirection.x != 0 && moveDirection.z != 0 && !Personnage.InSafeZone )
-				{
+				if ((moveDirection.x != 0 || moveDirection.z != 0) && !Personnage.InSafeZone )
+				{ 
 					LittelMonsterGenerator.tryspawmmonster(littelMonster, this.transform);
 				}
 
@@ -67,22 +67,55 @@ public class Player2 : MonoBehaviour {
 			
 		}
 
+		
+		
 		public void OnTriggerEnter(Collider other)
 		{
 			if (other.tag == "Enemy")
 			{
 				Personnage.canMove = false;
+				Debug.Log($"in and {Personnage.canMove}");
 				Personnage.inFight = true;
+				anim.SetInteger ("AnimationPar", 0);
+				
+			}
+			else if (other.tag == "Respawn" && Personnage != null)
+			{
+				Personnage.InSafeZone = true;
+				Debug.Log($"in and {Personnage.InSafeZone}");
 			}
 
+			else if (other.tag == "Equipement" && Input.GetKey("e"))
+			{
+
+				Item item = other.GetComponent<ItemInGame>().Item;
+				Personnage.Took(item);
+				PhotonNetwork.Destroy(other.gameObject);
+				
+			}
+			
+
+
+
 		}
+
+
 		public void OnTriggerExit(Collider other)
 		{
 			if (other.tag == "Enemy")
 			{
 				Personnage.canMove = true;
 				Personnage.inFight = false;
+				Debug.Log($"out and {Personnage.canMove}");
+			}
+			if (other.tag == "Respawn")
+			{
+				
+				Personnage.InSafeZone = false;
+				Debug.Log($"out and {Personnage.InSafeZone}");
 			}
 
 		}
+
+
 }

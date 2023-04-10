@@ -230,6 +230,7 @@ MonoBehaviour:
   turnSpeed: 400
   gravity: 20
   littelMonster: {fileID: 5856260557729891688, guid: 317d11e6c8f1ff84292566636ce29b6a, type: 3}
+  bana: {fileID: 71576272007530095, guid: 16faf40ab2e269e40aee9d805a65aed9, type: 3}
 --- !u!114 &73908130866573465
 MonoBehaviour:
   m_ObjectHideFlags: 0
