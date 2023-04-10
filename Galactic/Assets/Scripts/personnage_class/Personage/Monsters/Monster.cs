@@ -1,3 +1,7 @@
+using System.Collections.Generic;
+using UnityEngine;
+using DefaultNamespace;
+
 namespace personnage_class.Personage
 {
     public abstract class Monster : Personnage
@@ -7,8 +11,10 @@ namespace personnage_class.Personage
         }
 
         public override EnumsPersonage TypePersonage() => EnumsPersonage.Monster;
-
         
+        
+        public List<Personnage> Players = new List<Personnage>();
+
 
 
         public override bool Add_Life(int i)
@@ -34,7 +40,20 @@ namespace personnage_class.Personage
 
         public override void Update()
         {
-            
+            if (inFight)
+            {
+                if (Players.Count == 0)
+                {
+                    inFight = false;
+                }
+                else
+                {
+                    
+                }
+            }
         }
+
+        
+
     }
 }
