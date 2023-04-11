@@ -14,8 +14,9 @@ public class Enemy : MonoBehaviour
 
     private Personnage _monstre;
     public GameObject _active_monster;
-    private List<Personnage> Players;
-    private List<Player2> PlayersG;
+    private List<Player2> Players;
+    private List<GameObject> PlayersG;
+    private bool waita;
     private int _pos;
     public int level;
 
@@ -23,10 +24,10 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         _pos = 0;
-        PlayersG = new List<Player2>();
-        Players = new List<Personnage>();
+        PlayersG = new List<GameObject>();
+        Players = new List<Player2>();
         level = 0;
-        
+        waita = false;
         switch (Monster)
         {
             case EnumMonster.LittelMonster :
@@ -42,7 +43,17 @@ public class Enemy : MonoBehaviour
         
         
     }
-
+    
+    
+    IEnumerator wait(int temp)
+    {
+        print(Time.time);
+        yield return new WaitForSeconds(5);
+        waita = false;
+        print(Time.time);
+    }
+    
+    
     // Update is called once per frame
     void Update()
     {
@@ -56,29 +67,35 @@ public class Enemy : MonoBehaviour
             {
                 if (_pos == Players.Count)
                 {
-                    int temp = Random.Range(0, Players.Count);
-                    _monstre.Attack(Players[temp]);
-                    _pos = 0;
-                    if ( !Players[temp].IsAlive())
+                    if (!waita)
                     {
-                        Debug.Log("player is dead");
-                        Players.RemoveAt(temp);
+                        int temp = Random.Range(0, Players.Count);
+                        waita = true;
+                        StartCoroutine(wait(temp));
+                        _monstre.Attack(Players[temp].Personnage);
+                        _pos = 0;
+                        if (!Players[temp].Personnage.IsAlive())
+                        {
+                            Debug.Log("player is dead");
+                            PlayersG[temp].transform.position = new Vector3(0, 0, 0);
+                            
+                            //Players.RemoveAt(temp);
+                        }
                     }
-                    
 
                 }
-                else if (PlayersG[_pos].Choice != EnumChoice.None)
+                else if (Players[_pos].Choice != EnumChoice.None)
                 {
-                    switch (PlayersG[_pos].Choice)
+                    switch (Players[_pos].Choice)
                     {
                         case EnumChoice.Attack:
-                            Players[_pos].Attack(_monstre);
+                            Players[_pos].Personnage.Attack(_monstre);
                             break;
                         case EnumChoice.ChangeGun:
-                            Players[_pos].Change_Weapon_Equipped(Players[_pos].PosInv);
+                            Players[_pos].Personnage.Change_Weapon_Equipped(Players[_pos].Personnage.PosInv);
                             break;
                         case EnumChoice.HealorBoost:
-                            Players[_pos].Use(Players[_pos].PosInv);
+                            Players[_pos].Personnage.Use(Players[_pos].Personnage.PosInv);
                             break;
 
 
@@ -105,7 +122,7 @@ public class Enemy : MonoBehaviour
                 PhotonNetwork.Destroy(_active_monster);
                 foreach (var player in Players)
                 {
-                    player.canMove = true;
+                    player.Personnage.canMove = true;
                 }
                 
                 
@@ -119,7 +136,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Players.Add(other.gameObject.GetComponent<Player2>().Personnage);
-        PlayersG.Add(other.gameObject.GetComponent<Player2>());
+        Players.Add(other.gameObject.GetComponent<Player2>());
+        PlayersG.Add(other.gameObject);
     }
 }

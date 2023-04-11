@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Net.Security;
 
 
@@ -177,7 +178,7 @@ public abstract class Personnage : Update
     }
     
     
-    public void Attack(Personnage victim) 
+    public virtual void Attack(Personnage victim = null , List<Personnage> victims = null) 
     {
         victim.Remove_Life( Get_damage());
         if (pricipale_Weapon != null)

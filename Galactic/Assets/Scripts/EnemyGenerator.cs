@@ -33,7 +33,7 @@ public class EnemyGenerator : MonoBehaviour
                 _active_monster.GetComponent<Enemy>().level = _level;
                 break;
             case EnumMonster.BossFinal :
-                _active_monster =  PhotonNetwork.Instantiate(_png.name,new Vector3(_transform.position.x ,_transform.position.y,_transform.position.z) , _transform.rotation, 0);//new Vector3(1, 0, 39),new Quaternion(1,1,1,1), 0);
+                _active_monster =  PhotonNetwork.Instantiate(_png.name,new Vector3(1, 0, 39),new Quaternion(1,1,1,1), 0); //new Vector3(_transform.position.x ,_transform.position.y,_transform.position.z) , _transform.rotation, 0);
                 _active_monster.GetComponent<Enemy>().level = _level;
                 break;
         }
