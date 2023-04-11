@@ -9,7 +9,7 @@ namespace personnage_class.Personage.Monsters
         {
             inFight = false;
             Inventory[0] = new Food("Banana Variant", 50, life);
-            Inventory[0] = new Food("Cheese Variant", 50, life);
+            Inventory[1] = new Food("Cheese Variant", 50, life);
             
         }
 

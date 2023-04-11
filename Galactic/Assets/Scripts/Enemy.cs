@@ -90,6 +90,18 @@ public class Enemy : MonoBehaviour
             else if ( !_monstre.IsAlive())
             {
                 Debug.Log("monster is dead");
+                for (int i = 0; i < _monstre.Get_Inventory().Length; i++)
+                {
+                    Item old = _monstre.Trow(i);
+                    if (old != null)
+                    {
+                        GameObject temp;
+                        temp = PhotonNetwork.Instantiate(old.Name,transform.position,transform.rotation,0);
+                        temp.GetComponent<ItemInGame>().Item = old;
+                    }
+                }
+                
+                
                 PhotonNetwork.Destroy(_active_monster);
                 foreach (var player in Players)
                 {
