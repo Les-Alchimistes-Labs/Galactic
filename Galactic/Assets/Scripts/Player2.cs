@@ -6,6 +6,7 @@ using personnage_class.Personage;
 using Photon.Pun;
 using DefaultNamespace;
 using ExitGames.Client.Photon.StructWrapping;
+using Random = UnityEngine.Random;
 
 
 public class Player2 : MonoBehaviour {
@@ -20,6 +21,7 @@ public class Player2 : MonoBehaviour {
 		public Personnage Personnage;
 		public GameObject littelMonster;
 		private PhotonView _photonView;
+		public EnumChoice Choice;
 
 
 
@@ -28,6 +30,7 @@ public class Player2 : MonoBehaviour {
 			anim = gameObject.GetComponentInChildren<Animator>();
 			Personnage = new Soldat("test");
 			_photonView = GetComponent<PhotonView>();
+			Choice = EnumChoice.None;
 
 		}
 
@@ -50,8 +53,13 @@ public class Player2 : MonoBehaviour {
 				controller.Move(moveDirection * Time.deltaTime);
 				moveDirection.y -= gravity * Time.deltaTime;
 				if ((moveDirection.x != 0 || moveDirection.z != 0) && !Personnage.InSafeZone )
-				{ 
-					LittelMonsterGenerator.tryspawmmonster(littelMonster, this.transform);
+				{
+					if (Random.Range(0, 1001) == 10)
+					{
+						EnemyGenerator.EnemyGeneratore(EnumMonster.LittelMonster, littelMonster, transform,Personnage.level );
+					}
+
+					// LittelMonsterGenerator.tryspawmmonster(littelMonster, this.transform);
 				}
 				else if (Input.GetKeyDown("q"))
 				{
@@ -66,6 +74,10 @@ public class Player2 : MonoBehaviour {
 
 
 
+			}
+			else if (Choice == EnumChoice.None) // to change with gui choice
+			{
+				Choice = EnumChoice.Attack;
 			}
 			
 		}

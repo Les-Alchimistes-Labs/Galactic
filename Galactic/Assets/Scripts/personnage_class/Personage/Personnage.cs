@@ -54,7 +54,7 @@ public abstract class Personnage : Update
     public abstract EnumType Type();
 
     public Item? pricipale_Weapon { protected set; get; }
-    public int level { protected set; get; }
+    public int level { set; get; }
     public bool canMove { set; get; } // if personnage can move
     public bool inFight { set; get; } // if personnage is in fight
     
@@ -106,7 +106,7 @@ public abstract class Personnage : Update
     
     public abstract void Remove_Life(int i);
 
-    public bool IsAlive() => Life >= 0;
+    public bool IsAlive() => Life > 0;
 
     public int GetXP() => _xp;
 
@@ -302,7 +302,7 @@ public abstract class Personnage : Update
             }
         }
     }
-
+    
     public abstract void Update();
 
 

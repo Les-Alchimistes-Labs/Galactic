@@ -26,6 +26,20 @@ namespace personnage_class.Personage
         FinalBoss
         
     }
+    public enum EnumMonster
+    {
+        BossFinal,
+        BossIntermediate,
+        LittelMonster,
+    }
+
+    public enum EnumChoice
+    {
+        Attack,
+        ChangeGun,
+        HealorBoost,
+        None,
+    }
 
 
 }
