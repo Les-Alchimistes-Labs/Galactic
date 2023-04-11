@@ -4,6 +4,7 @@ namespace personnage_class.Personage
     {
         public Boss_Weapon(int expiry, int damage, float boost = 1) : base(expiry, damage, EnumsItem.Armes, boost)
         {
+            Name = "Boss_Weapon";
         }
 
         public override void Update()

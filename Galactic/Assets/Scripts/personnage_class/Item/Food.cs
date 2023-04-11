@@ -2,7 +2,6 @@ namespace personnage_class.Personage
 {
     public class Food : Item
     {
-        public string Name;
 
 
         public Food(string name,int expiry, int energyAmount) : base(name,expiry, true, 0, EnumsItem.Food, energyAmount)

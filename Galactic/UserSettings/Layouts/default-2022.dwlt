@@ -64,9 +64,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1957
+    x: 1959
     y: 0
-    width: 603
+    width: 601
     height: 1299
   m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
@@ -118,7 +118,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 772
-    width: 1957
+    width: 1959
     height: 527
   m_MinSize: {x: 231, y: 271}
   m_MaxSize: {x: 10001, y: 10021}
@@ -219,7 +219,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1957
+    width: 1959
     height: 1299
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
@@ -244,7 +244,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1957
+    width: 1959
     height: 772
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
@@ -267,7 +267,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 463
     y: 0
-    width: 1494
+    width: 1496
     height: 772
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
@@ -299,7 +299,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 463
     y: 73
-    width: 1492
+    width: 1494
     height: 751
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -368,7 +368,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 845
-    width: 1956
+    width: 1958
     height: 506
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -408,18 +408,18 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 88510000
     m_LastClickedID: 20872
-    m_ExpandedIDs: 000000002e51000030510000325100003451000036510000385100003a5100003c5100003e51000040510000425100004451000046510000485100004a5100004c5100008e51000000ca9a3bffffff7f
+    m_ExpandedIDs: 000000002e51000030510000325100003451000036510000385100003a5100003c5100003e51000040510000425100004451000046510000485100004a5100004c5100007c510000805300008453000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: SciFiWarriorPBRHPPolyart
-      m_OriginalName: SciFiWarriorPBRHPPolyart
+      m_Name: Prefabs
+      m_OriginalName: Prefabs
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 20876
+      m_UserData: 20870
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -491,7 +491,7 @@ MonoBehaviour:
     m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
-  m_DirectoriesAreaWidth: 207
+  m_DirectoriesAreaWidth: 229
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -512,9 +512,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1957
+    x: 1959
     y: 73
-    width: 602
+    width: 600
     height: 1278
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -576,7 +576,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: eeaffeff26fbffff
+      m_ExpandedIDs: a406f0ffd65cf0ff5844f1ff7263f1ff606ff2ff26f1f4ffb2d9f6ffe224f7ffe210f8ff405bf8ffd4e3faffe292fbff7ca2fbffa6dcfbff2477fcff8e91fcff78c5fcffd610fdffe625fdffe85cfdff8262fdff4cc0fdff7641ffff64dbffff88e1ffff26fbffff064201009c4d01003e530100fa8501008688010046c90100f20905005c1c0500
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -622,7 +622,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 463
     y: 73
-    width: 1492
+    width: 1494
     height: 751
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -929,9 +929,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -6.968174, y: -0.2859364, z: 23.126102}
+    m_Target: {x: -0.7435967, y: -0.2745295, z: 12.136424}
     speed: 2
-    m_Value: {x: -6.968174, y: -0.28593644, z: 23.126102}
+    m_Value: {x: -0.7435967, y: -0.2745295, z: 12.136424}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -977,13 +977,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.032244794, y: 0.97120416, z: -0.18971099, w: 0.14426783}
+    m_Target: {x: 0.28808013, y: -0.35895726, z: 0.12202697, w: 0.8799949}
     speed: 2
-    m_Value: {x: 0.03194294, y: 0.97089505, z: -0.1896567, w: 0.14273377}
+    m_Value: {x: 0.28773537, y: -0.36007488, z: 0.12239031, w: 0.8789625}
   m_Size:
-    m_Target: 4.365449
+    m_Target: 0.8557979
     speed: 2
-    m_Value: 4.571151
+    m_Value: 0.8557979
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1030,7 +1030,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 845
-    width: 1956
+    width: 1958
     height: 506
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1047,7 +1047,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 1956, y: 485}
+  m_TargetSize: {x: 1958, y: 485}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -1062,8 +1062,8 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -978
-    m_HBaseRangeMax: 978
+    m_HBaseRangeMin: -979
+    m_HBaseRangeMax: 979
     m_VBaseRangeMin: -242.5
     m_VBaseRangeMax: 242.5
     m_HAllowExceedBaseRangeMin: 1
@@ -1083,23 +1083,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 1956
+      width: 1958
       height: 485
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 978, y: 242.5}
+    m_Translation: {x: 979, y: 242.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -978
+      x: -979
       y: -242.5
-      width: 1956
+      width: 1958
       height: 485
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 1956, y: 506}
+  m_LastWindowPixelSize: {x: 1958, y: 506}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -1127,7 +1127,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 845
-    width: 1956
+    width: 1958
     height: 506
   m_SerializedDataModeController:
     m_DataMode: 0

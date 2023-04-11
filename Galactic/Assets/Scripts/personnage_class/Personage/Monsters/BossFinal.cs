@@ -32,12 +32,12 @@ namespace personnage_class.Personage.Monsters
             }
             while (nb_Boost >0)
             {
-                Inventory[nb_Boost-1] = new Potion_Boost("Potion_Stamina Variant",50 , false , 0 , EnumsItem.Boost , boost);
+                Inventory[nb_Boost-1] = new Potion_Boost("Potion_Stamina",50 , false , 0 , EnumsItem.Boost , boost);
                 nb_Boost--;
             }
             while (nb_Food >0)
             {
-                Inventory[nb_Boost + nb_Food -2] = new Food("Hamburger Variant", 50, life);
+                Inventory[nb_Boost + nb_Food -2] = new Food("Hamburger", 50, life);
                 nb_Food--;
             }
             

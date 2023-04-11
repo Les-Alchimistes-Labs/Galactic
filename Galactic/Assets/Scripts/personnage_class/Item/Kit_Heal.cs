@@ -2,7 +2,7 @@ namespace personnage_class.Personage
 {
     public class Kit_Heal : Item
     {
-        public Kit_Heal(string name,int expiry, int heal) : base(name,expiry, true, heal, EnumsItem.Boost)
+        public Kit_Heal(int expiry, int heal) : base("Kit_Heal",expiry, true, heal, EnumsItem.Boost)
         {
         }
 

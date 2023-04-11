@@ -29,6 +29,8 @@ public class Player2 : MonoBehaviour {
 			controller = GetComponent <CharacterController>();
 			anim = gameObject.GetComponentInChildren<Animator>();
 			Personnage = new Soldat("test");
+			Personnage.Trow(0);
+			Personnage.Took(new Potion_Boost( "Potion_Stamina",1, true ,1,EnumsItem.Boost));
 			_photonView = GetComponent<PhotonView>();
 			Choice = EnumChoice.None;
 

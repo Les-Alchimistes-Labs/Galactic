@@ -17,18 +17,18 @@ namespace personnage_class.Personage.Monsters
             int i = 1;
             while (i >0)
             {
-                Inventory[i] = new Kit_Heal("FirstAidKit_Red Variant",1,100 * level * Boost);
+                Inventory[i] = new Kit_Heal(1,100 * level * Boost);
                 i--;
             }
             int nb_Food = Random.Range(2, 7), nb_Boost = inventorySize - nb_Food;
             while (nb_Boost >0)
             {
-                Inventory[nb_Boost-1] = new Potion_Boost("Potion_Stamina Variant",50 , false , 0 , EnumsItem.Boost , Boost* level);
+                Inventory[nb_Boost-1] = new Potion_Boost("Potion_Stamina",50 , false , 0 , EnumsItem.Boost , Boost* level);
                 nb_Boost--;
             }
             while (nb_Food >0)
             {
-                Inventory[nb_Boost + nb_Food] = new Food("Hamburger Variant", 50, life * Boost * level);
+                Inventory[nb_Boost + nb_Food] = new Food("Hamburger", 50, life * Boost * level);
                 nb_Food--;
             }
             

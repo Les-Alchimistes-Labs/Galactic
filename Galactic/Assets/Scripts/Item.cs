@@ -17,32 +17,29 @@ public class ItemInGame : MonoBehaviour
             case "Boss_Weapon":
                 Item = new Boss_Weapon(1,1,1);
                 break;
-            case "Banana Variant":
+            case "Banana":
                 Item = new Food("Banana Variant",1,1);
                 break;
             case "Cheese Variant":
                 Item = new Food("Cheese Variant",1,1);
                 break;
-            case "Hamburger Variant":
-                Item = new Food("Hamburger Variant",1,1);
+            case "Hamburger":
+                Item = new Food("Hamburger",1,1);
                 break;
             case "Gun":
                 Item = new Gun(1,1,1);
                 break;
             case "Kit_Heal":
-                Item = new Kit_Heal("FirstAidKit_Red Variant",1,1);
+                Item = new Kit_Heal(1,1);
                 break;
             case "Ordinateur_Kali_Linux":
                 Item = new Ordinateur_Kali_Linux(1,1);
                 break;
             case "Potion_Boost":
-                Item = new Potion_Boost("Potion_Mana Variant",1,true,1,EnumsItem.Boost);
+                Item = new Potion_Boost("Potion_Mana",1,true,1,EnumsItem.Boost);
                 break;
             case "Sniper":
                 Item = new Sniper_a(1,1,1);
-                break;
-            case "":
-                Item = new Boss_Weapon(1,1,1);
                 break;
 
 
