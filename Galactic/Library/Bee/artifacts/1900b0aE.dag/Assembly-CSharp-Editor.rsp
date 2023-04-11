@@ -378,6 +378,7 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.2.4f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.2.4f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Photon/PhotonChat/Demos/DemoChat/Editor/ChatEditor.cs"
+"Assets/RobotSphere/Assets/Scripts/Editor/RobotFreeAnimEditor.cs"
 -langversion:9.0
 
 /deterministic

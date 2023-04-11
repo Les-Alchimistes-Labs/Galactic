@@ -20,6 +20,7 @@ public class Player2 : MonoBehaviour {
 		public float gravity = 20.0f;
 		public Personnage Personnage;
 		public GameObject littelMonster;
+		public GameObject FinalBoss;
 		private PhotonView _photonView;
 		public EnumChoice Choice;
 
@@ -33,6 +34,7 @@ public class Player2 : MonoBehaviour {
 			Personnage.Took(new Potion_Boost( "Potion_Stamina",1, true ,1,EnumsItem.Boost));
 			_photonView = GetComponent<PhotonView>();
 			Choice = EnumChoice.None;
+			EnemyGenerator.EnemyGeneratore(EnumMonster.BossFinal, FinalBoss,transform ,Personnage.level );
 
 		}
 
@@ -63,7 +65,7 @@ public class Player2 : MonoBehaviour {
 
 					// LittelMonsterGenerator.tryspawmmonster(littelMonster, this.transform);
 				}
-				else if (Input.GetKeyDown("q"))
+				if (Input.GetKeyDown("q"))
 				{
 					Item old = Personnage.Trow(Personnage.PosInv);
 					if (old != null)
@@ -72,6 +74,23 @@ public class Player2 : MonoBehaviour {
 						temp = PhotonNetwork.Instantiate(old.Name,transform.position,transform.rotation,0);
 						temp.GetComponent<ItemInGame>().Item = old;
 					}
+				}
+
+				if (Input.GetKeyDown("1"))
+				{
+					Personnage.PosInv = 1;
+				}
+				if (Input.GetKeyDown("2"))
+				{
+					Personnage.PosInv = 2;
+				}
+				if (Input.GetKeyDown("3"))
+				{
+					Personnage.PosInv = 3;
+				}
+				if (Input.GetKeyDown("4"))
+				{
+					Personnage.PosInv = 4;
 				}
 
 

@@ -378,6 +378,7 @@
 "Assets/Photon/PhotonLibs/WebSocket/SocketWebTcp.cs"
 "Assets/Photon/PhotonLibs/WebSocket/WebSocket.cs"
 "Assets/Photon/PhotonRealtime/Demos/DemoLoadBalancing/ConnectAndJoinRandomLb.cs"
+"Assets/RobotSphere/Assets/Scripts/RobotFreeAnim.cs"
 "Assets/Scripts/Enemy.cs"
 "Assets/Scripts/EnemyGenerator.cs"
 "Assets/Scripts/Game_Manager.cs"
