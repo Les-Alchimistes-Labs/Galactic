@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Security;
+using UnityEngine;
 
 
 namespace personnage_class.Personage
@@ -37,6 +38,12 @@ public abstract class Personnage : Update
                 _maxlevel = value;
         }
     }
+
+    public int GetMaxLife ()
+    {
+        return MaxLife;
+    }
+    
     
     public bool InSafeZone { get; set; }
 
@@ -74,7 +81,7 @@ public abstract class Personnage : Update
         inFight = false;
         MaxLife = maxlife;
         _xp = 0;
-        _maxxp = 30;
+        _maxxp = 5;
         _maxlevel = maxlevel;
         InSafeZone = true;
 
@@ -229,7 +236,7 @@ public abstract class Personnage : Update
     public bool Use(Item item) // use one item 
     {
         
-        if (item.Type != EnumsItem.None)
+        if (item != null && item.Type != EnumsItem.None)
         {
             switch (item.Type)
             {
@@ -277,9 +284,10 @@ public abstract class Personnage : Update
         {
             level ++;
             _xp = 0;
+            Debug.Log($"level up : {level}");
             return true;
+            
         }
-
         return false;
     }
 
@@ -302,6 +310,7 @@ public abstract class Personnage : Update
                     break;
             }
         }
+        
     }
     
     public abstract void Update();

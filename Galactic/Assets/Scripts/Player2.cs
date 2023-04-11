@@ -4,7 +4,6 @@ using Photon.Realtime;
 using System.Collections;
 using personnage_class.Personage;
 using Photon.Pun;
-using DefaultNamespace;
 using ExitGames.Client.Photon.StructWrapping;
 using Random = UnityEngine.Random;
 
@@ -63,7 +62,6 @@ public class Player2 : MonoBehaviour {
 						EnemyGenerator.EnemyGeneratore(EnumMonster.LittelMonster, littelMonster, transform,Personnage.level );
 					}
 
-					// LittelMonsterGenerator.tryspawmmonster(littelMonster, this.transform);
 				}
 				if (Input.GetKeyDown("q"))
 				{
@@ -93,12 +91,30 @@ public class Player2 : MonoBehaviour {
 					Personnage.PosInv = 4;
 				}
 
+				if (!Personnage.IsAlive() || transform.position.y < -3)
+				{
+					Personnage.Add_Life(Personnage.GetMaxLife());
+					transform.position = new Vector3(0, 1, 0);
+				}
+
 
 
 			}
 			else if (Choice == EnumChoice.None) // to change with gui choice
 			{
-				Choice = EnumChoice.Attack;
+				if (Input.GetKeyDown("f"))
+				{
+					Choice = EnumChoice.Attack;
+				}
+				if (Input.GetKeyDown("r"))
+				{
+					Choice = EnumChoice.HealorBoost;
+				}
+				if (Input.GetKeyDown("c"))
+				{
+					Choice = EnumChoice.ChangeGun;
+				}
+
 			}
 			
 		}

@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d3bd69ceb07dbb24ba6c0cfa385c2765, type: 2}
     - target: {fileID: 5234217450553972281, guid: 60ee61b107ddee04ebe6b3afab332f46, type: 3}
       propertyPath: m_Name
-      value: 10 (1)
+      value: Biome1
       objectReference: {fileID: 0}
     - target: {fileID: 5388392660740481139, guid: 60ee61b107ddee04ebe6b3afab332f46, type: 3}
       propertyPath: m_LocalPosition.y
@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7202008219029365073, guid: 60ee61b107ddee04ebe6b3afab332f46, type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7202008219029365073, guid: 60ee61b107ddee04ebe6b3afab332f46, type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,5 +67,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5234217450553972281, guid: 60ee61b107ddee04ebe6b3afab332f46, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6585949532099645852}
   m_SourcePrefab: {fileID: 100100000, guid: 60ee61b107ddee04ebe6b3afab332f46, type: 3}
+--- !u!1 &790013055783165924 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5234217450553972281, guid: 60ee61b107ddee04ebe6b3afab332f46, type: 3}
+  m_PrefabInstance: {fileID: 4779759265509001693}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &6585949532099645852
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790013055783165924}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.3737375, z: 1}
+  m_Center: {x: 0, y: 1.1075689, z: 0}

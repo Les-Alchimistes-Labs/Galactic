@@ -65,6 +65,7 @@ public class Enemy : MonoBehaviour
             }
             if (Players.Count != 0 && _monstre.IsAlive())
             {
+                transform.transform.LookAt(Players[0].transform);
                 if (_pos == Players.Count)
                 {
                     if (!waita)
@@ -79,7 +80,7 @@ public class Enemy : MonoBehaviour
                             Debug.Log("player is dead");
                             PlayersG[temp].transform.position = new Vector3(0, 0, 0);
                             
-                            //Players.RemoveAt(temp);
+                            Players.RemoveAt(temp);
                         }
                     }
 
@@ -100,7 +101,8 @@ public class Enemy : MonoBehaviour
 
 
                     }
-                
+
+                    Players[_pos].Choice = EnumChoice.None;
                     _pos += 1;
                 }
             }

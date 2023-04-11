@@ -22,10 +22,15 @@ public class EnemyGenerator : MonoBehaviour
         int _level;
         _level = level;
         _png = prefab;
+        GameObject gamemanager = GameObject.Find("GameManager");
+        if (gamemanager.GetComponent<Game_Manager>().Level > level)
+        {
+            _level = gamemanager.GetComponent<Game_Manager>().Level;
+        }
         switch (Monster)
         {
             case EnumMonster.LittelMonster :
-                _active_monster =  PhotonNetwork.Instantiate(_png.name,new Vector3(_transform.position.x + Random.Range(0,6) ,_transform.position.y,_transform.position.z  + Random.Range(0,6)) , _transform.rotation, 0);
+                _active_monster =  PhotonNetwork.Instantiate(_png.name,new Vector3(_transform.position.x + Random.Range(3,6) ,_transform.position.y,_transform.position.z  + Random.Range(3,6)) , _transform.rotation, 0);
                 _active_monster.GetComponent<Enemy>().level = _level;
                 break;
             case EnumMonster.BossIntermediate :

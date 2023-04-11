@@ -383,8 +383,6 @@
 "Assets/Scripts/EnemyGenerator.cs"
 "Assets/Scripts/Game_Manager.cs"
 "Assets/Scripts/Item.cs"
-"Assets/Scripts/LittelMonsterGenerator.cs"
-"Assets/Scripts/MiddelMonsterGenerator.cs"
 "Assets/Scripts/MyLauncher.cs"
 "Assets/Scripts/personnage_class/Enums.cs"
 "Assets/Scripts/personnage_class/Item/Boss_Weapon.cs"

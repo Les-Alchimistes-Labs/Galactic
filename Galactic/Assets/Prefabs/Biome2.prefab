@@ -8,13 +8,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2590502318633137513, guid: 7ad4275c8a417cb4a9d842f196d415e7, type: 3}
+      propertyPath: m_Size.y
+      value: 0.524014
+      objectReference: {fileID: 0}
+    - target: {fileID: -2590502318633137513, guid: 7ad4275c8a417cb4a9d842f196d415e7, type: 3}
+      propertyPath: m_Center.y
+      value: 1.1976142
+      objectReference: {fileID: 0}
+    - target: {fileID: -2590502318633137513, guid: 7ad4275c8a417cb4a9d842f196d415e7, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 790013055783165924, guid: 7ad4275c8a417cb4a9d842f196d415e7, type: 3}
       propertyPath: m_Name
-      value: Biome1
+      value: Biome2
       objectReference: {fileID: 0}
     - target: {fileID: 2425102549120690316, guid: 7ad4275c8a417cb4a9d842f196d415e7, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2425102549120690316, guid: 7ad4275c8a417cb4a9d842f196d415e7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -55,6 +67,18 @@ PrefabInstance:
     - target: {fileID: 2425102549120690316, guid: 7ad4275c8a417cb4a9d842f196d415e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6585949532099645852, guid: 7ad4275c8a417cb4a9d842f196d415e7, type: 3}
+      propertyPath: m_Size.y
+      value: 0.3737375
+      objectReference: {fileID: 0}
+    - target: {fileID: 6585949532099645852, guid: 7ad4275c8a417cb4a9d842f196d415e7, type: 3}
+      propertyPath: m_Center.y
+      value: 1.1075689
+      objectReference: {fileID: 0}
+    - target: {fileID: 6585949532099645852, guid: 7ad4275c8a417cb4a9d842f196d415e7, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8005439160714440837, guid: 7ad4275c8a417cb4a9d842f196d415e7, type: 3}
       propertyPath: m_Materials.Array.data[0]

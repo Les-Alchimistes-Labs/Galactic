@@ -1,17 +1,21 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp:
+    - Enemy
+    - ItemInGame
     - Player2
     - PlayerCamera
+    - RobotFreeAnim
     - ThirdPersonCamera
     Assembly-CSharp.dll:
+    - Enemy
     - Game_Manager
+    - ItemInGame
     - MyLauncher
     - Player2
     - PlayerCamera
+    - RobotFreeAnim
     - ThirdPersonCamera
-    FSP.MAST.Scripts.dll:
-    - MAST.Component.MASTPrefabSettings
     PhotonUnityNetworking:
     - Photon.Pun.PhotonAnimatorView
     - Photon.Pun.PhotonRigidbodyView
@@ -36,6 +40,12 @@ ScriptsOnlyBuild:
     - Packages.Rider.Editor.RiderScriptEditorData
     - Packages.Rider.Editor.RiderScriptEditorPersistedState
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -54,9 +64,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.Text
   serializedClasses:
-    FSP.MAST.Scripts:
-    - MAST.DataClass/PlacementRaycast
-    - MAST.DataClass/Randomizer
     PhotonRealtime:
     - Photon.Realtime.AppSettings
     PhotonUnityNetworking:
@@ -126,55 +133,61 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1542}
     - Class: 114
-      Script: {instanceID: 1646}
+      Script: {instanceID: 1642}
     - Class: 114
-      Script: {instanceID: 1794}
+      Script: {instanceID: 1782}
     - Class: 114
-      Script: {instanceID: 1820}
+      Script: {instanceID: 1806}
     - Class: 114
-      Script: {instanceID: 1824}
+      Script: {instanceID: 1810}
     - Class: 114
-      Script: {instanceID: 2338}
+      Script: {instanceID: 2304}
     - Class: 114
-      Script: {instanceID: 2386}
+      Script: {instanceID: 2350}
     - Class: 114
-      Script: {instanceID: 2394}
+      Script: {instanceID: 2358}
     - Class: 114
-      Script: {instanceID: 2602}
+      Script: {instanceID: 2558}
     - Class: 114
-      Script: {instanceID: 2724}
+      Script: {instanceID: 2678}
     - Class: 114
-      Script: {instanceID: 2918}
+      Script: {instanceID: 2870}
     - Class: 114
-      Script: {instanceID: 3124}
+      Script: {instanceID: 3068}
     - Class: 114
-      Script: {instanceID: 3132}
+      Script: {instanceID: 3076}
     - Class: 114
-      Script: {instanceID: 3134}
+      Script: {instanceID: 3078}
     - Class: 114
-      Script: {instanceID: 3228}
+      Script: {instanceID: 3172}
     - Class: 114
-      Script: {instanceID: 3702}
+      Script: {instanceID: 3618}
     - Class: 114
-      Script: {instanceID: 4036}
+      Script: {instanceID: 3940}
     - Class: 114
-      Script: {instanceID: 4042}
+      Script: {instanceID: 3946}
     - Class: 114
-      Script: {instanceID: 4078}
+      Script: {instanceID: 3982}
     - Class: 114
-      Script: {instanceID: 4230}
+      Script: {instanceID: 4130}
     - Class: 114
-      Script: {instanceID: 4274}
+      Script: {instanceID: 4140}
     - Class: 114
-      Script: {instanceID: 4658}
+      Script: {instanceID: 4172}
     - Class: 114
-      Script: {instanceID: 4730}
+      Script: {instanceID: 4550}
     - Class: 114
-      Script: {instanceID: 4814}
+      Script: {instanceID: 4620}
     - Class: 114
-      Script: {instanceID: 4894}
+      Script: {instanceID: 4702}
     - Class: 114
-      Script: {instanceID: 5156}
+      Script: {instanceID: 4780}
+    - Class: 114
+      Script: {instanceID: 5038}
+    - Class: 114
+      Script: {instanceID: 5906}
+    - Class: 114
+      Script: {instanceID: 5954}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -247,19 +260,27 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1726}
+      Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 3124}
+      Script: {instanceID: 3068}
     - Class: 114
-      Script: {instanceID: 3250}
+      Script: {instanceID: 3194}
     - Class: 114
-      Script: {instanceID: 4078}
+      Script: {instanceID: 3982}
     - Class: 114
-      Script: {instanceID: 4658}
+      Script: {instanceID: 4140}
     - Class: 114
-      Script: {instanceID: 4730}
+      Script: {instanceID: 4550}
     - Class: 114
-      Script: {instanceID: 4894}
+      Script: {instanceID: 4620}
+    - Class: 114
+      Script: {instanceID: 4780}
+    - Class: 114
+      Script: {instanceID: 5906}
+    - Class: 114
+      Script: {instanceID: 5954}
+    - Class: 114
+      Script: {instanceID: 21602}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -313,12 +334,6 @@ ScriptsOnlyBuild:
     className: PanelRaycaster
   - hash:
       serializedVersion: 2
-      Hash: b2179c0a29cef06ad171ed4dafa1055d
-    assemblyName: FSP.MAST.Scripts
-    namespaceName: MAST.Settings.ScriptObj
-    className: Hotkey
-  - hash:
-      serializedVersion: 2
       Hash: 0cadf67970140b3a7997770202c43c70
     assemblyName: Unity.Timeline
     namespaceName: UnityEngine.Timeline
@@ -367,12 +382,6 @@ ScriptsOnlyBuild:
     className: SignalAsset
   - hash:
       serializedVersion: 2
-      Hash: d6c420518e2ff4e7c34ad6e2bd5c820b
-    assemblyName: FSP.MAST.Scripts
-    namespaceName: MAST.Component
-    className: MASTPrefabSettings
-  - hash:
-      serializedVersion: 2
       Hash: c7b9385de9fd55499d563ac8783bbda2
     assemblyName: PhotonUnityNetworking.Demos
     namespaceName: Photon.Pun.Demo.Cockpit
@@ -415,16 +424,16 @@ ScriptsOnlyBuild:
     className: SlotLanes
   - hash:
       serializedVersion: 2
-      Hash: 892b5093967522535ba980d28ce42084
-    assemblyName: UnityEngine.UI
-    namespaceName: UnityEngine.UI
-    className: Slider
-  - hash:
-      serializedVersion: 2
       Hash: d4721867d164f25e1e30e0ba0ec0902b
     assemblyName: Assembly-CSharp
     namespaceName: Photon.Chat.UtilityScripts
     className: TextButtonTransition
+  - hash:
+      serializedVersion: 2
+      Hash: 892b5093967522535ba980d28ce42084
+    assemblyName: UnityEngine.UI
+    namespaceName: UnityEngine.UI
+    className: Slider
   - hash:
       serializedVersion: 2
       Hash: 41ac98c9880a6f3758ca69dbaa1e7777
@@ -517,12 +526,6 @@ ScriptsOnlyBuild:
     className: DemoHubManager
   - hash:
       serializedVersion: 2
-      Hash: a8c58b247539c57f31d4dae3dde73bb8
-    assemblyName: FSP.MAST.Scripts
-    namespaceName: MAST.GUI
-    className: Main
-  - hash:
-      serializedVersion: 2
       Hash: f787ebc9052e685e422da5b37eac6c4b
     assemblyName: PhotonUnityNetworking.Demos
     namespaceName: Photon.Pun.Demo.PunBasics
@@ -569,18 +572,6 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos
     namespaceName: Photon.Pun.Demo.Cockpit
     className: CurrentRoomAutoCleanupProperty
-  - hash:
-      serializedVersion: 2
-      Hash: 62f3a56fbfd942147160772dd19c90ec
-    assemblyName: FSP.MAST.Scripts
-    namespaceName: MAST.Settings.ScriptObj
-    className: Core
-  - hash:
-      serializedVersion: 2
-      Hash: 076e155fcf49b35f5f9e7181c183cd3b
-    assemblyName: FSP.MAST.Scripts
-    namespaceName: MAST.GUI.ScriptObj
-    className: State
   - hash:
       serializedVersion: 2
       Hash: 49031f0904f24a521ccdec39bbd92cba
@@ -829,12 +820,6 @@ ScriptsOnlyBuild:
     className: SupportLogger
   - hash:
       serializedVersion: 2
-      Hash: 03e462ac4f7ca2303218a77a4f36bb1e
-    assemblyName: FSP.MAST.Scripts
-    namespaceName: MAST.Tools.GUI
-    className: MeshTools
-  - hash:
-      serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
     assemblyName: UnityEngine.TestRunner
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
@@ -1007,12 +992,6 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos
     namespaceName: Photon.Pun.Demo.Cockpit.Forms
     className: ConnectToRegionUIForm
-  - hash:
-      serializedVersion: 2
-      Hash: 4bbc599b1aee5ad73e8aeeb8245f7b91
-    assemblyName: FSP.MAST.Scripts
-    namespaceName: MAST.Settings.ScriptObj
-    className: GUI
   - hash:
       serializedVersion: 2
       Hash: ea1569413d805748b7cef2dcb4622c85
@@ -1195,12 +1174,6 @@ ScriptsOnlyBuild:
     className: TextToggleIsOnTransition
   - hash:
       serializedVersion: 2
-      Hash: 952c45500926b3963bbffbb8b437867a
-    assemblyName: FSP.MAST.Scripts
-    namespaceName: MAST.Settings.ScriptObj
-    className: Placement
-  - hash:
-      serializedVersion: 2
       Hash: c7b9385de9fd55499d563ac8783bbda2
     assemblyName: PhotonUnityNetworking.Demos
     namespaceName: Photon.Pun.Demo.Cockpit
@@ -1211,12 +1184,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: Dropdown
-  - hash:
-      serializedVersion: 2
-      Hash: b14fc8482196e2f56681371883e2ad65
-    assemblyName: FSP.MAST.Scripts
-    namespaceName: MAST.Tools.GUI
-    className: AssemblyCreator
   - hash:
       serializedVersion: 2
       Hash: 71ecca19a5250b7a2b3b766068cac1d1
@@ -1357,16 +1324,16 @@ ScriptsOnlyBuild:
     className: PlayerManager
   - hash:
       serializedVersion: 2
-      Hash: 18c47b2e852d4777baa0d6d6184d349a
-    assemblyName: FSP.MAST.Scripts
-    namespaceName: MAST.Component
-    className: ThumbnailCamera
-  - hash:
-      serializedVersion: 2
       Hash: d0f38d9d8b4898fddc05cf5525642bf4
     assemblyName: PhotonUnityNetworking.Demos
     namespaceName: Photon.Pun.Demo.Cockpit
     className: OnlineDocButton
+  - hash:
+      serializedVersion: 2
+      Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: RobotFreeAnim
   - hash:
       serializedVersion: 2
       Hash: 64f2e6c06df2696538a5a41c32c49389
@@ -1597,7 +1564,7 @@ ScriptsOnlyBuild:
     className: PunTurnManager
   - hash:
       serializedVersion: 2
-      Hash: ea0e321dd32a6f01e8a99e29b6c09bef
+      Hash: 841330af8782c2d806d62b590e7c57a7
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Player2
@@ -1631,12 +1598,6 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos
     namespaceName: Photon.Pun.Demo.Cockpit
     className: AppVersionProperty
-  - hash:
-      serializedVersion: 2
-      Hash: 5fdca0953d05102632f4990eb5e826ac
-    assemblyName: FSP.MAST.Scripts
-    namespaceName: MAST.Tools.GUI
-    className: PrefabCreator
   - hash:
       serializedVersion: 2
       Hash: afe1800287c9574079eab3fea2622416
@@ -1721,8 +1682,32 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos
     namespaceName: Photon.Pun.Demo.Cockpit.Forms
     className: UserIdUiForm
+  - hash:
+      serializedVersion: 2
+      Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: EnemyGenerator
+  - hash:
+      serializedVersion: 2
+      Hash: af0dcb7bb678fb400f0ed0710b282655
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Enemy
+  - hash:
+      serializedVersion: 2
+      Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: MiddelMonsterGenerator
+  - hash:
+      serializedVersion: 2
+      Hash: 0cf537ec991511e571cbdef4bab6c1c7
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: ItemInGame
   platform: 19
   scenePathNames:
   - Assets/Scenes/Connection.unity
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/olivi/Downloads/test/Galactic.exe
+  playerPath: C:/Users/olivi/Downloads/Galactic.exe

@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2317075571703893349, guid: 26e07b46482c556468073c7d05d0f19f, type: 3}
       propertyPath: m_Name
-      value: Water
+      value: Water Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8997433348935806803, guid: 26e07b46482c556468073c7d05d0f19f, type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8997433348935806803, guid: 26e07b46482c556468073c7d05d0f19f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -56,8 +56,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 479861147855983858, guid: 26e07b46482c556468073c7d05d0f19f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2317075571703893349, guid: 26e07b46482c556468073c7d05d0f19f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4631653928711687529}
   m_SourcePrefab: {fileID: 100100000, guid: 26e07b46482c556468073c7d05d0f19f, type: 3}
+--- !u!1 &2440415133175821359 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2317075571703893349, guid: 26e07b46482c556468073c7d05d0f19f, type: 3}
+  m_PrefabInstance: {fileID: 142425612303989066}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &4631653928711687529
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2440415133175821359}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.8582258, z: 1}
+  m_Center: {x: 0, y: 1.3498129, z: 0}

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using DefaultNamespace;
 
 namespace personnage_class.Personage
 {

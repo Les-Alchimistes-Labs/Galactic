@@ -7,10 +7,11 @@ using Random = System.Random;
 public class Game_Manager : MonoBehaviourPunCallbacks
 {
     public GameObject player_prefab;
+    public int Level;
 
     void Start()
     {
-
+        Level = 0;
         PhotonNetwork.Instantiate(player_prefab.name, new Vector3(0, 1, 0), Quaternion.identity, 0);
     }
 
