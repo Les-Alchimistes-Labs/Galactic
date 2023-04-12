@@ -19,10 +19,12 @@ public class Enemy : MonoBehaviour
     private bool waita;
     private int _pos;
     public int level;
+    private PhotonView _photonView;
 
     // Start is called before the first frame update
     void Start()
     {
+        _photonView = GetComponent<PhotonView>();
         _pos = 0;
         PlayersG = new List<GameObject>();
         Players = new List<Player2>();
@@ -103,7 +105,9 @@ public class Enemy : MonoBehaviour
                     }
 
                     Players[_pos].Choice = EnumChoice.None;
-                    _pos += 1;
+                    
+                    _photonView.RPC("update_Enemy", RpcTarget.All, _pos,_monstre.Getlife);
+                    
                 }
             }
             else if ( !_monstre.IsAlive())
@@ -120,25 +124,62 @@ public class Enemy : MonoBehaviour
                     }
                 }
                 
-                
+                _photonView.RPC("update_CanMove", RpcTarget.All);
                 PhotonNetwork.Destroy(_active_monster);
-                foreach (var player in Players)
-                {
-                    player.Personnage.canMove = true;
-                }
-                
+
+               
+
                 
             }
             
         
         }
-    }
 
+
+        
+    }
+    [PunRPC]
+    void update_Enemy(int pos ,int RemainLife )
+    {
+        _pos += pos + 1;
+        _monstre.Remove_Life(- (RemainLife -_monstre.Getlife));
+    }
 
 
     private void OnTriggerEnter(Collider other)
     {
-        Players.Add(other.gameObject.GetComponent<Player2>());
-        PlayersG.Add(other.gameObject);
+        _photonView.RPC("update_Player", RpcTarget.All, other.GetComponent<PhotonView>().ViewID);
+
     }
+    [PunRPC]
+    void update_Player(int viewID )
+    {
+        GameObject other = PhotonView.Find(viewID).gameObject;
+        bool find = false;
+        foreach (var player in PlayersG)
+        {
+            if (player == other)
+            {
+                find = true;
+                break;
+            }
+        }
+
+        if (!find)
+        {
+            Players.Add(other.gameObject.GetComponent<Player2>());
+            PlayersG.Add(other.gameObject);
+        }
+    }
+
+    [PunRPC]
+    void update_CanMove()
+    {
+        foreach (var player in Players)
+        {
+            player.Personnage.canMove = true;
+            player.Choice = EnumChoice.None;
+        }
+    }
+    
 }

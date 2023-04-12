@@ -18,10 +18,10 @@ public class ItemInGame : MonoBehaviour
                 Item = new Boss_Weapon(1,1,1);
                 break;
             case "Banana":
-                Item = new Food("Banana Variant",1,1);
+                Item = new Food("Banana",1,1);
                 break;
             case "Cheese Variant":
-                Item = new Food("Cheese Variant",1,1);
+                Item = new Food("Cheese",1,1);
                 break;
             case "Hamburger":
                 Item = new Food("Hamburger",1,1);

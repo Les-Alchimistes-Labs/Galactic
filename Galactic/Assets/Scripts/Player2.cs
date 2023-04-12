@@ -22,15 +22,31 @@ public class Player2 : MonoBehaviour {
 		public GameObject FinalBoss;
 		private PhotonView _photonView;
 		public EnumChoice Choice;
+		public EnumPlayer Player;
 
 
 
 		void Start () {
 			controller = GetComponent <CharacterController>();
 			anim = gameObject.GetComponentInChildren<Animator>();
-			Personnage = new Soldat("test");
-			Personnage.Trow(0);
-			Personnage.Took(new Potion_Boost( "Potion_Stamina",1, true ,1,EnumsItem.Boost));
+			
+			switch (Player)
+				{
+					case EnumPlayer.Soldat:
+						Personnage = new Soldat("test");
+						break;
+					case EnumPlayer.Sniper:
+						Personnage = new Sniper("test");
+						break;
+					case EnumPlayer.Canonnier:
+						Personnage = new Canonnier("test");
+						break;
+					case EnumPlayer.Hacker:
+						Personnage = new Hacker("test");
+						break;
+                
+				}
+
 			_photonView = GetComponent<PhotonView>();
 			Choice = EnumChoice.None;
 			EnemyGenerator.EnemyGeneratore(EnumMonster.BossFinal, FinalBoss,transform ,Personnage.level );
@@ -91,7 +107,7 @@ public class Player2 : MonoBehaviour {
 					Personnage.PosInv = 4;
 				}
 
-				if (!Personnage.IsAlive() || transform.position.y < -3)
+				if (!Personnage.IsAlive() || transform.position.y < -5)
 				{
 					Personnage.Add_Life(Personnage.GetMaxLife());
 					transform.position = new Vector3(0, 1, 0);

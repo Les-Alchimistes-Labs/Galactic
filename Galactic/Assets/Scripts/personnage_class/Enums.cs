@@ -42,5 +42,15 @@ namespace personnage_class.Personage
         None,
     }
 
+    public enum EnumPlayer
+    {
+        Soldat,
+        Sniper,
+        Hacker,
+        Canonnier,
+        Medecin,
+        None,
+    }
+
 
 }
