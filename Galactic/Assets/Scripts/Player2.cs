@@ -116,7 +116,7 @@ public class Player2 : MonoBehaviour {
 
 
 			}
-			else if (Choice == EnumChoice.None) // to change with gui choice
+			else if (Choice == EnumChoice.None && _photonView.IsMine) // to change with gui choice
 			{
 				if (Input.GetKeyDown("f"))
 				{

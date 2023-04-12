@@ -43,6 +43,7 @@ MonoBehaviour:
   - update_CanMove
   - update_Enemy
   - update_Player
+  - reset_pos
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

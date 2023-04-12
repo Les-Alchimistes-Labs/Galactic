@@ -68,7 +68,7 @@ public class Enemy : MonoBehaviour
             if (Players.Count != 0 && _monstre.IsAlive())
             {
                 transform.transform.LookAt(Players[0].transform);
-                if (_pos == Players.Count)
+                if (_pos >= Players.Count)
                 {
                     if (!waita)
                     {
@@ -76,7 +76,8 @@ public class Enemy : MonoBehaviour
                         waita = true;
                         StartCoroutine(wait(temp));
                         _monstre.Attack(Players[temp].Personnage);
-                        _pos = 0;
+                        _photonView.RPC("reset_pos", RpcTarget.All);
+
                         if (!Players[temp].Personnage.IsAlive())
                         {
                             Debug.Log("player is dead");
@@ -138,6 +139,14 @@ public class Enemy : MonoBehaviour
 
         
     }
+
+
+    [PunRPC]
+    void reset_pos()
+    {
+        _pos = 0;
+    }
+    
     [PunRPC]
     void update_Enemy(int pos ,int RemainLife )
     {
