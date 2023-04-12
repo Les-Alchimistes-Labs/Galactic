@@ -7,6 +7,7 @@ namespace personnage_class.Personage
         Boost,
         None,
         Equipement,
+        Empty
     }
     public enum EnumsPersonage
     {
