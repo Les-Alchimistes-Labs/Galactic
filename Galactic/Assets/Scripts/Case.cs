@@ -1,0 +1,63 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+using System;
+using personnage_class.Personage;
+
+namespace DefaultNamespace
+{
+    public class Case 
+    {
+        public enum EnumType
+        {
+            Tree,
+            Wall,
+            River,
+            Ground,
+            Item,
+            Rock,
+            Empty
+        }
+
+        public (EnumType, EnumsItem)[,] ConvertMatrix(int[,] matrix)
+        {
+            (EnumType, EnumsItem)[,] newMatrix = new (EnumType, EnumsItem)[matrix.GetLength(0), matrix.GetLength(1)];
+            for (int indiceY = 0; indiceY < matrix.GetLength(0); indiceY++)
+            {
+                for(int indiceX = 0; indiceX < matrix.GetLength(1); indiceX++)
+                {
+                    switch (matrix[indiceY, indiceX])
+                    {
+                        case 0:
+                            newMatrix[indiceY, indiceX] = (EnumType.Ground, EnumsItem.Empty);
+                            break;
+                        case 1:
+                            newMatrix[indiceY, indiceX] = (EnumType.Tree, EnumsItem.Empty);
+                            break;
+                        case 2:
+                            newMatrix[indiceY, indiceX] = (EnumType.Wall, EnumsItem.Empty);
+                            break;
+                        case 3:
+                            newMatrix[indiceY, indiceX] = (EnumType.River, EnumsItem.Empty);
+                            break;
+                        case 4:
+                            newMatrix[indiceY, indiceX] = (EnumType.Item, EnumsItem.Empty);
+                            break;
+                        case 5:
+                            newMatrix[indiceY, indiceX] = (EnumType.Rock, EnumsItem.Empty);
+                            break;
+                        default:
+                            newMatrix[indiceY, indiceX] = (EnumType.Empty, EnumsItem.Empty);
+                            break;
+                    }
+                }
+            }
+
+            return newMatrix;
+        }
+        
+        public EnumType Type { get; set; }
+
+    }
+}

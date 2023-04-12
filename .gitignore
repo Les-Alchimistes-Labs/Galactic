@@ -110,6 +110,9 @@ Thumbs.db
 Desktop.ini
 .DS_Store
 
+#cache
+PackageCache/
+
 #Ignore all .meta file
 *.meta
 !*.*.meta
