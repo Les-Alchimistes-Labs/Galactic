@@ -25,7 +25,7 @@ public class Player2 : MonoBehaviour {
 		public EnumPlayer Player;
 
 
-
+		
 		void Start () {
 			controller = GetComponent <CharacterController>();
 			anim = gameObject.GetComponentInChildren<Animator>();
