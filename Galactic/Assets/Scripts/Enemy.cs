@@ -75,8 +75,7 @@ public class Enemy : MonoBehaviour
                         int temp = Random.Range(0, Players.Count);
                         waita = true;
                         StartCoroutine(wait(temp));
-                        _monstre.Attack(Players[temp].Personnage);
-                        _photonView.RPC("reset_pos", RpcTarget.All);
+                        _photonView.RPC("reset_pos", RpcTarget.All,temp);
 
                         if (!Players[temp].Personnage.IsAlive())
                         {
@@ -142,8 +141,10 @@ public class Enemy : MonoBehaviour
 
 
     [PunRPC]
-    void reset_pos()
+    void reset_pos(int temp)
     {
+        if (_pos >= Players.Count)
+            _monstre.Attack(Players[temp].Personnage);
         _pos = 0;
     }
     
