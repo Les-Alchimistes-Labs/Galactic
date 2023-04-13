@@ -14,6 +14,7 @@ public class Game_Manager : MonoBehaviourPunCallbacks
     public GameObject Hacker_prefab;
     public GameObject GUI;
     private GameObject test;
+    public GameObject PlayerUI;
     
     public int Level;
 
@@ -27,21 +28,27 @@ public class Game_Manager : MonoBehaviourPunCallbacks
     {
         test = PhotonNetwork.Instantiate(Soldat_prefab.name, new Vector3(0, 1, 2), Quaternion.identity, 0);
         GUI.SetActive(false);
+        PlayerUI.SetActive(true);
     }
     public void Select_Sniper()
     {
         test =PhotonNetwork.Instantiate(Sniper_prefab.name, new Vector3(0, 1, 2), Quaternion.identity, 0);
         GUI.SetActive(false);
+        PlayerUI.SetActive(true);
     }
     public void Select_Canonnier()
     {
         test =PhotonNetwork.Instantiate(Canonnier_prefab.name, new Vector3(0, 1, 2), Quaternion.identity, 0);
         GUI.SetActive(false);
+        PlayerUI.SetActive(true);
+        
     }
     public void Select_Hacker()
     {
         test =PhotonNetwork.Instantiate(Hacker_prefab.name, new Vector3(0, 1, 2), Quaternion.identity, 0);
         GUI.SetActive(false);
+        PlayerUI.SetActive(true);
+        
     }
     
     

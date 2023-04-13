@@ -76,7 +76,7 @@ public class Enemy : MonoBehaviour
                         waita = true;
                         StartCoroutine(wait(temp));
                         _photonView.RPC("reset_pos", RpcTarget.All,temp);
-
+                        Debug.Log(Players[temp].Personnage.Getlife);
                         if (!Players[temp].Personnage.IsAlive())
                         {
                             Debug.Log("player is dead");
@@ -138,8 +138,9 @@ public class Enemy : MonoBehaviour
 
         
     }
-
-
+    
+    
+    
     [PunRPC]
     void reset_pos(int temp)
     {

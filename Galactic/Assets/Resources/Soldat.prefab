@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 43402931450183054}
   - component: {fileID: 1815823896927333391}
   - component: {fileID: 4146537103909091342}
+  - component: {fileID: 7666685380160796115}
   m_Layer: 0
   m_Name: Soldat
   m_TagString: Untagged
@@ -310,6 +311,19 @@ CapsuleCollider:
   m_Height: 0.26573953
   m_Direction: 1
   m_Center: {x: 0, y: 0.122101486, z: 0}
+--- !u!114 &7666685380160796115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147752367711628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0a82714dfd676a4d89b5dcf68faca93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 2043766576707788876, guid: 6880aedbde411a748bb1bfe7575d030f, type: 3}
 --- !u!1 &1158021920011488
 GameObject:
   m_ObjectHideFlags: 0
