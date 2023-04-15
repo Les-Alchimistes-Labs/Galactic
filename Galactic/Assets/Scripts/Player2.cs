@@ -23,13 +23,15 @@ public class Player2 : MonoBehaviour {
 		private PhotonView _photonView;
 		public EnumChoice Choice;
 		public EnumPlayer Player;
+		public Vector3 Spwan; 
+		
 
 
 		
 		void Start () {
 			controller = GetComponent <CharacterController>();
 			anim = gameObject.GetComponentInChildren<Animator>();
-			
+			Spwan = new Vector3(0, 0, 0);
 			switch (Player)
 				{
 					case EnumPlayer.Soldat:
@@ -110,7 +112,7 @@ public class Player2 : MonoBehaviour {
 				if (!Personnage.IsAlive() || transform.position.y < -5)
 				{
 					Personnage.Add_Life(Personnage.GetMaxLife());
-					transform.position = new Vector3(0, 1, 0);
+					transform.position = Spwan;
 				}
 
 
@@ -171,7 +173,7 @@ public class Player2 : MonoBehaviour {
 		
 		public void OnTriggerStay(Collider other)
 		{
-			if (other.tag == "Equipement" && Input.GetKeyDown("e"))
+			if (other.tag == "Equipement" && (Input.GetKey("e") || Input.GetKeyDown("e")))
 			{
 
 				Item item = other.gameObject.GetComponent<ItemInGame>().Item;

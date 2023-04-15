@@ -80,9 +80,10 @@ public class Enemy : MonoBehaviour
                         if (!Players[temp].Personnage.IsAlive())
                         {
                             Debug.Log("player is dead");
-                            PlayersG[temp].transform.position = new Vector3(0, 0, 0);
+                            PlayersG[temp].transform.position =Players[temp].Spwan ;
                             
-                            Players.RemoveAt(temp);
+                            _photonView.RPC("playerkill", RpcTarget.All,temp);
+
                         }
                     }
 
@@ -192,5 +193,13 @@ public class Enemy : MonoBehaviour
             player.Choice = EnumChoice.None;
         }
     }
+    
+    [PunRPC]
+    void playerkill(int i)
+    {
+        Players.RemoveAt(i);
+        PlayersG.RemoveAt(i);
+    }
+    
     
 }
