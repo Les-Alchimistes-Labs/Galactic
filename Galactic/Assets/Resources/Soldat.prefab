@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 4146537103909091342}
   - component: {fileID: 7666685380160796115}
   - component: {fileID: 8583089571502174134}
+  - component: {fileID: 295787351016372741}
   m_Layer: 0
   m_Name: Soldat
   m_TagString: Player
@@ -236,6 +237,7 @@ MonoBehaviour:
   Choice: 0
   Player: 0
   Spwan: {x: 0, y: 0, z: 0}
+  Map: {fileID: 8085908573956486280, guid: d9764f6125dcd5b478256ef39aa03e40, type: 3}
 --- !u!114 &73908130866573465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,6 +349,22 @@ MonoBehaviour:
   imageKahli_Computer: {fileID: 21300000, guid: d0f2ca00017af45a59e0ccc1e81d226f, type: 3}
   imagePotion_Mana: {fileID: 21300050, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
   imageSniper: {fileID: 21300000, guid: fa96cf8ef213c4d9f857d76b486abb9b, type: 3}
+--- !u!114 &295787351016372741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147752367711628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3be1c80a51cb1449a0f1801032c80b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerBag: {fileID: 11400000, guid: 98667c0eeddfb134daf932e796ba3553, type: 2}
+  slotGrid: {fileID: 1107126252929743884, guid: a0c7d66c398c43b479c0001ddf0a6877, type: 3}
+  slotPrefab: {fileID: 2065674893718822270, guid: eb0d452d13e5fcd4cbe9fe4357da3e7f, type: 3}
+  itemInformation: {fileID: 4258976820913420663, guid: c98fbe8d24bd43a438477423b9223fa6, type: 3}
 --- !u!1 &1158021920011488
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,17 +24,19 @@ public class Player2 : MonoBehaviour
 		private PhotonView _photonView;
 		public EnumChoice Choice;
 		public EnumPlayer Player;
-		public Vector3 Spwan; 
+		public Vector3 Spwan;
+		public GameObject Map;
 		
 
 
 		
 		void Start ()
 		{
+			
 			itemOnWorld = GetComponent<ItemOnWorld>();
 			controller = GetComponent <CharacterController>();
 			anim = gameObject.GetComponentInChildren<Animator>();
-			Spwan = new Vector3(0, 0, 0);
+			Spwan = new Vector3(0, 2, 0);
 			switch (Player)
 				{
 					case EnumPlayer.Soldat:
@@ -54,7 +56,7 @@ public class Player2 : MonoBehaviour
 
 			_photonView = GetComponent<PhotonView>();
 			Choice = EnumChoice.None;
-			EnemyGenerator.EnemyGeneratore(EnumMonster.BossFinal, FinalBoss,transform ,Personnage.level );
+			EnemyGenerator.EnemyGeneratore(EnumMonster.BossFinal, FinalBoss,transform ,Personnage.level,0,0 );
 
 		}
 
@@ -80,7 +82,9 @@ public class Player2 : MonoBehaviour
 				{
 					if (Random.Range(0, 1001) == 10)
 					{
-						EnemyGenerator.EnemyGeneratore(EnumMonster.LittelMonster, littelMonster, transform,Personnage.level );
+						int x = (int) (transform.position.x + Random.Range(-7, 7)), z = (int) (transform.position.z + Random.Range(-7, 7));
+						if ( x>0 && z>0 && Map.GetComponent<MapGenerator>().matrixCase.GetLength(0)>x &&Map.GetComponent<MapGenerator>().matrixCase.GetLength(1)>z && Map.GetComponent<MapGenerator>().matrixCase[x,z].Item2 == EnumsItem.Empty  )
+							EnemyGenerator.EnemyGeneratore(EnumMonster.LittelMonster, littelMonster, transform,Personnage.level,x,z );
 					}
 
 				}
@@ -197,6 +201,14 @@ public class Player2 : MonoBehaviour
 				}
 
 
+			}
+			else if (other.tag == "Enemy")
+			{
+				Personnage.canMove = false;
+				Debug.Log($"in and {Personnage.canMove}");
+				Personnage.inFight = true;
+				anim.SetInteger ("AnimationPar", 0);
+				
 			}
 			
 

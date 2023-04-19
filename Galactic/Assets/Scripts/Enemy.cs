@@ -163,6 +163,15 @@ public class Enemy : MonoBehaviour
         _photonView.RPC("update_Player", RpcTarget.All, other.GetComponent<PhotonView>().ViewID);
 
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Respawn")
+        {
+            Destroy(_active_monster);
+        }
+    }
+
     [PunRPC]
     void update_Player(int viewID )
     {
@@ -189,6 +198,7 @@ public class Enemy : MonoBehaviour
     {
         foreach (var player in Players)
         {
+            player.Personnage.inFight = false;
             player.Personnage.canMove = true;
             player.Choice = EnumChoice.None;
         }

@@ -37,7 +37,7 @@ public class MapGenerator : MonoBehaviour
         { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
     };
     
-    (Case.EnumType, EnumsItem)[,] matrixCase = new Case().ConvertMatrix(matrix);
+    public (Case.EnumType, EnumsItem)[,] matrixCase = new Case().ConvertMatrix(matrix);
 
     public void GenerateMap((Case.EnumType, EnumsItem)[,] matrix)
     {

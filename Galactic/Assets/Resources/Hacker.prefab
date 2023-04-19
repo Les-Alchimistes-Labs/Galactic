@@ -83,6 +83,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2133513151786727153, guid: 9fe1a2ce44be24f4a86f2a31a40d3a34, type: 3}
       insertIndex: -1
       addedObject: {fileID: -2151940651318561044}
+    - targetCorrespondingSourceObject: {fileID: 2133513151786727153, guid: 9fe1a2ce44be24f4a86f2a31a40d3a34, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 197339465834253986}
   m_SourcePrefab: {fileID: 100100000, guid: 9fe1a2ce44be24f4a86f2a31a40d3a34, type: 3}
 --- !u!1 &2642393307959838465 stripped
 GameObject:
@@ -123,4 +126,19 @@ MonoBehaviour:
   imageKahli_Computer: {fileID: 21300064, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
   imagePotion_Mana: {fileID: 21300040, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
   imageSniper: {fileID: 21300000, guid: fa96cf8ef213c4d9f857d76b486abb9b, type: 3}
-  MyBag: {fileID: 11400000, guid: 98667c0eeddfb134daf932e796ba3553, type: 2}
+--- !u!114 &197339465834253986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2642393307959838465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3be1c80a51cb1449a0f1801032c80b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerBag: {fileID: 11400000, guid: 98667c0eeddfb134daf932e796ba3553, type: 2}
+  slotGrid: {fileID: 1107126252929743884, guid: a0c7d66c398c43b479c0001ddf0a6877, type: 3}
+  slotPrefab: {fileID: 2065674893718822270, guid: eb0d452d13e5fcd4cbe9fe4357da3e7f, type: 3}
+  itemInformation: {fileID: 4258976820913420663, guid: c98fbe8d24bd43a438477423b9223fa6, type: 3}

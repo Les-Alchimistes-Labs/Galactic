@@ -71,14 +71,18 @@ public class ItemOnWorld : MonoBehaviour
     }
 
     public void PrintSprite()
-    {
-        if (MyBag.items.Count > 0)
+    { 
+        if (MyBag != null)
         {
-            for (int i = 0; i < MyBag.items.Count; i++)
+            if (MyBag.items.Count > 0)
             {
-                player = MyBag.items[i].Item3;
+                for (int i = 0; i < MyBag.items.Count; i++)
+                {
+                    player = MyBag.items[i].Item3;
+                }
             }
         }
+
     }
 
 
