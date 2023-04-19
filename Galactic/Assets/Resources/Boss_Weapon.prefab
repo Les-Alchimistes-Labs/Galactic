@@ -85,6 +85,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 72be0c703037640cf97b8487e7a0d830, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8748802019281543606}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 72be0c703037640cf97b8487e7a0d830, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6161001255591515676}
   m_SourcePrefab: {fileID: 100100000, guid: 72be0c703037640cf97b8487e7a0d830, type: 3}
 --- !u!1 &1963242446622280770 stripped
 GameObject:
@@ -147,3 +150,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObject: {fileID: 1963242446622280770}
+--- !u!114 &6161001255591515676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963242446622280770}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87cf6637cb5ba7d4f967b1cb4678d607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageBanana: {fileID: 0}
+  imageCheese: {fileID: 0}
+  imageBoss_Weapon: {fileID: 0}
+  imageHamburger: {fileID: 0}
+  imageGun: {fileID: 0}
+  imageKit_Heal: {fileID: 0}
+  imageKahli_Computer: {fileID: 0}
+  imagePotion_Mana: {fileID: 0}
+  imagePotion_Stamina: {fileID: 0}
+  imageSniper: {fileID: 0}
+  thisItem: {fileID: 11400000, guid: 01fc93831371b464e816c22d8914b599, type: 2}
+  MyBag: {fileID: 0}

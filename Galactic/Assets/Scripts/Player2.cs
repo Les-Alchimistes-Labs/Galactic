@@ -8,8 +8,9 @@ using ExitGames.Client.Photon.StructWrapping;
 using Random = UnityEngine.Random;
 
 
-public class Player2 : MonoBehaviour {
-
+public class Player2 : MonoBehaviour
+{	
+		private ItemOnWorld itemOnWorld;
 		private Animator anim;
 		private CharacterController controller;
 
@@ -28,7 +29,9 @@ public class Player2 : MonoBehaviour {
 
 
 		
-		void Start () {
+		void Start ()
+		{
+			itemOnWorld = GetComponent<ItemOnWorld>();
 			controller = GetComponent <CharacterController>();
 			anim = gameObject.GetComponentInChildren<Animator>();
 			Spwan = new Vector3(0, 0, 0);
@@ -95,18 +98,22 @@ public class Player2 : MonoBehaviour {
 				if (Input.GetKeyDown("1"))
 				{
 					Personnage.PosInv = 1;
+					ItemOnWorld.RemoveSprite(1);
 				}
 				if (Input.GetKeyDown("2"))
 				{
 					Personnage.PosInv = 2;
+					ItemOnWorld.RemoveSprite(2);
 				}
 				if (Input.GetKeyDown("3"))
 				{
 					Personnage.PosInv = 3;
+					ItemOnWorld.RemoveSprite(3);
 				}
 				if (Input.GetKeyDown("4"))
 				{
 					Personnage.PosInv = 4;
+					ItemOnWorld.RemoveSprite(4);
 				}
 
 				if (!Personnage.IsAlive() || transform.position.y < -5)
@@ -120,25 +127,27 @@ public class Player2 : MonoBehaviour {
 			}
 			else if (Choice == EnumChoice.None && _photonView.IsMine) // to change with gui choice
 			{
-				if (Input.GetKeyDown("f"))
+				if (Input.GetKeyDown("f") || Game_Manager.attack)
 				{
 					Choice = EnumChoice.Attack;
+					Game_Manager.attack = false;
 				}
-				if (Input.GetKeyDown("r"))
+				if (Input.GetKeyDown("r") || Game_Manager.heal_Boost)
 				{
 					Choice = EnumChoice.HealorBoost;
+					Game_Manager.heal_Boost = false;
 				}
-				if (Input.GetKeyDown("c"))
+				if (Input.GetKeyDown("c") || Game_Manager.changeGun)
 				{
 					Choice = EnumChoice.ChangeGun;
+					Game_Manager.changeGun = false;
 				}
 
 			}
 			
 		}
+		
 
-		
-		
 		public void OnTriggerEnter(Collider other)
 		{
 			if (other.tag == "Enemy")
@@ -155,14 +164,17 @@ public class Player2 : MonoBehaviour {
 				Debug.Log($"in and {Personnage.InSafeZone}");
 			}
 
-			else if (other.tag == "Equipement" && Input.GetKeyDown("e"))
+			else if ((other.tag == "Equipement" && (Input.GetKey("e") || Input.GetKeyDown("e"))))
 			{
 
 				Item item = other.gameObject.GetComponent<ItemInGame>().Item;
 				bool take =Personnage.Took(item);
 				if (take)
+				{
+					itemOnWorld.AddNewItem(item.Name);
 					PhotonNetwork.Destroy(other.gameObject);
-				
+				}
+
 			}
 			
 
@@ -173,14 +185,18 @@ public class Player2 : MonoBehaviour {
 		
 		public void OnTriggerStay(Collider other)
 		{
-			if (other.tag == "Equipement" && (Input.GetKey("e") || Input.GetKeyDown("e")))
+			if ((other.tag == "Equipement" && (Input.GetKey("e") || Input.GetKeyDown("e"))))
 			{
 
 				Item item = other.gameObject.GetComponent<ItemInGame>().Item;
 				bool take =Personnage.Took(item);
 				if (take)
+				{
+					itemOnWorld.AddNewItem(item.Name);
 					PhotonNetwork.Destroy(other.gameObject);
-				
+				}
+
+
 			}
 			
 

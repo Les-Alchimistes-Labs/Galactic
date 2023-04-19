@@ -9,6 +9,7 @@ namespace personnage_class.Personage
 
 public abstract class Personnage : Update
 {
+
     private int _posInv;
     private string _name;
     private int _xp;
@@ -19,7 +20,7 @@ public abstract class Personnage : Update
     protected int Boost;
     protected Item[]? Inventory ;
     private int _maxlevel;
-
+    
     public int PosInv // rajouter
     {
         get { return _posInv;}
@@ -217,7 +218,7 @@ public abstract class Personnage : Update
 
             i++;
         }
-
+        
         return false;
     }
     

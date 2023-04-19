@@ -10,11 +10,28 @@ public class Player_UI : MonoBehaviour
     public Canvas canvas;
     private PlayerInformation_UI UI;
     
+    public static float actual_hp;
+    public static float Max_hp;
+    public static float actual_exp;
+    public static float Max_exp;
+    public static string Name;
+    public static float life;
+    public static float exp;
+    public static int lv;
+    public static bool fight;
+    public static bool move;
+    
+    
     void Start()
     {
         view = GetComponent<PhotonView>();
         _player2 = GetComponent<Player2>(); 
         UI= canvas.GetComponent<PlayerInformation_UI>();
+        Name = _player2.Personnage.name;
+        life = 1;
+        exp = 0;
+        fight = false;
+        move = false;
     }
 
     
@@ -22,11 +39,16 @@ public class Player_UI : MonoBehaviour
     {
         if (view.IsMine)
         {
-            UI.slider_life  = (float)_player2.Personnage.Getlife / _player2.Personnage.GetMaxLife();
-            UI.slider_exp =(float)_player2.Personnage.GetXP() / _player2.Personnage.Maxxp;
+            fight = _player2.Personnage.inFight;
+            move = _player2.Personnage.canMove;
+            lv = _player2.Personnage.level;
+            actual_hp = _player2.Personnage.Getlife;
+            Max_hp = _player2.Personnage.GetMaxLife();
+            actual_exp = _player2.Personnage.GetXP();
+            Max_exp = _player2.Personnage.Maxxp;
+            life = actual_hp / Max_hp;
+            exp = actual_exp / Max_exp;
             //canvas.GetComponent<PlayerInformation_UI>().level = _player2.Personnage.level;
         }
-
-        
     }
 }

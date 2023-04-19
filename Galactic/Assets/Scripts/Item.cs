@@ -41,9 +41,6 @@ public class ItemInGame : MonoBehaviour
             case "Sniper":
                 Item = new Sniper_a(1,1,1);
                 break;
-
-
-
         }
 
 

@@ -9,6 +9,8 @@ namespace personnage_class.Personage
         Equipement,
         Empty
     }
+    
+    
     public enum EnumsPersonage
     {
         Monster,

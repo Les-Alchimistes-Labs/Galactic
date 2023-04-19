@@ -64,13 +64,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hacker
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2133513151786727153, guid: 9fe1a2ce44be24f4a86f2a31a40d3a34, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3861005660101623861, guid: 9fe1a2ce44be24f4a86f2a31a40d3a34, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7674858664440298699, guid: 9fe1a2ce44be24f4a86f2a31a40d3a34, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2133513151786727153, guid: 9fe1a2ce44be24f4a86f2a31a40d3a34, type: 3}
       insertIndex: -1
       addedObject: {fileID: 750940534429305580}
+    - targetCorrespondingSourceObject: {fileID: 2133513151786727153, guid: 9fe1a2ce44be24f4a86f2a31a40d3a34, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -2151940651318561044}
   m_SourcePrefab: {fileID: 100100000, guid: 9fe1a2ce44be24f4a86f2a31a40d3a34, type: 3}
 --- !u!1 &2642393307959838465 stripped
 GameObject:
@@ -90,3 +102,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 2043766576707788876, guid: 6880aedbde411a748bb1bfe7575d030f, type: 3}
+--- !u!114 &-2151940651318561044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2642393307959838465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87cf6637cb5ba7d4f967b1cb4678d607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageBanana: {fileID: 21300000, guid: 50e0347d981414d189ff77217bc6e69c, type: 3}
+  imageCheese: {fileID: 21300000, guid: 3ba5a88a0508a488a85c30169a8e18de, type: 3}
+  imageBoss_Weapon: {fileID: 21300000, guid: 7cea976e1ace4444f9ba08733394d76a, type: 3}
+  imageHamburger: {fileID: 21300000, guid: 82179a193b1b04fb283c790342edb447, type: 3}
+  imageGun: {fileID: 21300000, guid: 2aa6ab62866ce4439ab7303f7da55e51, type: 3}
+  imageKit_Heal: {fileID: 21300036, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
+  imageKahli_Computer: {fileID: 21300064, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
+  imagePotion_Mana: {fileID: 21300040, guid: 56d84991286850f428b4e7df0cca7380, type: 3}
+  imageSniper: {fileID: 21300000, guid: fa96cf8ef213c4d9f857d76b486abb9b, type: 3}
+  MyBag: {fileID: 11400000, guid: 98667c0eeddfb134daf932e796ba3553, type: 2}

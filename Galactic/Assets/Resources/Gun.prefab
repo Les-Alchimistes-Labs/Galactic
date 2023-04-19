@@ -73,6 +73,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1261748888023320, guid: 432643b6e5110004083fdff3e33e490b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9152927718837941521}
+    - targetCorrespondingSourceObject: {fileID: 1261748888023320, guid: 432643b6e5110004083fdff3e33e490b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 649986638783332259}
   m_SourcePrefab: {fileID: 100100000, guid: 432643b6e5110004083fdff3e33e490b, type: 3}
 --- !u!1 &4065103585647630586 stripped
 GameObject:
@@ -135,3 +138,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.1458824, y: 0.51974404, z: 0.8615608}
   m_Center: {x: -0.0285604, y: 0.17364663, z: 0.0052072704}
+--- !u!114 &649986638783332259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4065103585647630586}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87cf6637cb5ba7d4f967b1cb4678d607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageBanana: {fileID: 0}
+  imageCheese: {fileID: 0}
+  imageBoss_Weapon: {fileID: 0}
+  imageHamburger: {fileID: 0}
+  imageGun: {fileID: 0}
+  imageKit_Heal: {fileID: 0}
+  imageKahli_Computer: {fileID: 0}
+  imagePotion_Mana: {fileID: 0}
+  imageSniper: {fileID: 0}
+  MyBag: {fileID: 0}

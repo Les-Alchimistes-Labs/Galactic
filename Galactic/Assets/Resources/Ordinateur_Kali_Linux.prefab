@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -6446198648635861448}
   - component: {fileID: 7105987840725401133}
   - component: {fileID: 8687334698120209457}
+  - component: {fileID: 8225373586692956404}
   m_Layer: 0
   m_Name: Ordinateur_Kali_Linux
   m_TagString: Equipement
@@ -91,6 +92,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8225373586692956404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4296458265635652401}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87cf6637cb5ba7d4f967b1cb4678d607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageBanana: {fileID: 0}
+  imageCheese: {fileID: 0}
+  imageBoss_Weapon: {fileID: 0}
+  imageHamburger: {fileID: 0}
+  imageGun: {fileID: 0}
+  imageKit_Heal: {fileID: 0}
+  imageKahli_Computer: {fileID: 0}
+  imagePotion_Mana: {fileID: 0}
+  imageSniper: {fileID: 0}
+  MyBag: {fileID: 0}
 --- !u!1 &4665651122043864405
 GameObject:
   m_ObjectHideFlags: 0

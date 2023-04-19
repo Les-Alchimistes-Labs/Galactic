@@ -3,11 +3,19 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 using Random = System.Random;
 
 
 public class Game_Manager : MonoBehaviourPunCallbacks
 {
+    public static bool attack;
+    public static bool heal_Boost;
+    public static bool changeGun;
+    
+    public GameObject Choice_Canvas;
+    public GameObject MyInventory;
+    bool TouchButton;
     public GameObject Soldat_prefab;
     public GameObject Sniper_prefab;
     public GameObject Canonnier_prefab;
@@ -20,10 +28,51 @@ public class Game_Manager : MonoBehaviourPunCallbacks
 
     void Start()
     {
+        Choice_Canvas.SetActive(false);
+        attack = false;
+        heal_Boost = false;
+        changeGun = false;
         Level = 0;
-        
+        TouchButton = false;
     }
 
+    public void OpenInventory()
+    {
+        TouchButton = true;
+    }
+
+    public void CloseInventory()
+    {
+        TouchButton = false;
+    }
+    
+    void GetInventory()
+    {
+        if (TouchButton)
+        {
+            MyInventory.SetActive(true);
+        }
+        else
+        {
+            MyInventory.SetActive(false);
+        }
+    }
+    
+    public void SelectAttack()
+    {
+        attack = true;
+    }
+		
+    public void SelectChangeGun()
+    {
+        changeGun = true;
+    }
+
+    public void SelectHealOrBoost()
+    {
+        heal_Boost = true;
+    }
+    
     public void Select_Soldat()
     {
         test = PhotonNetwork.Instantiate(Soldat_prefab.name, new Vector3(0, 1, 2), Quaternion.identity, 0);
@@ -54,7 +103,16 @@ public class Game_Manager : MonoBehaviourPunCallbacks
     
     void Update()
     {
-
+        if (Player_UI.fight && !Player_UI.move)
+        {
+            Choice_Canvas.SetActive(true);
+        }
+        else
+        {
+            Choice_Canvas.SetActive(false);
+        }
+        
+        GetInventory();
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();

@@ -8,7 +8,7 @@ public class MyLauncher : MonoBehaviourPunCallbacks
     public Text feedbackText;
     private byte maxPlayersPerRoom = 4;
 
-    bool isConnecting;
+    static bool isConnecting;
     
     private void Awake()
     {
@@ -78,5 +78,10 @@ public class MyLauncher : MonoBehaviourPunCallbacks
         {
             PhotonNetwork.LoadLevel("SampleScene");
         }
+    }
+
+    public static bool isConnect()
+    {
+        return isConnecting;
     }
 }
