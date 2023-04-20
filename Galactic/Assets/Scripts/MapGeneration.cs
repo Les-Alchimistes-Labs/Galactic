@@ -1,16 +1,24 @@
 using System;
+using System.Collections.Generic;
 using DefaultNamespace;
 using personnage_class.Personage;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class MapGenerator : MonoBehaviour
 {
-    public GameObject groundPrefab;
+    public GameObject Biome1Prefab;
     public GameObject treePrefab;
     public GameObject wallPrefab;
     public GameObject riverPrefab;
     public GameObject itemPrefab;
     public GameObject rockPrefab;
+    public GameObject IntermediateMonster;
+    public GameObject BossFinalMonster;
+    public bool[] biomeUse;
+    public int level;
+    
+
 
 
     static int[,] matrix = new int[20, 50]
@@ -48,8 +56,13 @@ public class MapGenerator : MonoBehaviour
                 switch (matrix[indiceX, indiceY])
                 {
                     case (Case.EnumType.Ground, EnumsItem.Empty):
-                        GameObject ground = Instantiate(groundPrefab, new Vector3(indiceX, 0, indiceY), Quaternion.identity);
+                        GameObject ground = Instantiate(Biome1Prefab, new Vector3(indiceX, 0, indiceY), Quaternion.identity);
                         ground.transform.SetParent(transform);
+                        if (Random.Range(0,100) == 1 && !biomeUse[0] )
+                        {
+                            biomeUse[0] = true;
+                            EnemyGenerator.EnemyGeneratore(EnumMonster.BossIntermediate,IntermediateMonster,null,level,indiceX,indiceY);
+                        }
                         break;
                     case (Case.EnumType.Tree, EnumsItem.Empty):
                         GameObject tree = Instantiate(treePrefab, new Vector3(indiceX, 0, indiceY), Quaternion.identity);
@@ -72,7 +85,7 @@ public class MapGenerator : MonoBehaviour
                         rock.transform.SetParent(transform);
                         break;
                     default:
-                        ground = Instantiate(groundPrefab, new Vector3(indiceX, 0, indiceY), Quaternion.identity);
+                        ground = Instantiate(Biome1Prefab, new Vector3(indiceX, 0, indiceY), Quaternion.identity);
                         ground.transform.SetParent(transform);
                         break;
                 }
@@ -86,6 +99,9 @@ public class MapGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Random.seed = (int)System.DateTime.Now.Ticks; 
+        level = 0;
+        biomeUse = new bool[] {false,false,false,false};
         GenerateMap(matrixCase);
         
     }

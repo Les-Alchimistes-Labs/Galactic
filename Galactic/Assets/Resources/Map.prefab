@@ -44,9 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52fd553b9f0cb7468a0594b319e8e0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundPrefab: {fileID: 790013055783165924, guid: 7ad4275c8a417cb4a9d842f196d415e7, type: 3}
+  Biome1Prefab: {fileID: 790013055783165924, guid: 7ad4275c8a417cb4a9d842f196d415e7, type: 3}
   treePrefab: {fileID: 6861211463795509193, guid: 68eaed47601a93e48a58b42bd5bfdb3c, type: 3}
   wallPrefab: {fileID: 0}
   riverPrefab: {fileID: 2317075571703893349, guid: 26e07b46482c556468073c7d05d0f19f, type: 3}
   itemPrefab: {fileID: 0}
   rockPrefab: {fileID: 2627030929205590367, guid: 8571ee0cce8100e47b63d8c8eed825da, type: 3}
+  IntermediateMonster: {fileID: 803759685421326402, guid: bcae00e326d071a4bbaf54201a6f5d9d, type: 3}
+  BossFinalMonster: {fileID: 0}
+  biomeUse: 
+  level: 0

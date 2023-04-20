@@ -20,7 +20,7 @@ public class Player2 : MonoBehaviour
 		public float gravity = 20.0f;
 		public Personnage Personnage;
 		public GameObject littelMonster;
-		public GameObject FinalBoss;
+		//public GameObject FinalBoss;
 		private PhotonView _photonView;
 		public EnumChoice Choice;
 		public EnumPlayer Player;
@@ -56,7 +56,7 @@ public class Player2 : MonoBehaviour
 
 			_photonView = GetComponent<PhotonView>();
 			Choice = EnumChoice.None;
-			EnemyGenerator.EnemyGeneratore(EnumMonster.BossFinal, FinalBoss,transform ,Personnage.level,0,0 );
+			//EnemyGenerator.EnemyGeneratore(EnumMonster.BossFinal, FinalBoss,transform ,Personnage.level,0,0 );
 
 		}
 

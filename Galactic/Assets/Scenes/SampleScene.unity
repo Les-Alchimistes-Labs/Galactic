@@ -1929,10 +1929,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad2a96c2ac48dc4c91dba1c9376040c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBag: {fileID: 11400000, guid: 98667c0eeddfb134daf932e796ba3553, type: 2}
-  slotGrid: {fileID: 162395538}
-  slotPrefab: {fileID: 2065674893718822270, guid: eb0d452d13e5fcd4cbe9fe4357da3e7f, type: 3}
-  itemInformation: {fileID: 227933938}
 --- !u!4 &266693525 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5118155063503014880, guid: 54dd5cbe8458d0c41ae24ec04c21c8e7, type: 3}
@@ -10644,12 +10640,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52fd553b9f0cb7468a0594b319e8e0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundPrefab: {fileID: 790013055783165924, guid: 7ad4275c8a417cb4a9d842f196d415e7, type: 3}
+  Biome1Prefab: {fileID: 790013055783165924, guid: 7ad4275c8a417cb4a9d842f196d415e7, type: 3}
   treePrefab: {fileID: 6861211463795509193, guid: 68eaed47601a93e48a58b42bd5bfdb3c, type: 3}
   wallPrefab: {fileID: 0}
   riverPrefab: {fileID: 2317075571703893349, guid: 26e07b46482c556468073c7d05d0f19f, type: 3}
   itemPrefab: {fileID: 0}
   rockPrefab: {fileID: 2627030929205590367, guid: 8571ee0cce8100e47b63d8c8eed825da, type: 3}
+  IntermediateMonster: {fileID: 803759685421326402, guid: bcae00e326d071a4bbaf54201a6f5d9d, type: 3}
+  BossFinalMonster: {fileID: 803759685421326402, guid: bcae00e326d071a4bbaf54201a6f5d9d, type: 3}
+  biomeUse: 
+  level: 0
 --- !u!4 &1302465217 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5118155063503014880, guid: 54dd5cbe8458d0c41ae24ec04c21c8e7, type: 3}
