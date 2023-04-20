@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using UnityEngine;
 namespace personnage_class.Personage.Monsters
 {
     public class BossFinal : Monster
@@ -43,5 +45,32 @@ namespace personnage_class.Personage.Monsters
             
         }
 
+        public override void Target(List<Personnage> heros , int find)
+        {
+            Personnage target = null;
+            List<Personnage> targets = null;
+            if (find < 20)
+                targets = heros; //attaquer tous les ennemis
+            if (find is >= 20 and < 35)
+            {
+                target = heros[0];
+                for (int i = 1; i < heros.Count - 1; i++)
+                {
+                    if (heros[i].Get_damage() > target.Get_damage())
+                        target = heros[i];
+                }
+            }
+            else
+            {
+                target = heros[0];
+                for (int i = 1; i < heros.Count - 1; i++)
+                {
+                    if (heros[i].Getlife < target.Getlife)
+                        target = heros[i];
+                }
+            }
+
+            Attack(target,targets);
+        }
     }
 }

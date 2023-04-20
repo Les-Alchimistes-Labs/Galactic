@@ -119,6 +119,59 @@ public abstract class Personnage : Update
 
     public int GetXP() => _xp;
 
+
+    public (int pos, int damage, Item better_weapon) better_healorboost() // return tuple with dammage and the better weapon in inventory
+    {
+        int max = 0;
+        Item better = null;
+        int pos = -1;
+
+        if (Life > 8)
+        {
+            for (int i = 0; i < Inventory.Length; i++)
+            {
+                if (Inventory[i] != null && (Inventory[i].Type == EnumsItem.Boost ))
+                {
+                    pos = i;
+                    if (better != null  &&  better.GetDamage() < Inventory[i].GetDamage())
+                    {
+                        max = Inventory[i].GetDamage();
+                        better = Inventory[i];
+                    }
+                    else 
+                    {
+                        max = Inventory[i].GetDamage();
+                        better = Inventory[i];
+                    }
+                }
+            }
+
+        }
+        if (pos == -1)
+        {
+            for (int i = 0; i < Inventory.Length; i++)
+            {
+                if (Inventory[i] != null && ( Inventory[i].Type == EnumsItem.Food ))
+                {
+                    pos = i;
+                    if (better != null  &&  better.GetDamage() < Inventory[i].GetDamage())
+                    {
+                        max = Inventory[i].GetDamage();
+                        better = Inventory[i];
+                    }
+                    else 
+                    {
+                        max = Inventory[i].GetDamage();
+                        better = Inventory[i];
+                    }
+                }
+            }
+        }
+        
+
+        return (pos,max, better);
+    }
+    
     public (int pos,int damage, Item better_weapon) better_weapon() // return tuple with dammage and the better weapon in inventory
     {
         int max = 0;

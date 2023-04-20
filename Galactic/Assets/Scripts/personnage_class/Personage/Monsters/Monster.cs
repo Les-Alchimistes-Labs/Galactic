@@ -52,7 +52,18 @@ namespace personnage_class.Personage
             }
         }
 
-        
+        public override void Attack(Personnage victim = null, List<Personnage> victims = null)
+        {
+            int crit = Random.Range(0, 100);
+            if (crit < 10)
+                victim.Take_Damage(Get_damage()*2);
+            else 
+                victim.Take_Damage(Get_damage());
+        }
+
+        public abstract void Target(List<Personnage> heros , int find);
+
+
 
     }
 }

@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     public GameObject _active_monster;
     private List<Player2> Players;
     private List<GameObject> PlayersG;
+    private List<Personnage> PPlayers;
     private bool waita;
     private int _pos;
     public int level;
@@ -28,6 +29,7 @@ public class Enemy : MonoBehaviour
         _pos = 0;
         PlayersG = new List<GameObject>();
         Players = new List<Player2>();
+        PPlayers = new List<Personnage>();
         level = 0;
         waita = false;
         switch (Monster)
@@ -72,19 +74,11 @@ public class Enemy : MonoBehaviour
                 {
                     if (!waita)
                     {
-                        int temp = Random.Range(0, Players.Count);
+                        int temp = Random.Range(0, 100);
                         waita = true;
                         StartCoroutine(wait(temp));
                         _photonView.RPC("reset_pos", RpcTarget.All,temp);
-                        Debug.Log(Players[temp].Personnage.Getlife);
-                        if (!Players[temp].Personnage.IsAlive())
-                        {
-                            Debug.Log("player is dead");
-                            PlayersG[temp].transform.position =Players[temp].Spwan ;
-                            
-                            _photonView.RPC("playerkill", RpcTarget.All,temp);
 
-                        }
                     }
 
                 }
@@ -99,7 +93,9 @@ public class Enemy : MonoBehaviour
                             Players[_pos].Personnage.Change_Weapon_Equipped(Players[_pos].Personnage.PosInv);
                             break;
                         case EnumChoice.HealorBoost:
-                            Players[_pos].Personnage.Use(Players[_pos].Personnage.PosInv);
+                            int pos = Players[_pos].Personnage.better_healorboost().pos;
+                            if (pos != -1 )
+                                Players[_pos].Personnage.Use(Players[pos].Personnage.PosInv);
                             break;
 
 
@@ -145,9 +141,23 @@ public class Enemy : MonoBehaviour
     [PunRPC]
     void reset_pos(int temp)
     {
-        if (_pos >= Players.Count)
-            _monstre.Attack(Players[temp].Personnage);
+        ((Monster)_monstre).Target(PPlayers,temp);
         _pos = 0;
+
+        for (int i=0 ; i<PPlayers.Count;i++)
+        {
+            Players[i].Choice = EnumChoice.None;
+            if (!Players[i].Personnage.IsAlive())
+            {
+                Debug.Log("player is dead");
+                PlayersG[i].transform.position =Players[i].Spwan ;
+                            
+                _photonView.RPC("playerkill", RpcTarget.All,i);
+
+            }
+        }
+        
+        
     }
     
     [PunRPC]
@@ -188,6 +198,7 @@ public class Enemy : MonoBehaviour
 
         if (!find)
         {
+            PPlayers.Add(other.gameObject.GetComponent<Player2>().Personnage);
             Players.Add(other.gameObject.GetComponent<Player2>());
             PlayersG.Add(other.gameObject);
         }
@@ -200,13 +211,14 @@ public class Enemy : MonoBehaviour
         {
             player.Personnage.inFight = false;
             player.Personnage.canMove = true;
-            player.Choice = EnumChoice.None;
+            
         }
     }
     
     [PunRPC]
     void playerkill(int i)
     {
+        PPlayers.RemoveAt(i);
         Players.RemoveAt(i);
         PlayersG.RemoveAt(i);
     }
