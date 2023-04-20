@@ -119,33 +119,50 @@ public abstract class Personnage : Update
 
     public int GetXP() => _xp;
 
-    public (int damage, Item better_weapon) better_weapon() // return tuple with dammage and the better weapon in inventory
+    public (int pos,int damage, Item better_weapon) better_weapon() // return tuple with dammage and the better weapon in inventory
     {
         int max = 0;
         Item better = null;
-        foreach (var item in Inventory)
+        int pos = -1;
+        for (int i = 0; i < Inventory.Length; i++)
         {
-            if (item != null && item.Type == EnumsItem.Armes)
+            if (Inventory[i] != null && Inventory[i].Type == EnumsItem.Armes)
             {
-                if (better != null  &&  better.GetDamage() < item.GetDamage())
+                pos = i;
+                if (better != null  &&  better.GetDamage() < Inventory[i].GetDamage())
                 {
-                    max = item.GetDamage();
-                    better = item;
+                    max = Inventory[i].GetDamage();
+                    better = Inventory[i];
                 }
                 else 
                 {
-                    max = item.GetDamage();
-                    better = item;
+                    max = Inventory[i].GetDamage();
+                    better = Inventory[i];
                 }
             }
-            
         }
-        
-        return (max, better);
+
+        return (pos,max, better);
     }
 
     public void Change_Weapon_Equipped(int i) // change the Weapon equipped  by the item at the index 
     {
+        if (Inventory[i] != null && Inventory[i].Type == EnumsItem.Armes) 
+            (Inventory[i], pricipale_Weapon) = (pricipale_Weapon, Inventory[i]);
+        else
+        {
+            i = better_weapon().pos;
+            if (i!= -1 && (Inventory[i] == null || Inventory[i].Type == EnumsItem.Armes) ) 
+                (Inventory[i], pricipale_Weapon) = (pricipale_Weapon, Inventory[i]);
+        }
+        if (i!= -1)
+            Debug.Log($"hand have : {pricipale_Weapon.Name}");
+    }
+    
+    public void Change_Weapon_Equipped() // change the Weapon equipped  by the item at the index 
+    {
+        int i = better_weapon().pos;
+        
         if (Inventory[i] == null || Inventory[i].Type == EnumsItem.Armes) 
             (Inventory[i], pricipale_Weapon) = (pricipale_Weapon, Inventory[i]);
     }

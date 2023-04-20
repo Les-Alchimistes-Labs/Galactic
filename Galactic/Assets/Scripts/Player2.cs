@@ -205,7 +205,6 @@ public class Player2 : MonoBehaviour
 			else if (other.tag == "Enemy")
 			{
 				Personnage.canMove = false;
-				Debug.Log($"in and {Personnage.canMove}");
 				Personnage.inFight = true;
 				anim.SetInteger ("AnimationPar", 0);
 				
