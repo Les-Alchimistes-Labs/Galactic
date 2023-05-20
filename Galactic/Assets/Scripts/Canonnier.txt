@@ -1,6 +1,6 @@
 type:Canonnier
 name:test
 level:4
-xp:4
+xp:12
 life:10
-inventory: Sniper Cheese Banana Cheese Banana Cheese Banana Cheese
+inventory: Hamburger Hamburger Hamburger Boss_Weapon Banana Cheese Banana Potion_Stamina

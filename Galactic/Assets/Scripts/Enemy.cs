@@ -110,12 +110,20 @@ public class Enemy : MonoBehaviour
             else if ( !_monstre.IsAlive())
             {
                 Debug.Log("monster is dead");
+                GameObject temp;
+                if (_monstre.pricipale_Weapon != null)
+                {
+                    temp = PhotonNetwork.Instantiate(_monstre.pricipale_Weapon.Name,transform.position,transform.rotation,0);
+                    temp.GetComponent<ItemInGame>().Item = _monstre.pricipale_Weapon;
+
+                }
+                _monstre.Change_Weapon_Equipped(_monstre.Get_Inventory().Length-1);
                 for (int i = 0; i < _monstre.Get_Inventory().Length; i++)
                 {
                     Item old = _monstre.Trow(i);
                     if (old != null)
                     {
-                        GameObject temp;
+                        
                         temp = PhotonNetwork.Instantiate(old.Name,transform.position,transform.rotation,0);
                         temp.GetComponent<ItemInGame>().Item = old;
                     }
