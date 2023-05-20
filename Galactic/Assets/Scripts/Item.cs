@@ -20,7 +20,7 @@ public class ItemInGame : MonoBehaviour
             case "Banana":
                 Item = new Food("Banana",1,1);
                 break;
-            case "Cheese Variant":
+            case "Cheese":
                 Item = new Food("Cheese",1,1);
                 break;
             case "Hamburger":

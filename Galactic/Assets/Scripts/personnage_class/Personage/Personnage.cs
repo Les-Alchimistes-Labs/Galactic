@@ -20,6 +20,11 @@ public abstract class Personnage : Update
     protected int Boost;
     protected Item[]? Inventory ;
     private int _maxlevel;
+
+    public void Reset_Inventory()
+    {
+        Inventory = new Item[Inventory.Length];
+    }
     
     public int PosInv // rajouter
     {
@@ -89,9 +94,13 @@ public abstract class Personnage : Update
     }
     
     
-    public string name => this._name; 
+    public string name
+    {
+        get => this._name;
+        set => this._name = value;
+    }
 
-    
+
     public Item[] Get_Inventory ()=> Inventory;
 
 

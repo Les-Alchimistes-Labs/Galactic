@@ -1,0 +1,6 @@
+type:Canonnier
+name:test
+level:4
+xp:4
+life:10
+inventory: Sniper Cheese Banana Cheese Banana Cheese Banana Cheese

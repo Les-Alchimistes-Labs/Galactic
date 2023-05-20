@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using DefaultNamespace;
 using personnage_class.Personage;
+using Photon.Pun;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -58,7 +59,7 @@ public class MapGenerator : MonoBehaviour
                     case (Case.EnumType.Ground, EnumsItem.Empty):
                         GameObject ground = Instantiate(Biome1Prefab, new Vector3(indiceX, 0, indiceY), Quaternion.identity);
                         ground.transform.SetParent(transform);
-                        if (Random.Range(0,200) == 1 && !biomeUse[0] && indiceY>10 )
+                        if (Random.Range(0,200) == 1 && !biomeUse[0] && indiceY>10  && PhotonNetwork.IsMasterClient )
                         {
                             biomeUse[0] = true;
                             EnemyGenerator.EnemyGeneratore(EnumMonster.BossIntermediate,IntermediateMonster,null,level,indiceX,indiceY);

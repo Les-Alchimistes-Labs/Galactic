@@ -37,23 +37,24 @@ public class Player2 : MonoBehaviour
 			controller = GetComponent <CharacterController>();
 			anim = gameObject.GetComponentInChildren<Animator>();
 			Spwan = new Vector3(0, 2, 0);
-			switch (Player)
-				{
-					case EnumPlayer.Soldat:
-						Personnage = new Soldat("test");
-						break;
-					case EnumPlayer.Sniper:
-						Personnage = new Sniper("test");
-						break;
-					case EnumPlayer.Canonnier:
-						Personnage = new Canonnier("test");
-						break;
-					case EnumPlayer.Hacker:
-						Personnage = new Hacker("test");
-						break;
+			/*
+			 switch (Player)
+			{
+				case EnumPlayer.Soldat:
+					Personnage = new Soldat("test");
+					break;
+				case EnumPlayer.Sniper:
+					Personnage = new Sniper("test");
+					break;
+				case EnumPlayer.Canonnier:
+					Personnage = new Canonnier("test");
+					break;
+				case EnumPlayer.Hacker:
+					Personnage = new Hacker("test");
+					break;
                 
-				}
-
+			}
+			*/
 			_photonView = GetComponent<PhotonView>();
 			Choice = EnumChoice.None;
 			//EnemyGenerator.EnemyGeneratore(EnumMonster.BossFinal, FinalBoss,transform ,Personnage.level,0,0 );
@@ -63,6 +64,10 @@ public class Player2 : MonoBehaviour
 		void Update (){
 			if (Personnage.canMove && _photonView.IsMine  )
 			{
+				if (Input.GetKey(KeyCode.Escape))
+				{
+					GameObject.FindGameObjectWithTag("GameManager").GetComponent<Game_Manager>().QuitRoomToMenu();
+				}
 				if (Input.GetKey ("w")) {
 					anim.SetInteger ("AnimationPar", 1);
 				}  else {
