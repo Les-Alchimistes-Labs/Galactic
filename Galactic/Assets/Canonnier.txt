@@ -1,4 +1,7 @@
 type:Canonnier
 name:test
-life:10
-inventory: Gun Sniper
+Principal_Weapon:Gun
+level:4
+xp:12
+life:6
+inventory: Cheese Sniper Banana Banana Cheese

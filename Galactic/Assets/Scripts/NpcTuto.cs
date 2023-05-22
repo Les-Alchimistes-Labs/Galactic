@@ -47,25 +47,32 @@ public class NpcTuto : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        transform.LookAt(other.transform);
-        //Text.transform.LookAt(other.transform);
-        if (Input.GetKey(KeyCode.T) && y!= DateTime.Now.Second)
+        if (other.tag == "Player")
         {
-            x++;
-            y = DateTime.Now.Second;
-            if (x >= dialogue.Length)
+            transform.LookAt(other.transform);
+            //Text.transform.LookAt(other.transform);
+            if (Input.GetKey(KeyCode.T) && y != DateTime.Now.Second)
             {
-                x =0;
-                
+                x++;
+                y = DateTime.Now.Second;
+                if (x >= dialogue.Length)
+                {
+                    x = 0;
+
+                }
+
+                Text.GetComponent<TextMeshPro>().text = dialogue[x];
+                Debug.Log(Text.GetComponent<TextMeshPro>().text);
+                Text.GetComponent<TextMeshPro>().ForceMeshUpdate();
+
             }
-            Text.GetComponent<TextMeshPro>().text =dialogue[x];
-            Debug.Log(Text.GetComponent<TextMeshPro>().text);
-            Text.GetComponent<TextMeshPro>().ForceMeshUpdate();
-            
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        Text.SetActive(false);
+        if (other.tag == "Player")
+        {
+            Text.SetActive(false);
+        }
     }
 }

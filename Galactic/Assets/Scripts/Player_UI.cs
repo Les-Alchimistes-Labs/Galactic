@@ -43,7 +43,7 @@ public class Player_UI : MonoBehaviour
             move = _player2.Personnage.canMove;
             lv = _player2.Personnage.level;
             actual_hp = _player2.Personnage.Getlife;
-            Max_hp = _player2.Personnage.GetMaxLife();
+            Max_hp = _player2.Personnage.MaxLife;
             actual_exp = _player2.Personnage.GetXP();
             Max_exp = _player2.Personnage.Maxxp;
             life = actual_hp / Max_hp;

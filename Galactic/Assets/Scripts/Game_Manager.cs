@@ -78,25 +78,11 @@ public class Game_Manager : MonoBehaviourPunCallbacks
         heal_Boost = true;
     }
 
-    private void Update_Player(Player2 p, EnumPlayer player)
+    private void Update_Player(Player2 p)
     {
         string path = Application.dataPath;
-        switch (player)
-        {
-            case EnumPlayer.Soldat:
-                p.Personnage = new Soldat("test");
-                break;
-            case EnumPlayer.Sniper:
-                p.Personnage = new Sniper("test");
-                break;
-            case EnumPlayer.Canonnier:
-                p.Personnage = new Canonnier("test");
-                break;
-            case EnumPlayer.Hacker:
-                p.Personnage = new Hacker("test");
-                break;
 
-        }
+        p.name = "test";
         if (use_old_inventory && File.Exists(path + $@"\{p.Player}.txt"))
         {
             int nbligne = 0;
@@ -212,7 +198,8 @@ public void Select_Soldat()
         test = PhotonNetwork.Instantiate(Soldat_prefab.name, new Vector3(0, 1, -10), Quaternion.identity, 0);
         GUI.SetActive(false);
         PlayerUI.SetActive(true);
-        Update_Player(test.GetComponent<Player2>(),EnumPlayer.Soldat);
+        test.GetComponent<Player2>().Personnage = new Soldat("test");
+        Update_Player(test.GetComponent<Player2>());
 
 
     }
@@ -221,14 +208,16 @@ public void Select_Soldat()
         test =PhotonNetwork.Instantiate(Sniper_prefab.name, new Vector3(0, 1, -10), Quaternion.identity, 0);
         GUI.SetActive(false);
         PlayerUI.SetActive(true);
-        Update_Player(test.GetComponent<Player2>(),EnumPlayer.Sniper);
+        test.GetComponent<Player2>().Personnage = new Sniper("test");
+        Update_Player(test.GetComponent<Player2>());
     }
     public void Select_Canonnier()
     {
         test =PhotonNetwork.Instantiate(Canonnier_prefab.name, new Vector3(0, 1, -10), Quaternion.identity, 0);
         GUI.SetActive(false);
         PlayerUI.SetActive(true);
-        Update_Player(test.GetComponent<Player2>(),EnumPlayer.Canonnier);
+        test.GetComponent<Player2>().Personnage = new Canonnier("test");
+        Update_Player(test.GetComponent<Player2>());
         
     }
     public void Select_Hacker()
@@ -236,7 +225,8 @@ public void Select_Soldat()
         test =PhotonNetwork.Instantiate(Hacker_prefab.name, new Vector3(0, 1, -10), Quaternion.identity, 0);
         GUI.SetActive(false);
         PlayerUI.SetActive(true);
-        Update_Player(test.GetComponent<Player2>(),EnumPlayer.Hacker);
+        test.GetComponent<Player2>().Personnage = new Hacker("test");
+        Update_Player(test.GetComponent<Player2>());
         
     }
     

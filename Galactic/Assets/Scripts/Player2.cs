@@ -25,6 +25,7 @@ public class Player2 : MonoBehaviour
 		public EnumPlayer Player;
 		public Vector3 Spwan;
 		public GameObject Map;
+		public KeyCode[] bind = new KeyCode[] { KeyCode.W,KeyCode.S,KeyCode.A,KeyCode.D,KeyCode.Q,KeyCode.E};
 		
 
 
@@ -35,7 +36,7 @@ public class Player2 : MonoBehaviour
 			itemOnWorld = GetComponent<ItemOnWorld>();
 			controller = GetComponent <CharacterController>();
 			anim = gameObject.GetComponentInChildren<Animator>();
-			Spwan = new Vector3(0, 2, 0);
+			Spwan = new Vector3(10, 2, -10);
 			/*
 			 switch (Player)
 			{
@@ -63,22 +64,22 @@ public class Player2 : MonoBehaviour
 		void Update (){
 			if (Personnage.canMove && _photonView.IsMine  )
 			{
-				if (Input.GetKey ("w")) {
+				if (Input.GetKey (bind[0])) {
 					anim.SetInteger ("AnimationPar", 1);
 				}  else {
 					anim.SetInteger ("AnimationPar", 0);
 				}
 
+				 
 				if(controller.isGrounded){
-					moveDirection = transform.forward * Input.GetAxis("Vertical") * speed;
+					moveDirection = transform.forward * Input.GetAxis("Vertical")* speed;
 				}
 
 				float turn = Input.GetAxis("Horizontal");
 				transform.Rotate(0, turn * turnSpeed * Time.deltaTime, 0);
-				
+				moveDirection.y -= gravity * Time.deltaTime; 
 				controller.Move(moveDirection * Time.deltaTime);
-				moveDirection.y -= gravity * Time.deltaTime;
-				if ((moveDirection.x != 0 || moveDirection.z != 0) && !Personnage.InSafeZone )
+				if ((moveDirection.x!= 0 || moveDirection.z!= 0) && !Personnage.InSafeZone )
 				{
 					if (Random.Range(0, 1001) == 10)
 					{
@@ -88,6 +89,8 @@ public class Player2 : MonoBehaviour
 					}
 
 				}
+				
+				
 				if (Input.GetKeyDown("q"))
 				{
 					Item old = Personnage.Trow(Personnage.PosInv);
@@ -122,7 +125,7 @@ public class Player2 : MonoBehaviour
 
 				if (!Personnage.IsAlive() || transform.position.y < -5)
 				{
-					Personnage.Add_Life(Personnage.GetMaxLife());
+					Personnage.Add_Life(Personnage.MaxLife);
 					transform.position = Spwan;
 				}
 

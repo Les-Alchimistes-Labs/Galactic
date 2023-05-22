@@ -233,7 +233,6 @@ MonoBehaviour:
   turnSpeed: 400
   gravity: 20
   littelMonster: {fileID: 5856260557729891688, guid: 317d11e6c8f1ff84292566636ce29b6a, type: 3}
-  FinalBoss: {fileID: 803759685421326402, guid: bcae00e326d071a4bbaf54201a6f5d9d, type: 3}
   Choice: 0
   Player: 0
   Spwan: {x: 0, y: 0, z: 0}

@@ -15,7 +15,7 @@ public abstract class Personnage : Update
     private int _xp;
     private int _maxxp;
     protected int Life;
-    protected int MaxLife;
+    protected int _maxlife;
     protected int Damage;
     protected int Boost;
     protected Item[]? Inventory ;
@@ -45,9 +45,17 @@ public abstract class Personnage : Update
         }
     }
 
-    public int GetMaxLife ()
+    public int MaxLife
     {
-        return MaxLife;
+        get
+        {
+            return _maxlife + (level*2) ;
+        }
+        set
+        {
+            _maxlife = value;
+        }
+        
     }
     
     
@@ -56,7 +64,7 @@ public abstract class Personnage : Update
 
     public int Maxxp // rajouter
     {
-        get { return _maxxp;}
+        get { return _maxxp + (level*2);}
         set
         {
             if (value > Maxxp)
