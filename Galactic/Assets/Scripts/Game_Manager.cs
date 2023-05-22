@@ -199,7 +199,7 @@ public class Game_Manager : MonoBehaviourPunCallbacks
                         }
                     }
                 }
-                    
+                sr.Close();
             }
         }
     }
