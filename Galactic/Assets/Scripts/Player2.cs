@@ -4,7 +4,6 @@ using Photon.Realtime;
 using System.Collections;
 using personnage_class.Personage;
 using Photon.Pun;
-using ExitGames.Client.Photon.StructWrapping;
 using Random = UnityEngine.Random;
 
 
@@ -64,10 +63,6 @@ public class Player2 : MonoBehaviour
 		void Update (){
 			if (Personnage.canMove && _photonView.IsMine  )
 			{
-				if (Input.GetKey(KeyCode.Escape))
-				{
-					GameObject.FindGameObjectWithTag("GameManager").GetComponent<Game_Manager>().QuitRoomToMenu();
-				}
 				if (Input.GetKey ("w")) {
 					anim.SetInteger ("AnimationPar", 1);
 				}  else {

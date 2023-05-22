@@ -33,7 +33,7 @@ namespace personnage_class.Personage.Monsters
 
             while (nb_Food > 0)
             {
-                Inventory[nb_Boost + nb_Food] = new Food("Hamburger", 50, life * Boost * level);
+                Inventory[nb_Boost + nb_Food] = new Food("Hamburger", 50, life * level);
                 nb_Food--;
             }
 

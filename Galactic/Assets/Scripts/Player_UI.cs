@@ -14,7 +14,7 @@ public class Player_UI : MonoBehaviour
     public static float Max_hp;
     public static float actual_exp;
     public static float Max_exp;
-    public static string Name;
+    public static string Name="";
     public static float life;
     public static float exp;
     public static int lv;

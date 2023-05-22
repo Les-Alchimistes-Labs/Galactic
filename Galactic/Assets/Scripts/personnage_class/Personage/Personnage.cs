@@ -142,15 +142,17 @@ public abstract class Personnage : Update
                 if (Inventory[i] != null && (Inventory[i].Type == EnumsItem.Boost ))
                 {
                     pos = i;
-                    if (better != null  &&  better.GetDamage() < Inventory[i].GetDamage())
+                    if (better != null  &&  better.GetBoost() < Inventory[i].GetBoost())
                     {
                         max = Inventory[i].GetDamage();
                         better = Inventory[i];
+                        pos = i;
                     }
-                    else 
+                    else
                     {
                         max = Inventory[i].GetDamage();
                         better = Inventory[i];
+                        pos = i;
                     }
                 }
             }
@@ -162,16 +164,17 @@ public abstract class Personnage : Update
             {
                 if (Inventory[i] != null && ( Inventory[i].Type == EnumsItem.Food ))
                 {
-                    pos = i;
-                    if (better != null  &&  better.GetDamage() < Inventory[i].GetDamage())
+                    if (better != null  &&  better.GetHeal() < Inventory[i].GetHeal())
                     {
                         max = Inventory[i].GetDamage();
                         better = Inventory[i];
+                        pos = i;
                     }
-                    else 
+                    else
                     {
                         max = Inventory[i].GetDamage();
                         better = Inventory[i];
+                        pos = i;
                     }
                 }
             }
@@ -336,10 +339,14 @@ public abstract class Personnage : Update
                 case EnumsItem.Equipement :
                     break;
                 case EnumsItem.Food :
-                    if (Life + item.GetBoost() < MaxLife)
+                    if (Life + item.GetHeal() < MaxLife)
                     {
-                        Boost += (item.GetBoost());
+                        Life += (item.GetHeal());
                         return true;
+                    }
+                    else
+                    {
+                        Life = MaxLife;
                     }
                     break;
             }       

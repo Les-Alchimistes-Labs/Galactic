@@ -61,12 +61,12 @@ namespace personnage_class.Personage
             
         public int GetDamage()
             {
-                return  (int) (Damage * Boost);
+                return  (int) Damage;
             }
             
         public int GetHeal()
             {
-                return (int) (Heal * Boost);
+                return (int) Heal;
             }
         
     

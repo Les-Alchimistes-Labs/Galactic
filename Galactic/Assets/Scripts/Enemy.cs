@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour
     IEnumerator wait(int temp)
     {
         print(Time.time);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         waita = false;
         print(Time.time);
     }
@@ -77,6 +77,7 @@ public class Enemy : MonoBehaviour
                         int temp = Random.Range(0, 100);
                         waita = true;
                         StartCoroutine(wait(temp));
+                        Debug.Log("you turn");
                         _photonView.RPC("reset_pos", RpcTarget.All,temp);
 
                     }
@@ -95,7 +96,7 @@ public class Enemy : MonoBehaviour
                         case EnumChoice.HealorBoost:
                             int pos = Players[_pos].Personnage.better_healorboost().pos;
                             if (pos != -1 )
-                                Players[_pos].Personnage.Use(Players[pos].Personnage.PosInv);
+                                Players[_pos].Personnage.Use(pos);
                             break;
 
 

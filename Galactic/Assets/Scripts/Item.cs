@@ -15,31 +15,31 @@ public class ItemInGame : MonoBehaviour
         switch (gameObject.name)
         {
             case "Boss_Weapon":
-                Item = new Boss_Weapon(1,1,1);
+                Item = new Boss_Weapon(1,9,1);
                 break;
             case "Banana":
-                Item = new Food("Banana",1,1);
+                Item = new Food("Banana",1,3);
                 break;
             case "Cheese":
-                Item = new Food("Cheese",1,1);
+                Item = new Food("Cheese",1,5);
                 break;
             case "Hamburger":
-                Item = new Food("Hamburger",1,1);
+                Item = new Food("Hamburger",1,10);
                 break;
             case "Gun":
-                Item = new Gun(1,1,1);
+                Item = new Gun(1,3,1);
                 break;
             case "Kit_Heal":
-                Item = new Kit_Heal(1,1);
+                Item = new Kit_Heal(1,9);
                 break;
             case "Ordinateur_Kali_Linux":
-                Item = new Ordinateur_Kali_Linux(1,1);
+                Item = new Ordinateur_Kali_Linux(4,1);
                 break;
             case "Potion_Boost":
                 Item = new Potion_Boost("Potion_Mana",1,true,1,EnumsItem.Boost);
                 break;
             case "Sniper":
-                Item = new Sniper_a(1,1,1);
+                Item = new Sniper_a(5,1,1);
                 break;
         }
 

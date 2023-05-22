@@ -4,7 +4,7 @@ namespace personnage_class.Personage
     {
 
 
-        public Food(string name,int expiry, int energyAmount) : base(name,expiry, true, 0, EnumsItem.Food, energyAmount)
+        public Food(string name,int expiry, int energyAmount) : base(name,expiry, true, energyAmount, EnumsItem.Food, 0)
         {
         }
 
