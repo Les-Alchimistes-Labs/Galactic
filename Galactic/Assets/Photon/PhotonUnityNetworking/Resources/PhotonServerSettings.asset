@@ -46,6 +46,9 @@ MonoBehaviour:
   - reset_pos
   - remove_player
   - playerkill
+  - itemdrop
+  - delobj
+  - DestroyGameObject
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

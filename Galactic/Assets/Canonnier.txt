@@ -1,6 +1,5 @@
 type:Canonnier
-name:test
-Principal_Weapon:Gun
+name:Gun
 level:4
 xp:12
 life:6

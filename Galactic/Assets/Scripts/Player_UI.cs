@@ -27,7 +27,8 @@ public class Player_UI : MonoBehaviour
         view = GetComponent<PhotonView>();
         _player2 = GetComponent<Player2>(); 
         UI= canvas.GetComponent<PlayerInformation_UI>();
-        Name = _player2.Personnage.name;
+        if (_player2.Personnage != null)
+            Name = _player2.Personnage.name;
         life = 1;
         exp = 0;
         fight = false;

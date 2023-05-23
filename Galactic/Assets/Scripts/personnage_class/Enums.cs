@@ -9,7 +9,19 @@ namespace personnage_class.Personage
         Equipement,
         Empty
     }
-    
+
+    public enum EnumsItems
+    { 
+        Boss_Weapon,
+    Banana,
+    Cheese,
+    Hamburger,
+    Gun,
+    Kit_Heal,
+    Ordinateur_Kali_Linux,
+    Potion_Boost,
+    Sniper
+    }
     
     public enum EnumsPersonage
     {

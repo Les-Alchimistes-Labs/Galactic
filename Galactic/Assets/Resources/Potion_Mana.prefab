@@ -131,7 +131,7 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 3
-  OwnershipTransfer: 0
+  OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents: []
   sceneViewId: 0
@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fcbbcfe23d08894e9bccaf223d115d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnumsIteme: 7
   gameObject: {fileID: 3138855984365726070}
 --- !u!114 &8568816623150152751
 MonoBehaviour:
@@ -171,4 +172,3 @@ MonoBehaviour:
   imageKahli_Computer: {fileID: 0}
   imagePotion_Mana: {fileID: 0}
   imageSniper: {fileID: 0}
-  MyBag: {fileID: 0}

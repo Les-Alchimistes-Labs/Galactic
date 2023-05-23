@@ -91,7 +91,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fcbbcfe23d08894e9bccaf223d115d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnumsIteme: 2
   gameObject: {fileID: 5080420722600156010}
+  took: 0
 --- !u!114 &3698348450051333354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,7 +110,7 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 3
-  OwnershipTransfer: 0
+  OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents: []
   sceneViewId: 0
