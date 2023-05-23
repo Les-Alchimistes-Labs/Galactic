@@ -1,3 +1,5 @@
 type:Sniper
 name:test
+level:2
 life:5
+inventory: Cheese Banana Banana Banana Cheese Cheese Cheese Banana

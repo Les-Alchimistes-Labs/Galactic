@@ -143,7 +143,7 @@ public abstract class Personnage : Update
         Item better = null;
         int pos = -1;
 
-        if (Life > 8)
+        if (Life >= MaxLife)
         {
             for (int i = 0; i < Inventory.Length; i++)
             {
@@ -152,13 +152,13 @@ public abstract class Personnage : Update
                     pos = i;
                     if (better != null  &&  better.GetBoost() < Inventory[i].GetBoost())
                     {
-                        max = Inventory[i].GetDamage();
+                        max = Inventory[i].GetBoost();
                         better = Inventory[i];
                         pos = i;
                     }
                     else
                     {
-                        max = Inventory[i].GetDamage();
+                        max = Inventory[i].GetBoost();
                         better = Inventory[i];
                         pos = i;
                     }
@@ -174,13 +174,13 @@ public abstract class Personnage : Update
                 {
                     if (better != null  &&  better.GetHeal() < Inventory[i].GetHeal())
                     {
-                        max = Inventory[i].GetDamage();
+                        max = Inventory[i].GetHeal();
                         better = Inventory[i];
                         pos = i;
                     }
                     else
                     {
-                        max = Inventory[i].GetDamage();
+                        max = Inventory[i].GetHeal();
                         better = Inventory[i];
                         pos = i;
                     }

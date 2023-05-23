@@ -95,7 +95,7 @@ public class Enemy : MonoBehaviour
                         case EnumChoice.HealorBoost:
                             int pos = Players[_pos].Personnage.better_healorboost().pos;
                             if (pos != -1 )
-                                Players[_pos].Personnage.Use(Players[pos].Personnage.PosInv);
+                                Players[_pos].Personnage.Use(pos);
                             break;
 
 
