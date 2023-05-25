@@ -96,6 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnumsIteme: 3
   gameObject: {fileID: 5399970779049885937}
+  took: 0
 --- !u!114 &6760833645389682381
 MonoBehaviour:
   m_ObjectHideFlags: 0

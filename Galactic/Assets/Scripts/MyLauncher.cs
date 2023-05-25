@@ -79,9 +79,5 @@ public class MyLauncher : MonoBehaviourPunCallbacks
             PhotonNetwork.LoadLevel("SampleScene");
         }
     }
-
-    public static bool isConnect()
-    {
-        return isConnecting;
-    }
+    
 }

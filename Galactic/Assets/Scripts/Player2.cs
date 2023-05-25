@@ -11,7 +11,7 @@ using System.IO;
 
 public class Player2 : MonoBehaviour
 {	
-		private ItemOnWorld itemOnWorld;
+		
 		private Animator anim;
 		private CharacterController controller;
 
@@ -35,7 +35,6 @@ public class Player2 : MonoBehaviour
 		void Start ()
 		{
 			
-			itemOnWorld = GetComponent<ItemOnWorld>();
 			controller = GetComponent <CharacterController>();
 			anim = gameObject.GetComponentInChildren<Animator>();
 			Spwan = new Vector3(10, 2, -10);
@@ -144,16 +143,19 @@ public class Player2 : MonoBehaviour
 					{
 						Choice = EnumChoice.Attack;
 						Game_Manager.attack = false;
+						SoundEffects.attacksound = true;
 					}
 					if (Input.GetKeyDown("r") || Game_Manager.heal_Boost)
 					{
 						Choice = EnumChoice.HealorBoost;
 						Game_Manager.heal_Boost = false;
+						SoundEffects.healsound = true;
 					}
 					if (Input.GetKeyDown("c") || Game_Manager.changeGun)
 					{
 						Choice = EnumChoice.ChangeGun;
 						Game_Manager.changeGun = false;
+						SoundEffects.chanGunsound = true;
 					}
 
 				}
@@ -297,12 +299,10 @@ public class Player2 : MonoBehaviour
 
 		if ((other.tag == "Equipement" && (Input.GetKey("e") || Input.GetKeyDown("e"))&& !other.gameObject.GetComponent<ItemInGame>().took))
 		{
-
 			Item item = other.gameObject.GetComponent<ItemInGame>().Item;
 			bool take =Personnage.Took(item);
 			if (take  && item != null)
 			{
-				itemOnWorld.AddNewItem(item.Name);
 				other.gameObject.GetComponent<ItemInGame>().took = true;
 				_photonView.RPC("DestroyGameObject", RpcTarget.All, other.gameObject.GetComponent<PhotonView>().ViewID);
 			}
@@ -323,7 +323,6 @@ public class Player2 : MonoBehaviour
 			bool take =Personnage.Took(item);
 			if (take  && item != null)
 			{
-				itemOnWorld.AddNewItem(item.Name);
 				other.gameObject.GetComponent<ItemInGame>().took = true;
 				_photonView.RPC("DestroyGameObject", RpcTarget.All, other.gameObject.GetComponent<PhotonView>().ViewID);
 			}

@@ -13,6 +13,7 @@ public class InventoryManager : MonoBehaviour
    public GameObject slotGrid;
    public Slot slotPrefab;
    public Text itemInformation;
+   
 
    void Awake()
    {
@@ -23,7 +24,12 @@ public class InventoryManager : MonoBehaviour
 
       instance = this;
    }
-   
+
+   void Update()
+   {
+      //CreateItems();
+      
+   }
 
    private void OnEnable()
    {
@@ -36,12 +42,12 @@ public class InventoryManager : MonoBehaviour
       instance.itemInformation.text = itemDescription;
    }
    
-   public static void CreateNewItem(InventoryItem item)
+   public static void CreateItems(Sprite image)
    {
       Slot newItem = Instantiate(instance.slotPrefab, instance.slotGrid.transform.position, Quaternion.identity);
       newItem.gameObject.transform.SetParent(instance.slotGrid.transform);
-      newItem.slotItem = item;
-      newItem.slotImage.sprite = item.itemImage;
+      newItem.slotItem = ScriptableObject.CreateInstance<InventoryItem>();
+      newItem.slotImage.sprite = image;
    }
    
    
@@ -56,9 +62,9 @@ public class InventoryManager : MonoBehaviour
          //Destroy(instance.slotGrid.transform.GetChild(i).gameObject);
       //}
       
-      //for (int i = 0; i < instance.playerBag.itemList.Count; i++)
+      //for (int i = 0; i < instance.playerBag.items.Count; i++)
       //{
-         //CreateNewItem(instance.playerBag.itemList[i]);
+         //CreateItems();
       //}
    //}
 }

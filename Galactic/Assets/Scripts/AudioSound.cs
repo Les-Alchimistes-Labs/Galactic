@@ -10,6 +10,7 @@ public class AudioSound : MonoBehaviour
     void Start()
     {
         source = GetComponent<AudioSource>();
+        source.loop = true;
         source.clip = music;
         source.volume = 0.3f;
         source.Play();
@@ -19,13 +20,13 @@ public class AudioSound : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            if (source.isPlaying || MyLauncher.isConnect())
+            if (source.isPlaying)
             {
-                source.Stop();
+                source.Pause();
             }
             else
             {
-                source.Play();
+                source.UnPause();
             }
         }
     }

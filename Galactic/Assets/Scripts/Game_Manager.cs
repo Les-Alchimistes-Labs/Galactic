@@ -30,6 +30,9 @@ public class Game_Manager : MonoBehaviourPunCallbacks
     public GameObject PlayerUI;
     public int Level;
     public GameObject PauseMenu;
+    
+    public GameObject MenuButton;
+    private bool touch_MenuButton;
 
     void Start()
     {
@@ -39,6 +42,12 @@ public class Game_Manager : MonoBehaviourPunCallbacks
         changeGun = false;
         Level = 0;
         TouchButton = false;
+        touch_MenuButton = false;
+    }
+
+    public void OpenMenu()
+    {
+        touch_MenuButton = true;
     }
 
     public void OpenInventory()
@@ -113,12 +122,22 @@ public void Select_Soldat()
     
     void Update()
     {
+        if (touch_MenuButton)
+        {
+            PauseMenu.SetActive(true);
+        }
+        else
+        {
+            PauseMenu.SetActive(false);
+        }
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             //QuitApplication();
             if (PauseMenu.activeSelf)
             {
-                PauseMenu.SetActive(false);
+                //PauseMenu.SetActive(false);
+                touch_MenuButton = false;
                 foreach (var player in GameObject.FindGameObjectsWithTag("Player"))
                 {
                     if (player.GetComponent<PhotonView>().IsMine)
@@ -129,7 +148,8 @@ public void Select_Soldat()
             }
             else
             {
-                PauseMenu.SetActive(true);
+                //PauseMenu.SetActive(true);
+                touch_MenuButton = true;
                 foreach (var player in GameObject.FindGameObjectsWithTag("Player"))
                 {
                     if (player.GetComponent<PhotonView>().IsMine)
@@ -140,6 +160,7 @@ public void Select_Soldat()
             }
 
         }
+
         if (Player_UI.fight && !Player_UI.move)
         {
             Choice_Canvas.SetActive(true);
@@ -195,7 +216,8 @@ public void Select_Soldat()
     
     public void QuitRoom()
     {
-        PauseMenu.SetActive(false);
+        touch_MenuButton = false;
+        //PauseMenu.SetActive(false);
         //PhotonNetwork.LeaveRoom();
         PhotonNetwork.Disconnect();
         PhotonNetwork.LoadLevel("Connection");
@@ -204,14 +226,16 @@ public void Select_Soldat()
     
     public void QuitGame()
     {
-        PauseMenu.SetActive(false);
+        touch_MenuButton = false;
+        //PauseMenu.SetActive(false);
         PhotonNetwork.LeaveRoom();
         UnityEngine.Device.Application.Quit();
     }
     
     public void QuitRoomToMenu()
     {
-        PauseMenu.SetActive(false);
+        touch_MenuButton = false;
+        //PauseMenu.SetActive(false);
         string path = Application.dataPath;
 
         Player2 p = null;
@@ -264,7 +288,8 @@ public void Select_Soldat()
     
     public void Resume()
     {
-        PauseMenu.SetActive(false);
+        touch_MenuButton = false;
+        //PauseMenu.SetActive(false);
         foreach (var player in GameObject.FindGameObjectsWithTag("Player"))
         {
             if (player.GetComponent<PhotonView>().IsMine)
