@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Security;
+using JetBrains.Annotations;
 using UnityEngine;
 
 
@@ -20,6 +21,8 @@ public abstract class Personnage : Update
     protected int Boost;
     protected Item[]? Inventory ;
     private int _maxlevel;
+
+    public string[]? InvString;
 
     public void Reset_Inventory()
     {
@@ -109,7 +112,9 @@ public abstract class Personnage : Update
     }
 
 
-    public Item[] Get_Inventory ()=> Inventory;
+    public Item[]? Get_Inventory ()=> Inventory;
+    
+    
 
 
     public Item this[int i] 

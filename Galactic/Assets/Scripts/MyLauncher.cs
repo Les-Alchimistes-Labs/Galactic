@@ -10,6 +10,13 @@ public class MyLauncher : MonoBehaviourPunCallbacks
 
     static bool isConnecting;
     
+    public Button ForQuitGame;
+
+    public void SelectQuitGame()
+    {
+        UnityEngine.Device.Application.Quit();
+    }
+    
     private void Awake()
     {
         PhotonNetwork.AutomaticallySyncScene = true;

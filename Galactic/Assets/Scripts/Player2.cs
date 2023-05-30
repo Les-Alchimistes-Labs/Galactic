@@ -107,22 +107,18 @@ public class Player2 : MonoBehaviour
 					if (Input.GetKeyDown("1"))
 					{
 						Personnage.PosInv = 1;
-						ItemOnWorld.RemoveSprite(1);
 					}
 					if (Input.GetKeyDown("2"))
 					{
 						Personnage.PosInv = 2;
-						ItemOnWorld.RemoveSprite(2);
 					}
 					if (Input.GetKeyDown("3"))
 					{
 						Personnage.PosInv = 3;
-						ItemOnWorld.RemoveSprite(3);
 					}
 					if (Input.GetKeyDown("4"))
 					{
 						Personnage.PosInv = 4;
-						ItemOnWorld.RemoveSprite(4);
 					}
 
 					if (!Personnage.IsAlive() || transform.position.y < -5)

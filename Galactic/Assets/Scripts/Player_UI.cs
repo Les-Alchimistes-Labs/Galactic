@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
+using personnage_class.Personage;
 using UnityEngine;
 using Photon.Pun;
 
@@ -20,6 +22,8 @@ public class Player_UI : MonoBehaviour
     public static int lv;
     public static bool fight;
     public static bool move;
+
+    public static Item[]? inv = new Item[8];
     
     
     void Start()
@@ -27,17 +31,35 @@ public class Player_UI : MonoBehaviour
         view = GetComponent<PhotonView>();
         _player2 = GetComponent<Player2>(); 
         //UI= canvas.GetComponent<PlayerInformation_UI>();
-        if (_player2.Personnage != null)
-            Name = _player2.Personnage.name;
         life = 1;
         exp = 0;
         fight = false;
-        move = false;
+        move = true;
     }
 
     
     void Update()
     {
+        switch (_player2.Personnage)
+        {
+            case Canonnier:
+                Name = "Cannonier";
+                break;
+            case Sniper:
+                Name = "Sniper";
+                break;
+            case Soldat:
+                Name = "Soldat";
+                break;
+            case Hacker:
+                Name = "Hacker";
+                break;
+            default:
+                Name = "Who am I ?";
+                break;
+        }
+        
+        inv = _player2.Personnage.Get_Inventory();
         if (view.IsMine)
         {
             fight = _player2.Personnage.inFight;

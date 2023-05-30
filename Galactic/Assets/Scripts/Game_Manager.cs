@@ -300,6 +300,4 @@ public void Select_Soldat()
         
     }
     
-    
-    
 }
