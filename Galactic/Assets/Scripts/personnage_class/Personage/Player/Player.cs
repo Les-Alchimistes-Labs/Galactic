@@ -46,9 +46,8 @@ namespace personnage_class.Personage
                 }
                 
             }
-
-
         }
+        
         
         
         
