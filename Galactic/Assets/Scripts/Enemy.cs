@@ -183,7 +183,7 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         _photonView.RPC("update_Player", RpcTarget.All, other.GetComponent<PhotonView>().ViewID);
-        if (PlayersG.Count >= 2 && !ActiveMedecin)
+        if (PlayersG.Count >= 2 && !ActiveMedecin && Players[0].GetComponent<PhotonView>().IsMine )
         {
             MedecinSpawn = true;
             ActiveMedecin = PhotonNetwork.Instantiate(Medecin.name, new Vector3(0,0,0), _photonView.transform.rotation);
