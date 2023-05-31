@@ -11,10 +11,17 @@ namespace DefaultNamespace
     {
         public enum EnumType
         {
-            Tree,
+            Ground1,
+            Ground2,
+            Ground3,
+            Ground4,
+            GroundfinalBoss,
+            Tree1,
+            Tree2,
+            Tree3,
+            Tree4,
             Wall,
             River,
-            Ground,
             Item,
             Rock,
             Empty
@@ -30,22 +37,43 @@ namespace DefaultNamespace
                     switch (matrix[indiceY, indiceX])
                     {
                         case 0:
-                            newMatrix[indiceY, indiceX] = (EnumType.Ground, EnumsItem.Empty);
+                            newMatrix[indiceY, indiceX] = (EnumType.Ground1, EnumsItem.Empty);
                             break;
                         case 1:
-                            newMatrix[indiceY, indiceX] = (EnumType.Tree, EnumsItem.Empty);
+                            newMatrix[indiceY, indiceX] = (EnumType.Ground2, EnumsItem.Empty);
                             break;
                         case 2:
-                            newMatrix[indiceY, indiceX] = (EnumType.Wall, EnumsItem.Empty);
+                            newMatrix[indiceY, indiceX] = (EnumType.Ground3, EnumsItem.Empty);
                             break;
                         case 3:
-                            newMatrix[indiceY, indiceX] = (EnumType.River, EnumsItem.Empty);
+                            newMatrix[indiceY, indiceX] = (EnumType.Ground4, EnumsItem.Empty);
                             break;
                         case 4:
-                            newMatrix[indiceY, indiceX] = (EnumType.Item, EnumsItem.Empty);
+                            newMatrix[indiceY, indiceX] = (EnumType.Tree1, EnumsItem.Empty);
                             break;
                         case 5:
+                            newMatrix[indiceY, indiceX] = (EnumType.Tree2, EnumsItem.Empty);
+                            break;
+                        case 6:
+                            newMatrix[indiceY, indiceX] = (EnumType.Tree3, EnumsItem.Empty);
+                            break;
+                        case 7:
+                            newMatrix[indiceY, indiceX] = (EnumType.Tree4, EnumsItem.Empty);
+                            break;
+                        case 8:
+                            newMatrix[indiceY, indiceX] = (EnumType.Wall, EnumsItem.Empty);
+                            break;
+                        case 9:
+                            newMatrix[indiceY, indiceX] = (EnumType.River, EnumsItem.Empty);
+                            break;
+                        case 10:
+                            newMatrix[indiceY, indiceX] = (EnumType.Item, EnumsItem.Empty);
+                            break;
+                        case 11:
                             newMatrix[indiceY, indiceX] = (EnumType.Rock, EnumsItem.Empty);
+                            break;
+                        case 12:
+                            newMatrix[indiceY, indiceX] = (EnumType.GroundfinalBoss, EnumsItem.Empty);
                             break;
                         default:
                             newMatrix[indiceY, indiceX] = (EnumType.Empty, EnumsItem.Empty);
