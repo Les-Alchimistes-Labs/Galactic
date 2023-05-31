@@ -2,7 +2,7 @@ namespace personnage_class.Personage
 {
     public abstract class Player : Personnage
     {
-        public override EnumsPersonage TypePersonage() => EnumsPersonage.Monster;
+        public override EnumsPersonage TypePersonage() => EnumsPersonage.Player;
         
         protected Player(string name, int life = 10, int maxlife = 20, int damage = 5, int boost = 1, int inventorySize = 8, int levelt = 0, int maxlevel = 0) : base(name, life, maxlife, damage, boost, inventorySize, levelt, maxlevel)
         {

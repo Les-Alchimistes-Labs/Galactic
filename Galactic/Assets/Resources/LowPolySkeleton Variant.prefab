@@ -153,3 +153,4 @@ MonoBehaviour:
   Monster: 2
   _active_monster: {fileID: 5856260557729891688}
   level: 0
+  Medecin: {fileID: 6906804125549098230, guid: 3f07d34e09f5bb442aa8fd2bc83b0665, type: 3}

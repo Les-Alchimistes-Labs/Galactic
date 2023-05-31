@@ -5,7 +5,7 @@ namespace personnage_class.Personage
 {
     public class Medecin : Personnage
     {
-        public override EnumsPersonage TypePersonage() => EnumsPersonage.Monster;
+        public override EnumsPersonage TypePersonage() => EnumsPersonage.Player;
 
         public override EnumType Type() => EnumType.Medecin;
 

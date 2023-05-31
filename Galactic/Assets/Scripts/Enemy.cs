@@ -175,10 +175,22 @@ public class Enemy : MonoBehaviour
     }
 
 
+    public GameObject Medecin;
+    private GameObject ActiveMedecin;
+    private bool MedecinSpawn = false;
+    
 
     private void OnTriggerEnter(Collider other)
     {
         _photonView.RPC("update_Player", RpcTarget.All, other.GetComponent<PhotonView>().ViewID);
+        if (PlayersG.Count >= 2 && !ActiveMedecin)
+        {
+            MedecinSpawn = true;
+            ActiveMedecin = Instantiate(Medecin, new Vector3(0,0,0), _photonView.transform.rotation);
+            PPlayers.Add(other.gameObject.GetComponent<Player2>().Personnage);
+            Players.Add(other.gameObject.GetComponent<Player2>());
+            PlayersG.Add(other.gameObject);
+        }
 
     }
 

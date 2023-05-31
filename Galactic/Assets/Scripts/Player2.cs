@@ -53,6 +53,9 @@ public class Player2 : MonoBehaviour
 				case EnumPlayer.Hacker:
 					Personnage = new Hacker("test");
 					break;
+				case EnumPlayer.Medecin:
+					Personnage = new Medecin("test");
+					break;
                 
 			}
 			 _photonView = GetComponent<PhotonView>();
