@@ -1,6 +1,5 @@
 type:Canonnier
-name:Gun
-level:4
-xp:12
-life:6
-inventory: Cheese Sniper Banana Banana Cheese
+name:Sniper
+level:6
+life:20
+inventory: Banana Sniper Cheese Gun Banana Cheese Banana Cheese
