@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2781025959524396076
 MonoBehaviour:
@@ -49,7 +49,7 @@ MonoBehaviour:
   gravity: 20
   littelMonster: {fileID: 5856260557729891688, guid: 317d11e6c8f1ff84292566636ce29b6a, type: 3}
   Choice: 0
-  Player: 3
+  Player: 4
   Spwan: {x: 0, y: 0, z: 0}
   Map: {fileID: 8085908573956486280, guid: d9764f6125dcd5b478256ef39aa03e40, type: 3}
   bind: 770000007300000061000000640000007100000065000000

@@ -186,7 +186,7 @@ public class Enemy : MonoBehaviour
         if (PlayersG.Count >= 2 && !ActiveMedecin)
         {
             MedecinSpawn = true;
-            ActiveMedecin = Instantiate(Medecin, new Vector3(0,0,0), _photonView.transform.rotation);
+            ActiveMedecin = PhotonNetwork.Instantiate(Medecin.name, new Vector3(0,0,0), _photonView.transform.rotation);
             PPlayers.Add(other.gameObject.GetComponent<Player2>().Personnage);
             Players.Add(other.gameObject.GetComponent<Player2>());
             PlayersG.Add(other.gameObject);
@@ -242,9 +242,16 @@ public class Enemy : MonoBehaviour
     [PunRPC]
     void playerkill(int i)
     {
-        PPlayers.RemoveAt(i);
-        Players.RemoveAt(i);
-        PlayersG.RemoveAt(i);
+        
+        if (PPlayers[i].Type() == EnumType.Medecin)
+        {Destroy(PlayersG[i]);}
+        else
+        {
+            PPlayers.RemoveAt(i);
+            Players.RemoveAt(i);
+            PlayersG.RemoveAt(i); 
+        }
+
     }
 
 
