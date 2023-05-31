@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1192558983399864835}
   - component: {fileID: 2781025959524396076}
+  - component: {fileID: 3622239597976598363}
   m_Layer: 0
   m_Name: Medecin
   m_TagString: Untagged
@@ -54,3 +55,25 @@ MonoBehaviour:
   Map: {fileID: 8085908573956486280, guid: d9764f6125dcd5b478256ef39aa03e40, type: 3}
   bind: 770000007300000061000000640000007100000065000000
   Enemy: {fileID: 0}
+--- !u!114 &3622239597976598363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6906804125549098230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
