@@ -120,6 +120,7 @@ MonoBehaviour:
   Monster: 0
   _active_monster: {fileID: 803759685421326402}
   level: 100
+  Medecin: {fileID: 0}
 --- !u!65 &3951999753273465625
 BoxCollider:
   m_ObjectHideFlags: 0

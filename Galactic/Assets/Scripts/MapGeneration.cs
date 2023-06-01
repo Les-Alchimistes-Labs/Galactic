@@ -23,13 +23,14 @@ public class MapGenerator : MonoBehaviour {
     public GameObject BossFinalMonster; 
     public bool[] biomeUse; 
     public int level;
-    
+    public int diffx = 100;
 
     private static int[,] matrixLevel;
     private static int[,] finalMonsterRoom;
 
     private void Awake()
     {
+        diffx =200/2;
         matrixLevel = new int[200,200];
         finalMonsterRoom = new int[25,25];
         GenerateMatrixLevel(matrixLevel);
@@ -210,12 +211,13 @@ public class MapGenerator : MonoBehaviour {
     }
 
 
-    public (Case.EnumType, EnumsItem)[,] matrixCase;
+    public (Case.EnumType, EnumsItem)[,] matrixCase = new (Case.EnumType, EnumsItem)[200, 200];
 
     
 
     public void GenerateMap(int[,] matrixLevel)
     {
+       
         matrixCase = new Case().ConvertMatrix(matrixLevel);
 
         for (int indiceX = 0; indiceX < matrixCase.GetLength(0); indiceX++)
@@ -224,9 +226,9 @@ public class MapGenerator : MonoBehaviour {
             {
                 GameObject ground;
 
-                if (indiceY == 0 && (indiceX >= 1 && indiceX <= 9))
+                if (indiceY == 0 && (indiceX >= 1 +diffx && indiceX <= 9 +diffx ))
                 {
-                    ground = Instantiate(Biome1Prefab, new Vector3(indiceX, 0, indiceY), Quaternion.identity);
+                    ground = Instantiate(Biome1Prefab, new Vector3(indiceX - diffx, 0, indiceY), Quaternion.identity);
                     ground.transform.SetParent(transform);
                 }
                 else
@@ -234,75 +236,81 @@ public class MapGenerator : MonoBehaviour {
                     switch (matrixCase[indiceX, indiceY])
                     {
                         case (Case.EnumType.Ground1, EnumsItem.Empty):
-                            ground = Instantiate(Biome1Prefab, new Vector3(indiceX, 0, indiceY), Quaternion.identity);
+                            ground = Instantiate(Biome1Prefab, new Vector3(indiceX - diffx , 0, indiceY), Quaternion.identity);
                             ground.transform.SetParent(transform);
-                            if (Random.Range(0, 200) == 1 && !biomeUse[0] && indiceY > 10 && PhotonNetwork.IsMasterClient)
+                            if (Random.Range(0, 100*20) == 1 && !biomeUse[0] && indiceY > 10 && PhotonNetwork.IsMasterClient)
                             {
                                 biomeUse[0] = true;
-                                //EnemyGenerator.EnemyGeneratore(EnumMonster.BossIntermediate, IntermediateMonster, null, level, indiceX, indiceY);
+                                EnemyGenerator.EnemyGeneratore(EnumMonster.BossIntermediate, IntermediateMonster, null, level, indiceX - diffx, indiceY);
                             }
                             break;
                         case (Case.EnumType.Ground2, EnumsItem.Empty):
-                            ground = Instantiate(Biome2Prefab, new Vector3(indiceX, 0, indiceY), Quaternion.identity);
+                            ground = Instantiate(Biome2Prefab, new Vector3(indiceX - diffx, 0, indiceY), Quaternion.identity);
                             ground.transform.SetParent(transform);
-                            if (Random.Range(0, 200) == 1 && !biomeUse[1] && indiceY > 10 && PhotonNetwork.IsMasterClient)
+                            if (Random.Range(0, 100*20) == 1 && !biomeUse[1] && indiceY > 10 && PhotonNetwork.IsMasterClient)
                             {
                                 biomeUse[1] = true;
-                                //EnemyGenerator.EnemyGeneratore(EnumMonster.BossIntermediate, IntermediateMonster, null, level, indiceX, indiceY);
+                                EnemyGenerator.EnemyGeneratore(EnumMonster.BossIntermediate, IntermediateMonster, null, level, indiceX - diffx, indiceY);
                             }
                             break;
                         case (Case.EnumType.Ground3, EnumsItem.Empty):
-                            ground = Instantiate(Biome3Prefab, new Vector3(indiceX, 0, indiceY), Quaternion.identity);
+                            ground = Instantiate(Biome3Prefab, new Vector3(indiceX - diffx, 0, indiceY), Quaternion.identity);
                             ground.transform.SetParent(transform);
-                            if (Random.Range(0, 200) == 1 && !biomeUse[2] && indiceY > 10 && PhotonNetwork.IsMasterClient)
+                            if (Random.Range(0, 100*20) == 1 && !biomeUse[2] && indiceY > 10 && PhotonNetwork.IsMasterClient)
                             {
                                 biomeUse[2] = true;
-                                //EnemyGenerator.EnemyGeneratore(EnumMonster.BossIntermediate, IntermediateMonster, null, level, indiceX, indiceY);
+                                EnemyGenerator.EnemyGeneratore(EnumMonster.BossIntermediate, IntermediateMonster, null, level, indiceX - diffx, indiceY);
                             }
                             break;
                         case (Case.EnumType.Ground4, EnumsItem.Empty):
-                            ground = Instantiate(Biome4Prefab, new Vector3(indiceX, 0, indiceY), Quaternion.identity);
+                            ground = Instantiate(Biome4Prefab, new Vector3(indiceX - diffx, 0, indiceY), Quaternion.identity);
                             ground.transform.SetParent(transform);
-                            if (Random.Range(0, 200) == 1 && !biomeUse[3] && indiceY > 10 && PhotonNetwork.IsMasterClient)
+                            if (Random.Range(0, 100*20) == 1 && !biomeUse[3] && indiceY > 10 && PhotonNetwork.IsMasterClient)
                             {
                                 biomeUse[3] = true;
-                                //EnemyGenerator.EnemyGeneratore(EnumMonster.BossIntermediate, IntermediateMonster, null, level, indiceX, indiceY);
+                                EnemyGenerator.EnemyGeneratore(EnumMonster.BossIntermediate, IntermediateMonster, null, level, indiceX - diffx, indiceY);
                             }
                             break;
                         case (Case.EnumType.Tree1, EnumsItem.Empty):
-                            GameObject tree1 = Instantiate(tree1Prefab, new Vector3(indiceX, 0, indiceY), Quaternion.identity);
+                            GameObject tree1 = Instantiate(tree1Prefab, new Vector3(indiceX - diffx, 0, indiceY), Quaternion.identity);
                             tree1.transform.SetParent(transform);
                             break;
                         case (Case.EnumType.Tree2, EnumsItem.Empty):
-                            GameObject tree2 = Instantiate(tree2Prefab, new Vector3(indiceX, 0, indiceY), Quaternion.identity);
+                            GameObject tree2 = Instantiate(tree2Prefab, new Vector3(indiceX - diffx, 0, indiceY), Quaternion.identity);
                             tree2.transform.SetParent(transform);
+                            ground = Instantiate(Biome2Prefab, new Vector3(indiceX - diffx, 0, indiceY), Quaternion.identity);
+                            ground.transform.SetParent(transform);
                             BoxCollider tree2Collider = tree2.AddComponent<BoxCollider>();
                             tree2Collider.size = new Vector3(1f, 3f, 1f);
                             tree2Collider.center = new Vector3(0f, 1.5f, 0f);
                             break;
                         case (Case.EnumType.Tree3, EnumsItem.Empty):
-                            GameObject tree3 = Instantiate(tree3Prefab, new Vector3(indiceX, 0, indiceY), Quaternion.identity);
+                            GameObject tree3 = Instantiate(tree3Prefab, new Vector3(indiceX - diffx, 0, indiceY), Quaternion.identity);
                             tree3.transform.SetParent(transform);
+                            ground = Instantiate(Biome3Prefab, new Vector3(indiceX - diffx, 0, indiceY), Quaternion.identity);
+                            ground.transform.SetParent(transform);
                             break;
                         case (Case.EnumType.Tree4, EnumsItem.Empty):
-                            GameObject tree4 = Instantiate(tree4Prefab, new Vector3(indiceX, 0, indiceY), Quaternion.identity);
+                            ground = Instantiate(Biome4Prefab, new Vector3(indiceX - diffx, 0, indiceY), Quaternion.identity);
+                            ground.transform.SetParent(transform);
+                            GameObject tree4 = Instantiate(tree4Prefab, new Vector3(indiceX - diffx, 0, indiceY), Quaternion.identity);
                             tree4.transform.SetParent(transform);
                             break;
 
                         case (Case.EnumType.Wall, EnumsItem.Empty):
-                            GameObject wall = Instantiate(wallPrefab, new Vector3(indiceX, 1.5f, indiceY), Quaternion.identity);
+                            GameObject wall = Instantiate(wallPrefab, new Vector3(indiceX - diffx, 1.5f, indiceY), Quaternion.identity);
                             wall.transform.SetParent(transform);
                             break;
                         case (Case.EnumType.River, EnumsItem.Empty):
-                            GameObject river = Instantiate(riverPrefab, new Vector3(indiceX, 0, indiceY), Quaternion.identity);
-                            river.transform.SetParent(transform);
+                            GameObject river = Instantiate(riverPrefab, new Vector3(indiceX - diffx, 0, indiceY), Quaternion.identity);
+                            river.transform.SetParent(transform); 
                             break;
                         case (Case.EnumType.Item, EnumsItem.Empty):
-                            GameObject item = Instantiate(itemPrefab, new Vector3(indiceX, 0, indiceY), Quaternion.identity);
+                            GameObject item = Instantiate(itemPrefab, new Vector3(indiceX- diffx, 0, indiceY), Quaternion.identity);
                             item.transform.SetParent(transform);
                             break;
                         case (Case.EnumType.Rock, EnumsItem.Empty):
-                            GameObject rock = Instantiate(rockPrefab, new Vector3(indiceX, 0.5f, indiceY), Quaternion.identity);
+                            GameObject rock = Instantiate(rockPrefab, new Vector3(indiceX- diffx, 0.5f, indiceY), Quaternion.identity);
                             rock.transform.SetParent(transform);
                             break;
                     }
@@ -330,7 +338,7 @@ public class MapGenerator : MonoBehaviour {
                     switch (matrixCase[indiceX, indiceY])
                     {
                         case (Case.EnumType.GroundfinalBoss, EnumsItem.Empty):
-                            ground = Instantiate(BossFinalMonster, new Vector3(indiceX + 145, 0, indiceY + 199),
+                            ground = Instantiate(BossFinalMonster, new Vector3(indiceX + 145 - diffx, 0, indiceY + 199),
                                 Quaternion.identity);
                             ground.transform.SetParent(transform);
                             if (Random.Range(0, 200) == 1 && !biomeUse[0] && indiceY > 10 &&
@@ -341,17 +349,17 @@ public class MapGenerator : MonoBehaviour {
                             break;
                         case (Case.EnumType.Wall, EnumsItem.Empty):
                             GameObject wall = Instantiate(wallPrefab,
-                                new Vector3(indiceX + 145, 1.5f, indiceY + 199), Quaternion.identity);
+                                new Vector3(indiceX + 145 - diffx, 1.5f, indiceY + 199), Quaternion.identity);
                             wall.transform.SetParent(transform);
                             break;
                         case (Case.EnumType.Item, EnumsItem.Empty):
-                            GameObject item = Instantiate(itemPrefab, new Vector3(indiceX + 145, 0, indiceY + 199),
+                            GameObject item = Instantiate(itemPrefab, new Vector3(indiceX + 145 - diffx, 0, indiceY + 199),
                                 Quaternion.identity);
                             item.transform.SetParent(transform);
                             break;
                         case (Case.EnumType.Rock, EnumsItem.Empty):
                             GameObject rock = Instantiate(rockPrefab,
-                                new Vector3(indiceX + 145, 0, indiceY + 199), Quaternion.identity);
+                                new Vector3(indiceX + 145- diffx, 0, indiceY + 199), Quaternion.identity);
                             rock.transform.SetParent(transform);
                             break;
                     }
