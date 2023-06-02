@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.01440346, g: 0.057880603, b: 0.10578638, a: 1}
+  m_IndirectSpecularColor: {r: 0.01440346, g: 0.05788061, b: 0.10578639, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -36114,7 +36114,7 @@ MonoBehaviour:
   tree1Prefab: {fileID: 6861211463795509193, guid: 68eaed47601a93e48a58b42bd5bfdb3c, type: 3}
   tree2Prefab: {fileID: 919132149155446097, guid: 0b06a90717de9064195177bb2a188ef5, type: 3}
   tree3Prefab: {fileID: 5535124781878055993, guid: fb78a259e6941c14d97f5e9687f3327b, type: 3}
-  tree4Prefab: {fileID: 4238506228146238265, guid: 15d2d855ed479c449a972b313ae0b23c, type: 3}
+  tree4Prefab: {fileID: 1794098222672100365, guid: c9e84e68d19d3bc4fbf81caa9317a0a4, type: 3}
   wallPrefab: {fileID: 1144770682334196515, guid: 66ef922dbe314054c8cb54ee3cfeaf37, type: 3}
   riverPrefab: {fileID: 2317075571703893349, guid: 26e07b46482c556468073c7d05d0f19f, type: 3}
   itemPrefab: {fileID: 0}
