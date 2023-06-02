@@ -24,6 +24,7 @@ namespace DefaultNamespace
             River,
             Item,
             Rock,
+            AccessObjectFinalLevel,
             Empty
         }
 
@@ -74,6 +75,9 @@ namespace DefaultNamespace
                             break;
                         case 12:
                             newMatrix[indiceY, indiceX] = (EnumType.GroundfinalBoss, EnumsItem.Empty);
+                            break;
+                        case 13:
+                            newMatrix[indiceY, indiceX] = (EnumType.AccessObjectFinalLevel, EnumsItem.Empty);
                             break;
                         default:
                             newMatrix[indiceY, indiceX] = (EnumType.Empty, EnumsItem.Empty);
