@@ -92,7 +92,7 @@ public class Player2 : MonoBehaviour
 							int diff = 100;
 							(Case.EnumType, EnumsItem)[,] map = Map.GetComponent<MapGenerator>().matrixCase;
 							int x = (int) (transform.position.x + Random.Range(-7, 7)), z = (int) (transform.position.z + Random.Range(-7, 7));
-							if ( Math.Abs(x) >0 && Math.Abs(z) >0 && map.GetLength(0)/2>Math.Abs(x) && map.GetLength(1)/2>Math.Abs(z))
+							if ( Math.Abs(x) >0 && z >0 && map.GetLength(0)/2>Math.Abs(x) && map.GetLength(1)>z)
 								EnemyGenerator.EnemyGeneratore(EnumMonster.LittelMonster, littelMonster, transform,Personnage.level,x,z );
 						}
 

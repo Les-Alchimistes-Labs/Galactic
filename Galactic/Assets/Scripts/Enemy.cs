@@ -7,6 +7,7 @@ using Photon.Pun;
 using Random = UnityEngine.Random;
 using Photon.Realtime;
 using personnage_class.Personage.Monsters;
+using UnityEngine.EventSystems;
 
 public class Enemy : MonoBehaviour
 {
@@ -82,6 +83,10 @@ public class Enemy : MonoBehaviour
                     }
 
                 }
+                else if (!CheckCollision(PlayersG[_pos]))
+                {
+                    _photonView.RPC("playerkill", RpcTarget.All,_pos);
+                }
                 else if (Players[_pos].Choice != EnumChoice.None)
                 {
                     switch (Players[_pos].Choice)
@@ -136,6 +141,27 @@ public class Enemy : MonoBehaviour
         
     }
 
+    public bool CheckCollision( GameObject object1)
+    {
+        // Get the colliders of both GameObjects
+        Collider collider1 = this.gameObject.GetComponent<Collider>();
+        Collider collider2 = object1.GetComponent<Collider>();
+
+        // Check if both GameObjects have colliders
+        if (collider1 != null && collider2 != null)
+        {
+            // Check if the bounding boxes of the colliders intersect
+            if (collider1.bounds.Intersects(collider2.bounds))
+            {
+                return true; // Collision detected
+            }
+        }
+
+        return false; // No collision detected
+    }
+    
+    
+    
 
     [PunRPC]
     void reset_pos(int temp)
@@ -193,7 +219,8 @@ public class Enemy : MonoBehaviour
         }
 
     }
-
+    
+    
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Respawn")
@@ -242,15 +269,9 @@ public class Enemy : MonoBehaviour
     [PunRPC]
     void playerkill(int i)
     {
-        
-        if (PPlayers[i].Type() == EnumType.Medecin)
-        {Destroy(PlayersG[i]);}
-        else
-        {
             PPlayers.RemoveAt(i);
             Players.RemoveAt(i);
-            PlayersG.RemoveAt(i); 
-        }
+            PlayersG.RemoveAt(i);
 
     }
 
