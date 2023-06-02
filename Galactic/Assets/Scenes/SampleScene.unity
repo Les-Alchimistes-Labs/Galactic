@@ -29807,7 +29807,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Text to add for help
+  m_text: 'The Galactic
 
 '
   m_isRightToLeft: 0
@@ -36123,6 +36123,7 @@ MonoBehaviour:
   BossFinalMonster: {fileID: 3882671873460563234, guid: 663ffae50351cb74787776c9c7bcc41a, type: 3}
   biomeUse: 
   level: 0
+  diffx: 100
 --- !u!4 &1302465217 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5118155063503014880, guid: 54dd5cbe8458d0c41ae24ec04c21c8e7, type: 3}
