@@ -392,7 +392,6 @@ public class MapGenerator : MonoBehaviour {
         level = 0;
         biomeUse = new bool[] { false, false, false, false };
         int[,] matrixLevelWithRiver = GenerateMatrixLevel(matrixLevel);
-
         GenerateMap(matrixLevelWithRiver);
     }
 }
