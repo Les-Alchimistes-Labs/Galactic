@@ -1,4 +1,5 @@
 using System;
+using static Game_Manager;
 using System.Collections.Generic;
 using DefaultNamespace;
 using personnage_class.Personage;
@@ -20,7 +21,8 @@ public class MapGenerator : MonoBehaviour {
     public GameObject itemPrefab; 
     public GameObject rockPrefab; 
     public GameObject IntermediateMonster;
-    public GameObject BossFinalMonster; 
+    public GameObject BossFinalMonster;
+    public GameObject AccessObjectFinalLevel;
     public bool[] biomeUse; 
     public int level;
     public int diffx = 100;
@@ -195,11 +197,13 @@ public class MapGenerator : MonoBehaviour {
         {
             for (int j = 0; j < matrixLevel.GetLength(1); j++)
             {
-                if (i == 0 || i == matrixLevel.GetLength(0) - 1 || j == matrixLevel.GetLength(1) - 1)
+                if (i == 0 || i == matrixLevel.GetLength(0) - 1 || j == 0 || j == matrixLevel.GetLength(1) - 1)
                 {
-                    matrixLevel[i, j] = 8;
+                    if (j == 0)
+                        matrixLevel[i, j] = 13;
+                    else
+                        matrixLevel[i, j] = 8;
                 }
-                
                 else
                 {
                     matrixLevel[i, j] = 12;
@@ -327,42 +331,55 @@ public class MapGenerator : MonoBehaviour {
             for (int indiceY = 0; indiceY < monsterRoomMatrix.GetLength(1); indiceY++)
             {
                 GameObject ground;
+                GameObject accessObjectFinalLevel;
+                switch (matrixCase[indiceX, indiceY])
+                {
+                    case (Case.EnumType.GroundfinalBoss, EnumsItem.Empty):
+                        ground = Instantiate(BossFinalMonster,
+                            new Vector3(indiceX + 145 - diffx, 0, indiceY + 199),
+                            Quaternion.identity);
+                        ground.transform.SetParent(transform);
+                        if (Random.Range(0, 200) == 1 && !biomeUse[0] && indiceY > 10 &&
+                            PhotonNetwork.IsMasterClient)
+                        {
+                            biomeUse[0] = true;
+                        }
 
-                if (indiceY == 0 && (indiceX >= 1 && indiceX <= 9))
-                {
-                    ground = Instantiate(BossFinalMonster, new Vector3(indiceX, 0, indiceY), Quaternion.identity);
-                    ground.transform.SetParent(transform);
-                }
-                else
-                {
-                    switch (matrixCase[indiceX, indiceY])
-                    {
-                        case (Case.EnumType.GroundfinalBoss, EnumsItem.Empty):
-                            ground = Instantiate(BossFinalMonster, new Vector3(indiceX + 145 - diffx, 0, indiceY + 199),
-                                Quaternion.identity);
-                            ground.transform.SetParent(transform);
-                            if (Random.Range(0, 200) == 1 && !biomeUse[0] && indiceY > 10 &&
-                                PhotonNetwork.IsMasterClient)
-                            {
-                                biomeUse[0] = true;
-                            }
-                            break;
-                        case (Case.EnumType.Wall, EnumsItem.Empty):
-                            GameObject wall = Instantiate(wallPrefab,
+                        break;
+                    case (Case.EnumType.Wall, EnumsItem.Empty):
+                        GameObject wall = Instantiate(wallPrefab,
+                            new Vector3(indiceX + 145 - diffx, 1.5f, indiceY + 199), Quaternion.identity);
+                        wall.transform.SetParent(transform);
+                        break;
+                    case (Case.EnumType.Item, EnumsItem.Empty):
+                        GameObject item = Instantiate(itemPrefab,
+                            new Vector3(indiceX + 145 - diffx, 0, indiceY + 199),
+                            Quaternion.identity);
+                        item.transform.SetParent(transform);
+                        break;
+                    case (Case.EnumType.Rock, EnumsItem.Empty):
+                        GameObject rock = Instantiate(rockPrefab,
+                            new Vector3(indiceX + 145 - diffx, 0, indiceY + 199), Quaternion.identity);
+                        rock.transform.SetParent(transform);
+                        break;
+                    case (Case.EnumType.AccessObjectFinalLevel, EnumsItem.Empty):
+                        if(desactivateAccessObjectFinalLevel < 3)
+                        {
+                            accessObjectFinalLevel = Instantiate(AccessObjectFinalLevel,
                                 new Vector3(indiceX + 145 - diffx, 1.5f, indiceY + 199), Quaternion.identity);
-                            wall.transform.SetParent(transform);
-                            break;
-                        case (Case.EnumType.Item, EnumsItem.Empty):
-                            GameObject item = Instantiate(itemPrefab, new Vector3(indiceX + 145 - diffx, 0, indiceY + 199),
-                                Quaternion.identity);
-                            item.transform.SetParent(transform);
-                            break;
-                        case (Case.EnumType.Rock, EnumsItem.Empty):
-                            GameObject rock = Instantiate(rockPrefab,
-                                new Vector3(indiceX + 145- diffx, 0, indiceY + 199), Quaternion.identity);
+                            accessObjectFinalLevel.transform.SetParent(transform);
+                            Quaternion rotation = Quaternion.Euler(0, 90, 0);
+                            accessObjectFinalLevel.transform.rotation = rotation;
+                        }
+                        else
+                        {
+                            rock = Instantiate(rockPrefab,
+                                new Vector3(indiceX + 145 - diffx, 0, indiceY + 199), Quaternion.identity);
                             rock.transform.SetParent(transform);
-                            break;
-                    }
+                        }
+                        break;
+
+                
                 }
             }
         }
