@@ -1170,7 +1170,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &40900428
 RectTransform:
@@ -1187,10 +1187,17 @@ RectTransform:
   m_Father: {fileID: 587597410}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 250, y: 135}
+=======
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 160.86, y: 57.561}
+  m_SizeDelta: {x: 316.72, y: 106.734}
+>>>>>>> fe5ac4e6c72d301d2be30e68dbe7e64bb4136891
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &40900429
 MonoBehaviour:
@@ -5079,7 +5086,11 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
+<<<<<<< HEAD
   m_ReferenceResolution: {x: 800, y: 800}
+=======
+  m_ReferenceResolution: {x: 1100, y: 800}
+>>>>>>> fe5ac4e6c72d301d2be30e68dbe7e64bb4136891
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
@@ -15968,7 +15979,6 @@ GameObject:
   m_Component:
   - component: {fileID: 587597410}
   - component: {fileID: 587597412}
-  - component: {fileID: 587597411}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -15993,6 +16003,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
+<<<<<<< HEAD
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -110, y: 85}
   m_SizeDelta: {x: 500, y: 0}
@@ -16027,6 +16038,12 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+=======
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 215.80688, y: -232.99857}
+  m_SizeDelta: {x: 379.77625, y: -511.4704}
+  m_Pivot: {x: 0.5, y: 0.5}
+>>>>>>> fe5ac4e6c72d301d2be30e68dbe7e64bb4136891
 --- !u!222 &587597412
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -29995,7 +30012,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Text to add for help
+  m_text: 'The Galactic
 
 '
   m_isRightToLeft: 0
@@ -36302,13 +36319,14 @@ MonoBehaviour:
   tree1Prefab: {fileID: 6861211463795509193, guid: 68eaed47601a93e48a58b42bd5bfdb3c, type: 3}
   tree2Prefab: {fileID: 919132149155446097, guid: 0b06a90717de9064195177bb2a188ef5, type: 3}
   tree3Prefab: {fileID: 5535124781878055993, guid: fb78a259e6941c14d97f5e9687f3327b, type: 3}
-  tree4Prefab: {fileID: 4238506228146238265, guid: 15d2d855ed479c449a972b313ae0b23c, type: 3}
+  tree4Prefab: {fileID: 1794098222672100365, guid: c9e84e68d19d3bc4fbf81caa9317a0a4, type: 3}
   wallPrefab: {fileID: 1144770682334196515, guid: 66ef922dbe314054c8cb54ee3cfeaf37, type: 3}
   riverPrefab: {fileID: 2317075571703893349, guid: 26e07b46482c556468073c7d05d0f19f, type: 3}
   itemPrefab: {fileID: 0}
   rockPrefab: {fileID: 1168156042234450472, guid: 0d8bbc0d1157e8b4fb6347f20af70c4e, type: 3}
   IntermediateMonster: {fileID: 803759685421326402, guid: bcae00e326d071a4bbaf54201a6f5d9d, type: 3}
   BossFinalMonster: {fileID: 3882671873460563234, guid: 663ffae50351cb74787776c9c7bcc41a, type: 3}
+  AccessObjectFinalLevel: {fileID: 8446040176023416425, guid: b84ac3378da52bc4a982a725fa749563, type: 3}
   biomeUse: 
   level: 0
   diffx: 100

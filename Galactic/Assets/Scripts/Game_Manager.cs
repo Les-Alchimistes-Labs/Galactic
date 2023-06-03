@@ -34,6 +34,10 @@ public class Game_Manager : MonoBehaviourPunCallbacks
     public GameObject MenuButton;
     private bool touch_MenuButton;
     
+<<<<<<< HEAD
+=======
+    public static int desactivateAccessObjectFinalLevel = 0;
+>>>>>>> fe5ac4e6c72d301d2be30e68dbe7e64bb4136891
 
     void Start()
     {

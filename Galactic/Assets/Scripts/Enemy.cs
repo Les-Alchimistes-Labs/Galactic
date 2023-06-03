@@ -7,6 +7,7 @@ using Photon.Pun;
 using Random = UnityEngine.Random;
 using Photon.Realtime;
 using personnage_class.Personage.Monsters;
+using UnityEngine.EventSystems;
 
 public class Enemy : MonoBehaviour
 {
@@ -77,10 +78,21 @@ public class Enemy : MonoBehaviour
                         int temp = Random.Range(0, 100);
                         waita = true;
                         StartCoroutine(wait(temp));
-                        _photonView.RPC("reset_pos", RpcTarget.All,temp);
+                        int posH = -1;
+                        if (PlayersG.Count >= 2)
+                        {
+                            posH = Target(PPlayers);
+                            
+                        }
+                        _photonView.RPC("reset_pos", RpcTarget.All,temp, posH);
+                        
 
                     }
 
+                }
+                else if (!CheckCollision(PlayersG[_pos]) || PlayersG[_pos] == null )
+                {
+                    _photonView.RPC("playerkill", RpcTarget.All,_pos);
                 }
                 else if (Players[_pos].Choice != EnumChoice.None)
                 {
@@ -136,9 +148,62 @@ public class Enemy : MonoBehaviour
         
     }
 
+    
+    
+    public void Heal(Personnage heros)
+    {
+        int life = (int)(heros.Getlife * 0.2);
+        while (heros.Add_Life(life) == false)
+            life -= 1;
+        heros.Add_Life(life);
+    }
+    
+    
+    public int Target(List<Personnage> heros)
+    {
+        int target = 0;
+        for (int i = 1; i < heros.Count; i++)
+        {
+            if (heros[target].IsAlive())
+            {
+                if (heros[i].IsAlive())
+                {
+                    if (heros[i].Getlife > heros[target].Getlife)
+                        target = i;
+                }
+            }
+        }
+
+        return target;
+        
+        
+    }
+    
+    
+    public bool CheckCollision( GameObject object1)
+    {
+        // Get the colliders of both GameObjects
+        Collider collider1 = this.gameObject.GetComponent<Collider>();
+        Collider collider2 = object1.GetComponent<Collider>();
+
+        // Check if both GameObjects have colliders
+        if (collider1 != null && collider2 != null)
+        {
+            // Check if the bounding boxes of the colliders intersect
+            if (collider1.bounds.Intersects(collider2.bounds))
+            {
+                return true; // Collision detected
+            }
+        }
+
+        return false; // No collision detected
+    }
+    
+    
+    
 
     [PunRPC]
-    void reset_pos(int temp)
+    void reset_pos(int temp, int posH)
     {
         ((Monster)_monstre).Target(PPlayers,temp);
         _pos = 0;
@@ -158,9 +223,15 @@ public class Enemy : MonoBehaviour
         if (_pos < Players.Count)
         {
             Players[_pos].Choice = EnumChoice.None;
+            if (posH != -1)
+            {
+                Heal(PPlayers[posH]);
+            }
         }
+
         
-        
+
+
     }
     
     [PunRPC]
@@ -183,17 +254,10 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         _photonView.RPC("update_Player", RpcTarget.All, other.GetComponent<PhotonView>().ViewID);
-        if (false && PlayersG.Count >= 2 && !ActiveMedecin && Players[0].GetComponent<PhotonView>().IsMine )
-        {
-            MedecinSpawn = true;
-            ActiveMedecin = PhotonNetwork.Instantiate(Medecin.name, new Vector3(0,0,0), _photonView.transform.rotation);
-            PPlayers.Add(other.gameObject.GetComponent<Player2>().Personnage);
-            Players.Add(other.gameObject.GetComponent<Player2>());
-            PlayersG.Add(other.gameObject);
-        }
 
     }
-
+    
+    
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Respawn")
@@ -242,15 +306,9 @@ public class Enemy : MonoBehaviour
     [PunRPC]
     void playerkill(int i)
     {
-        
-        if (PPlayers[i].Type() == EnumType.Medecin)
-        {Destroy(PlayersG[i]);}
-        else
-        {
             PPlayers.RemoveAt(i);
             Players.RemoveAt(i);
-            PlayersG.RemoveAt(i); 
-        }
+            PlayersG.RemoveAt(i);
 
     }
 
