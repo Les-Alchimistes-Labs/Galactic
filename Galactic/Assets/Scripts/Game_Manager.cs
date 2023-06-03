@@ -33,6 +33,7 @@ public class Game_Manager : MonoBehaviourPunCallbacks
     
     public GameObject MenuButton;
     private bool touch_MenuButton;
+    
 
     void Start()
     {
@@ -44,10 +45,18 @@ public class Game_Manager : MonoBehaviourPunCallbacks
         TouchButton = false;
         touch_MenuButton = false;
     }
-
+    
+    
     public void OpenMenu()
     {
         touch_MenuButton = true;
+        foreach (var player in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            if (player.GetComponent<PhotonView>().IsMine)
+            {
+                player.GetComponent<Player2>().Personnage.canMove = false;
+            }
+        }
     }
 
     public void OpenInventory()

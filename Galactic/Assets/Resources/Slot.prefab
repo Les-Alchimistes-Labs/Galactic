@@ -92,7 +92,6 @@ GameObject:
   - component: {fileID: 1988188745896100071}
   - component: {fileID: 1971059358654986202}
   - component: {fileID: 529351619979975754}
-  - component: {fileID: 2065674893718822270}
   m_Layer: 5
   m_Name: Slot
   m_TagString: Untagged
@@ -203,7 +202,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2065674893718822270}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Slot, Assembly-CSharp
         m_MethodName: ItemOnClicked
         m_Mode: 1
@@ -215,18 +214,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2065674893718822270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4686855625499582644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e9112f9704bd6a40876c04224413e93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slotItem: {fileID: 0}
-  slotImage: {fileID: 1971059358654986202}
-  slotNum: {fileID: 1574373310389996965}

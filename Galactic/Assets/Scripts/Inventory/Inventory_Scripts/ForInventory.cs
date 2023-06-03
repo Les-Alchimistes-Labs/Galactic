@@ -23,8 +23,6 @@ public class ForInventory : MonoBehaviour
     public Inventory_inside Ordinateur_Kali_Linux_image;
     public Inventory_inside Potion_Boost_image;
     public Inventory_inside Sniper_image;
-
-    
     
     private Inventory_inside[]? everyItems = new Inventory_inside[8];
     public static Item[]? Invent = new Item[8];
@@ -45,8 +43,7 @@ public class ForInventory : MonoBehaviour
         Invent = Player_UI.inv;
         RefreshInv();
     }
-    
-    
+
     private void RefreshInv()
     {
         for (int i = 0; i < 8; i++)

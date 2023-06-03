@@ -12,6 +12,7 @@ public class Player_UI : MonoBehaviour
     //public Canvas canvas;
     //private PlayerInformation_UI UI;
     
+    //Player Information
     public static float actual_hp;
     public static float Max_hp;
     public static float actual_exp;
@@ -23,7 +24,10 @@ public class Player_UI : MonoBehaviour
     public static bool fight;
     public static bool move;
 
+    // About items
     public static Item[]? inv = new Item[8];
+    public static Item? PrincipleWeapon;
+    
     
     
     void Start()
@@ -60,6 +64,8 @@ public class Player_UI : MonoBehaviour
         }
         
         inv = _player2.Personnage.Get_Inventory();
+        PrincipleWeapon = _player2.Personnage.pricipale_Weapon;
+        
         if (view.IsMine)
         {
             fight = _player2.Personnage.inFight;

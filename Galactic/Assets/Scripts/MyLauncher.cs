@@ -7,7 +7,6 @@ public class MyLauncher : MonoBehaviourPunCallbacks
     public Button button_log;
     public Text feedbackText;
     private byte maxPlayersPerRoom = 4;
-
     static bool isConnecting;
     
     public Button ForQuitGame;

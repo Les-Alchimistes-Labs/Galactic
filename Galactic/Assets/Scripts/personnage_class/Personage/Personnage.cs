@@ -21,8 +21,7 @@ public abstract class Personnage : Update
     protected int Boost;
     protected Item[]? Inventory ;
     private int _maxlevel;
-
-    public string[]? InvString;
+    
 
     public void Reset_Inventory()
     {
