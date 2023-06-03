@@ -56,7 +56,7 @@ public class NetworkLauncher : MonoBehaviourPunCallbacks
 
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
-        Log_feedback("Join failed");
+        Log_feedback("Join failed. Maybe this room is full.");
     }
 
     public void QuitGame()
