@@ -11,13 +11,20 @@ public class NetworkLauncher : MonoBehaviourPunCallbacks
 {
     public InputField roomName;
     public Text feedbackText;
-    
+
+
     private void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
         roomName.text = "";
     }
-    
+
+    public override void OnConnectedToMaster()
+    {
+        Log_feedback("Connected to the Master.");
+        PhotonNetwork.JoinLobby();
+    }
+
     void Log_feedback(string message)
     {
         if (feedbackText is null)
