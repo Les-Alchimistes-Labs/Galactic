@@ -11,7 +11,6 @@ using UnityEngine.UI;
 
 public class ForInventory : MonoBehaviour
 {
-    public Text Information;
     public Transform here;
     public Inventory_inside Empty_image;
     public Inventory_inside Banana_image;
@@ -29,7 +28,6 @@ public class ForInventory : MonoBehaviour
 
     private void Start()
     {
-        Information.text = "";
         for (int i = 0; i < 8; i++)
         {
             everyItems[i] = Instantiate(Empty_image, here);
@@ -37,11 +35,19 @@ public class ForInventory : MonoBehaviour
         }
     }
 
+    public int Index { get; set; }
+
+
+    private void ChangePosInv()
+    {
+        Player_UI.pos = Index;
+    }
 
     void Update()
     {
         Invent = Player_UI.inv;
         RefreshInv();
+        ChangePosInv();
     }
 
     private void RefreshInv()
@@ -55,6 +61,11 @@ public class ForInventory : MonoBehaviour
                     Destroy(everyItems[i].gameObject);
                 }
                 everyItems[i] = Instantiate(Empty_image, here);
+                if (everyItems[i].touch)
+                {
+                    Index = i + 1;
+                    everyItems[i].touch = false;
+                }
                 everyItems[i].gameObject.SetActive(true);
             }
             else
@@ -69,6 +80,11 @@ public class ForInventory : MonoBehaviour
                                 Destroy(everyItems[i].gameObject);
                             }
                             everyItems[i] = Instantiate(Banana_image, here);
+                            if (everyItems[i].touch)
+                            {
+                                Index = i + 1;
+                                everyItems[i].touch = false;
+                            }
                             everyItems[i].gameObject.SetActive(true);
                             break;
                         case "Cheese":
@@ -77,6 +93,11 @@ public class ForInventory : MonoBehaviour
                                 Destroy(everyItems[i].gameObject);
                             }
                             everyItems[i] = Instantiate(Cheese_image, here);
+                            if (everyItems[i].touch)
+                            {
+                                Index = i + 1;
+                                everyItems[i].touch = false;
+                            }
                             everyItems[i].gameObject.SetActive(true);
                             break;
                         case "Hamburger":
@@ -85,6 +106,11 @@ public class ForInventory : MonoBehaviour
                                 Destroy(everyItems[i].gameObject);
                             }
                             everyItems[i] = Instantiate(Hamburger_image, here);
+                            if (everyItems[i].touch)
+                            {
+                                Index = i + 1;
+                                everyItems[i].touch = false;
+                            }
                             everyItems[i].gameObject.SetActive(true);
                             break;
                     }
@@ -99,6 +125,11 @@ public class ForInventory : MonoBehaviour
                                 Destroy(everyItems[i].gameObject);
                             }
                             everyItems[i] = Instantiate(Boss_Weapon_image, here);
+                            if (everyItems[i].touch)
+                            {
+                                Index = i + 1;
+                                everyItems[i].touch = false;
+                            }
                             everyItems[i].gameObject.SetActive(true);
                             break;
                         case Kit_Heal:
@@ -107,6 +138,11 @@ public class ForInventory : MonoBehaviour
                                 Destroy(everyItems[i].gameObject);
                             }
                             everyItems[i] = Instantiate(Kit_Heal_image, here);
+                            if (everyItems[i].touch)
+                            {
+                                Index = i + 1;
+                                everyItems[i].touch = false;
+                            }
                             everyItems[i].gameObject.SetActive(true);
                             break;
                         case Gun:
@@ -115,6 +151,11 @@ public class ForInventory : MonoBehaviour
                                 Destroy(everyItems[i].gameObject);
                             }
                             everyItems[i] = Instantiate(Gun_image, here);
+                            if (everyItems[i].touch)
+                            {
+                                Index = i + 1;
+                                everyItems[i].touch = false;
+                            }
                             everyItems[i].gameObject.SetActive(true);
                             break;
                         case Ordinateur_Kali_Linux:
@@ -123,6 +164,11 @@ public class ForInventory : MonoBehaviour
                                 Destroy(everyItems[i].gameObject);
                             }
                             everyItems[i] = Instantiate(Ordinateur_Kali_Linux_image, here);
+                            if (everyItems[i].touch)
+                            {
+                                Index = i + 1;
+                                everyItems[i].touch = false;
+                            }
                             everyItems[i].gameObject.SetActive(true);
                             break;
                         case Sniper_a:
@@ -131,6 +177,11 @@ public class ForInventory : MonoBehaviour
                                 Destroy(everyItems[i].gameObject);
                             }
                             everyItems[i] = Instantiate(Sniper_image, here);
+                            if (everyItems[i].touch)
+                            {
+                                Index = i + 1;
+                                everyItems[i].touch = false;
+                            }
                             everyItems[i].gameObject.SetActive(true);
                             break;
                         case Potion_Boost:
@@ -139,6 +190,11 @@ public class ForInventory : MonoBehaviour
                                 Destroy(everyItems[i].gameObject);
                             }
                             everyItems[i] = Instantiate(Potion_Boost_image, here);
+                            if (everyItems[i].touch)
+                            {
+                                Index = i + 1;
+                                everyItems[i].touch = false;
+                            }
                             everyItems[i].gameObject.SetActive(true);
                             break;
                     }
@@ -147,56 +203,4 @@ public class ForInventory : MonoBehaviour
         }
     }
     
-    
-    public void EmptyInformation()
-    {
-        Information.text = "There is nothing";
-    }
-
-    public void BananaInformation()
-    {
-        Information.text = "Banana? Banana!!!";
-    }
-    
-    public void CheeseInformation()
-    {
-        Information.text = "I love Cheese";
-    }
-    
-    public void HamburgerInformation()
-    {
-        Information.text = "Hamburger, My Favorite!!";
-    }
-    
-    public void BossWeaponInformation()
-    {
-        Information.text = "Weapon of a boss !";
-    }
-    
-    public void KitHealInformation()
-    {
-        Information.text = "Heal! Heal!! Heal!!!";
-    }
-    
-    public void GunInformation()
-    {
-        Information.text = "A gun, dangerous and powerful weapon";
-    }
-    
-    public void ComputerInformation()
-    {
-        Information.text = "Banana!!! Very Delicious";
-    }
-    
-    public void SniperInformation()
-    {
-        Information.text = "Use with care, you can't imagine how power full it can be";
-    }
-    
-    public void PotionInformation()
-    {
-        Information.text = "A potion. It can save your life";
-    }
-
-
 }

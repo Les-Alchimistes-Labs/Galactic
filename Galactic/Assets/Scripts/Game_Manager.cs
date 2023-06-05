@@ -70,7 +70,8 @@ public class Game_Manager : MonoBehaviourPunCallbacks
         TouchButton = false;
     }
 
-    void GetInventory()
+    
+    public void GetInventory()
     {
         if (TouchButton)
         {
