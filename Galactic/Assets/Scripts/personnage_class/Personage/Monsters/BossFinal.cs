@@ -8,6 +8,7 @@ namespace personnage_class.Personage.Monsters
         public BossFinal(string name, int life = 10, int maxlife = 20, int damage = 5, int boost = 1, int inventorySize = 8, int level = 0 , int nb_Food = 3, int nb_Boost = 2) : base(name, life * 5, maxlife * 5, damage * 3 , boost, inventorySize, level * 3) // life *5 damage *3 level *3 
         {
             inFight = false;
+            level = 1000;
             Inventory[0] = new Boss_Weapon(100 , Damage , Boost);
             Change_Weapon_Equipped(0);
 

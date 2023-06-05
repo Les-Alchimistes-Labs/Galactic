@@ -245,9 +245,7 @@ public class Enemy : MonoBehaviour
         _monstre.Remove_Life(- (RemainLife -_monstre.Getlife));
     }
 
-
-    public GameObject Medecin;
-    private GameObject ActiveMedecin;
+    
     private bool MedecinSpawn = false;
     
 

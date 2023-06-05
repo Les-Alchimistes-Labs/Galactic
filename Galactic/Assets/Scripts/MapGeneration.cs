@@ -23,6 +23,7 @@ public class MapGenerator : MonoBehaviour {
     public GameObject itemPrefab; 
     public GameObject rockPrefab; 
     public GameObject IntermediateMonster;
+    public GameObject GroundfinalBoss;
     public GameObject BossFinalMonster;
     public GameObject AccessObjectFinalLevel;
     public bool[] biomeUse; 
@@ -350,13 +351,19 @@ public class MapGenerator : MonoBehaviour {
             {
                 GameObject ground;
                 GameObject accessObjectFinalLevel;
+
+
                 switch (matrixCase[indiceX, indiceY])
                 {
                     case (Case.EnumType.GroundfinalBoss, EnumsItem.Empty):
-                        ground = Instantiate(BossFinalMonster,
+                        ground = Instantiate(GroundfinalBoss,
                             new Vector3(indiceX + 145 - diffx, 0, indiceY + 199),
                             Quaternion.identity);
                         ground.transform.SetParent(transform);
+                        if (indiceY ==  monsterRoomMatrix.GetLength(1)/2 &&  indiceX == monsterRoomMatrix.GetLength(0)/2 && PhotonNetwork.IsMasterClient)
+                        {
+                            EnemyGenerator.EnemyGeneratore(EnumMonster.BossFinal, BossFinalMonster, ground.transform, level, ground.transform.position.x, ground.transform.position.z);
+                        }
                         if (Random.Range(0, 200) == 1 && !biomeUse[0] && indiceY > 10 &&
                             PhotonNetwork.IsMasterClient)
                         {

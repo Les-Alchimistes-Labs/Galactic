@@ -36430,7 +36430,8 @@ MonoBehaviour:
   itemPrefab: {fileID: 0}
   rockPrefab: {fileID: 1168156042234450472, guid: 0d8bbc0d1157e8b4fb6347f20af70c4e, type: 3}
   IntermediateMonster: {fileID: 803759685421326402, guid: bcae00e326d071a4bbaf54201a6f5d9d, type: 3}
-  BossFinalMonster: {fileID: 3882671873460563234, guid: 663ffae50351cb74787776c9c7bcc41a, type: 3}
+  GroundfinalBoss: {fileID: 6504682736133875736, guid: ca18888df5c4b0348a32ba2257d9c155, type: 3}
+  BossFinalMonster: {fileID: 2779982786654610140, guid: a345a9eab9fc40241871b89b3f02b05f, type: 3}
   AccessObjectFinalLevel: {fileID: 8446040176023416425, guid: b84ac3378da52bc4a982a725fa749563, type: 3}
   biomeUse: 
   level: 0

@@ -16,7 +16,7 @@ public class Player2 : MonoBehaviour
 		private Animator anim;
 		private CharacterController controller;
 
-		public float speed = 600.0f;
+		public float speed = 400.0f;
 		public float turnSpeed = 400.0f;
 		private Vector3 moveDirection = Vector3.zero;
 		public float gravity = 20.0f;

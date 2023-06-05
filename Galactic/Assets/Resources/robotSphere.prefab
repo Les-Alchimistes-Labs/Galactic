@@ -117,10 +117,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ac4563add21814994613b2d0415e03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Monster: 0
+  Monster: 1
   _active_monster: {fileID: 803759685421326402}
   level: 100
-  Medecin: {fileID: 0}
 --- !u!65 &3951999753273465625
 BoxCollider:
   m_ObjectHideFlags: 0
