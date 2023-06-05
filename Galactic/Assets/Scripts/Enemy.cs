@@ -248,6 +248,7 @@ public class Enemy : MonoBehaviour
     
     private bool MedecinSpawn = false;
     
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -263,6 +264,7 @@ public class Enemy : MonoBehaviour
             Destroy(_active_monster);
         }
     }
+    
 
     [PunRPC]
     void update_Player(int viewID )
