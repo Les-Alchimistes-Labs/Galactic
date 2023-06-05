@@ -5,6 +5,8 @@ using DefaultNamespace;
 using personnage_class.Personage;
 using Photon.Pun; using UnityEngine;
 using Random = UnityEngine.Random;
+using Photon.Pun;
+using Photon.Realtime;
 
 public class MapGenerator : MonoBehaviour { 
     public GameObject Biome1Prefab; 
@@ -35,8 +37,24 @@ public class MapGenerator : MonoBehaviour {
         diffx =200/2;
         matrixLevel = new int[200,200];
         finalMonsterRoom = new int[25,25];
+        _photonView = GetComponent<PhotonView>();
+        
+        
+        if (!_photonView.IsMine)
+        {
+            
+            // Retrieve the value from the master client and assign it to the variable
+            //_photonView.RPC("RequestArray", RpcTarget.MasterClient);
+        }
         GenerateMatrixLevel(matrixLevel);
+
     }
+    
+    public int[,] getmatrixLevel
+    {
+        get { return matrixLevel; }
+    }
+    
     
     private static (int, string)[,] GenerateTupleMatrixOfRiverCube(int[,] matrixLevel)
     {
@@ -385,13 +403,40 @@ public class MapGenerator : MonoBehaviour {
         }
     }
 
-
+    private PhotonView _photonView;
     void Start()
     {
         Random.InitState((int)System.DateTime.Now.Ticks);
         level = 0;
+        _photonView = GetComponent<PhotonView>();
         biomeUse = new bool[] { false, false, false, false };
         int[,] matrixLevelWithRiver = GenerateMatrixLevel(matrixLevel);
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            // Retrieve the value from the master client and assign it to the variable
+           // _photonView.RPC("RequestArray", RpcTarget.MasterClient);
+        }
         GenerateMap(matrixLevelWithRiver);
+        
+        
+
+
     }
+
+    [PunRPC]
+    private void RequestArray(PhotonMessageInfo info)
+    {
+        _photonView.RPC("SendArray", info.Sender, matrixLevel);
+    }
+
+    [PunRPC]
+    private void SendArray(int[,] array)
+    {
+        // Récupère le tableau envoyé par le "master"
+        matrixLevel = array;
+        
+    }
+    
+    
 }
+

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.01440346, g: 0.057880603, b: 0.10578638, a: 1}
+  m_IndirectSpecularColor: {r: 0.01440346, g: 0.05788061, b: 0.10578639, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -28860,6 +28860,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 2754857a53ecce2468ba833ca1e06c5c, type: 2}
+    - target: {fileID: 2770167505354733153, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422682419687612696, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 43402931450183054, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
     - {fileID: 1815823896927333391, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
@@ -36424,6 +36432,28 @@ MonoBehaviour:
   biomeUse: 
   level: 0
   diffx: 100
+--- !u!114 &1302202450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302202448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!4 &1302465217 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5118155063503014880, guid: 54dd5cbe8458d0c41ae24ec04c21c8e7, type: 3}
@@ -62164,6 +62194,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3445422299285949181, guid: 82932d4bdf23743449fe2e052b0e224e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1302202449}
+    - targetCorrespondingSourceObject: {fileID: 3445422299285949181, guid: 82932d4bdf23743449fe2e052b0e224e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1302202450}
   m_SourcePrefab: {fileID: 100100000, guid: 82932d4bdf23743449fe2e052b0e224e, type: 3}
 --- !u!224 &4756022777666861322 stripped
 RectTransform:

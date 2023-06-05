@@ -44,27 +44,32 @@ public class Player_UI : MonoBehaviour
     
     void Update()
     {
-        switch (_player2.Personnage)
+        if (_player2 != null)
         {
-            case Canonnier:
-                Name = "Cannonier";
-                break;
-            case Sniper:
-                Name = "Sniper";
-                break;
-            case Soldat:
-                Name = "Soldat";
-                break;
-            case Hacker:
-                Name = "Hacker";
-                break;
-            default:
-                Name = "Who am I ?";
-                break;
+            switch (_player2.Personnage)
+            {
+                case Canonnier:
+                    Name = "Cannonier";
+                    break;
+                case Sniper:
+                    Name = "Sniper";
+                    break;
+                case Soldat:
+                    Name = "Soldat";
+                    break;
+                case Hacker:
+                    Name = "Hacker";
+                    break;
+                default:
+                    Name = "Who am I ?";
+                    break;
+            }
+                    
+            inv = _player2.Personnage.Get_Inventory();
+            PrincipleWeapon = _player2.Personnage.pricipale_Weapon;
         }
-        
-        inv = _player2.Personnage.Get_Inventory();
-        PrincipleWeapon = _player2.Personnage.pricipale_Weapon;
+
+
         
         if (view.IsMine)
         {
