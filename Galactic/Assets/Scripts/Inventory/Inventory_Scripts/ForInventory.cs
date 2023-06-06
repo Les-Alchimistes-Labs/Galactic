@@ -11,7 +11,6 @@ using UnityEngine.UI;
 
 public class ForInventory : MonoBehaviour
 {
-    public Text Information;
     public Transform here;
     public Inventory_inside Empty_image;
     public Inventory_inside Banana_image;
@@ -29,7 +28,6 @@ public class ForInventory : MonoBehaviour
 
     private void Start()
     {
-        Information.text = "";
         for (int i = 0; i < 8; i++)
         {
             everyItems[i] = Instantiate(Empty_image, here);
@@ -147,56 +145,4 @@ public class ForInventory : MonoBehaviour
         }
     }
     
-    
-    public void EmptyInformation()
-    {
-        Information.text = "There is nothing";
-    }
-
-    public void BananaInformation()
-    {
-        Information.text = "Banana? Banana!!!";
-    }
-    
-    public void CheeseInformation()
-    {
-        Information.text = "I love Cheese";
-    }
-    
-    public void HamburgerInformation()
-    {
-        Information.text = "Hamburger, My Favorite!!";
-    }
-    
-    public void BossWeaponInformation()
-    {
-        Information.text = "Weapon of a boss !";
-    }
-    
-    public void KitHealInformation()
-    {
-        Information.text = "Heal! Heal!! Heal!!!";
-    }
-    
-    public void GunInformation()
-    {
-        Information.text = "A gun, dangerous and powerful weapon";
-    }
-    
-    public void ComputerInformation()
-    {
-        Information.text = "Banana!!! Very Delicious";
-    }
-    
-    public void SniperInformation()
-    {
-        Information.text = "Use with care, you can't imagine how power full it can be";
-    }
-    
-    public void PotionInformation()
-    {
-        Information.text = "A potion. It can save your life";
-    }
-
-
 }

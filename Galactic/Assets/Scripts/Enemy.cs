@@ -52,16 +52,41 @@ public class Enemy : MonoBehaviour
     
     IEnumerator wait(int temp)
     {
+        Game_Manager.healOrder = "";
         print(Time.time);
         yield return new WaitForSeconds(5);
         waita = false;
         print(Time.time);
     }
+
+
+    /*private void InventoryHealButtonTouch()
+    {
+        if (Players.Count != 0 && !Player_UI.fight)
+        {
+            if (Game_Manager.touchHealButton)
+            {
+                Players[_pos].Choice = EnumChoice.HealorBoost;
+            }
+                    
+            int pos = Players[_pos].Personnage.better_healorboost().pos;
+            if (pos != -1)
+            {
+                Players[_pos].Personnage.Use(pos);
+                Debug.Log("heal2");
+            }
+            Game_Manager.touchHealButton = false;
+            Players[_pos].Choice = EnumChoice.None;
+        }
+    }*/
+    
     
     
     // Update is called once per frame
     void Update()
     {
+         //InventoryHealButtonTouch();
+         
         if (_monstre != null)
         {
             if (_monstre.level < level)
@@ -90,12 +115,17 @@ public class Enemy : MonoBehaviour
                     }
 
                 }
-                else if (!CheckCollision(PlayersG[_pos]) || PlayersG[_pos] == null )
+                else if (!CheckCollision(PlayersG[_pos]) || PlayersG[_pos] is null )
                 {
                     _photonView.RPC("playerkill", RpcTarget.All,_pos);
                 }
-                else if (Players[_pos].Choice != EnumChoice.None)
+                else if (Players[_pos].Choice != EnumChoice.None || Game_Manager.touchHealButton)
                 {
+                    if (Game_Manager.touchHealButton)
+                    {
+                        Players[_pos].Choice = EnumChoice.HealorBoost;
+                    }
+                    
                     switch (Players[_pos].Choice)
                     {
                         case EnumChoice.Attack:
@@ -106,11 +136,13 @@ public class Enemy : MonoBehaviour
                             break;
                         case EnumChoice.HealorBoost:
                             int pos = Players[_pos].Personnage.better_healorboost().pos;
-                            if (pos != -1 )
+                            if (pos != -1)
+                            {
                                 Players[_pos].Personnage.Use(pos);
+                                Debug.Log("heal");
+                            }
+                            Game_Manager.touchHealButton = false;
                             break;
-
-
                     }
 
                     Players[_pos].Choice = EnumChoice.None;
@@ -155,6 +187,7 @@ public class Enemy : MonoBehaviour
         int life = (int)(heros.Getlife * 0.2);
         while (heros.Add_Life(life) == false)
             life -= 1;
+        Game_Manager.healOrder = "the divinity of this planet healed " + heros;
         heros.Add_Life(life);
     }
     
