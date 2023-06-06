@@ -185,7 +185,7 @@ public void Select_Soldat()
         if (touchHealButton)
         {
             InventoryHealButtonTouch();
-            touchHealButton = false;
+            
         }
         
         InBattle();
