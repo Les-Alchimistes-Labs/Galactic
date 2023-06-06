@@ -32,19 +32,19 @@ public class Player_UI : MonoBehaviour
     
     void Start()
     {
-        view = GetComponent<PhotonView>();
-        _player2 = GetComponent<Player2>(); 
         //UI= canvas.GetComponent<PlayerInformation_UI>();
         life = 1;
         exp = 0;
         fight = false;
         move = true;
+        view = GetComponent<PhotonView>();
+        _player2 = GetComponent<Player2>(); 
     }
 
     
     void Update()
     {
-        if (_player2 != null)
+        if (_player2 is not null)
         {
             switch (_player2.Personnage)
             {

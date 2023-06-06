@@ -64,8 +64,27 @@ namespace personnage_class.Personage
             int life = (int)(Life * 0.8);
             while (heros.Add_Life(life) == false)
                 life -= 1;
+            string str = "";
+            switch (heros)
+            {
+                case Sniper:
+                    str = "Sniper";
+                    break;
+                case Soldat:
+                    str = "Soldat";
+                    break;
+                case Canonnier:
+                    str = "Cannonier";
+                    break;
+                case Hacker:
+                    str = "Hacker";
+                    break;
+            }
+            Game_Manager.healOrder = "the divinity of this planet healed " + str;
             heros.Add_Life(life);
         }
+        
+        
         public void Target(List<Personnage> heros, int find)
         {
             var target = heros[0];

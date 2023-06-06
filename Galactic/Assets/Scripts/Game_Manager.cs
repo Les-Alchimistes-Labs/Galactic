@@ -36,11 +36,12 @@ public class Game_Manager : MonoBehaviourPunCallbacks
     
     public GameObject MenuButton;
     private bool touch_MenuButton;
-    public static bool touchHealButton;
     public static string healOrder;
+    public static bool touchHealButton;
     public static int desactivateAccessObjectFinalLevel = 0;
-    
-    
+    public static Player2 Player2;
+
+
     void Start()
     {
         Choice_Canvas.SetActive(false);
@@ -52,12 +53,30 @@ public class Game_Manager : MonoBehaviourPunCallbacks
         touch_MenuButton = false;
         touchHealButton = false;
         healOrder = "";
+        Player2 = GetComponent<Player2>();
     }
 
 
     public void touchOnHealButton()
     {
         touchHealButton = true;
+    }
+    
+    private void InventoryHealButtonTouch()
+    {
+        Player2 playerr;
+        foreach (var player2 in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            if (player2.GetComponent<PhotonView>().IsMine)
+            {
+                playerr = player2.GetComponent<Player2>();
+                var pos = playerr.Personnage.PosInv;
+                if (pos != -1)
+                {
+                    playerr.Personnage.Use(pos);
+                }
+            }
+        }
     }
     
     public void OpenMenu()
@@ -162,6 +181,12 @@ public void Select_Soldat()
     void Update()
     {
         healFromThisPlanet.text = healOrder;
+
+        if (touchHealButton)
+        {
+            InventoryHealButtonTouch();
+            touchHealButton = false;
+        }
         
         InBattle();
         GetInventory();

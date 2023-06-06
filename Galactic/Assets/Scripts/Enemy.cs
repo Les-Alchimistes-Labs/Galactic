@@ -59,34 +59,12 @@ public class Enemy : MonoBehaviour
         print(Time.time);
     }
 
-
-    /*private void InventoryHealButtonTouch()
-    {
-        if (Players.Count != 0 && !Player_UI.fight)
-        {
-            if (Game_Manager.touchHealButton)
-            {
-                Players[_pos].Choice = EnumChoice.HealorBoost;
-            }
-                    
-            int pos = Players[_pos].Personnage.better_healorboost().pos;
-            if (pos != -1)
-            {
-                Players[_pos].Personnage.Use(pos);
-                Debug.Log("heal2");
-            }
-            Game_Manager.touchHealButton = false;
-            Players[_pos].Choice = EnumChoice.None;
-        }
-    }*/
     
     
     
     // Update is called once per frame
     void Update()
     {
-         //InventoryHealButtonTouch();
-         
         if (_monstre != null)
         {
             if (_monstre.level < level)
@@ -119,13 +97,8 @@ public class Enemy : MonoBehaviour
                 {
                     _photonView.RPC("playerkill", RpcTarget.All,_pos);
                 }
-                else if (Players[_pos].Choice != EnumChoice.None || Game_Manager.touchHealButton)
+                else if (Players[_pos].Choice != EnumChoice.None)
                 {
-                    if (Game_Manager.touchHealButton)
-                    {
-                        Players[_pos].Choice = EnumChoice.HealorBoost;
-                    }
-                    
                     switch (Players[_pos].Choice)
                     {
                         case EnumChoice.Attack:
@@ -139,9 +112,7 @@ public class Enemy : MonoBehaviour
                             if (pos != -1)
                             {
                                 Players[_pos].Personnage.Use(pos);
-                                Debug.Log("heal");
                             }
-                            Game_Manager.touchHealButton = false;
                             break;
                     }
 
@@ -173,10 +144,7 @@ public class Enemy : MonoBehaviour
                 
             }
             
-        
         }
-
-
         
     }
 
@@ -187,7 +155,6 @@ public class Enemy : MonoBehaviour
         int life = (int)(heros.Getlife * 0.2);
         while (heros.Add_Life(life) == false)
             life -= 1;
-        Game_Manager.healOrder = "the divinity of this planet healed " + heros;
         heros.Add_Life(life);
     }
     
@@ -232,11 +199,7 @@ public class Enemy : MonoBehaviour
         return false; // No collision detected
     }
 
-
     
-    
-
-
 
     [PunRPC]
     void reset_pos(int temp, int posH)
