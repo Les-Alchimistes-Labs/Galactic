@@ -97,9 +97,19 @@ public class Game_Manager : MonoBehaviourPunCallbacks
         heal_Boost = true;
     }
 
-    
 
 
+    private void InBattle()
+    {
+        if (Player_UI.fight && !Player_UI.move)
+        {
+            Choice_Canvas.SetActive(true);
+        }
+        else
+        {
+            Choice_Canvas.SetActive(false);
+        }
+    }
 
 
 public void Select_Soldat()
@@ -132,6 +142,7 @@ public void Select_Soldat()
     
     void Update()
     {
+        InBattle();
         GetInventory();
         if (touch_MenuButton)
         {
@@ -173,15 +184,6 @@ public void Select_Soldat()
 
         }
 
-        if (Player_UI.fight && !Player_UI.move)
-        {
-            Choice_Canvas.SetActive(true);
-        }
-        else
-        {
-            Choice_Canvas.SetActive(false);
-        }
-        
     }
 
 
