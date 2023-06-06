@@ -70,7 +70,7 @@ public class Game_Manager : MonoBehaviourPunCallbacks
         TouchButton = false;
     }
 
-    void GetInventory()
+    private void GetInventory()
     {
         if (TouchButton)
         {
@@ -132,6 +132,7 @@ public void Select_Soldat()
     
     void Update()
     {
+        GetInventory();
         if (touch_MenuButton)
         {
             PauseMenu.SetActive(true);
@@ -181,7 +182,6 @@ public void Select_Soldat()
             Choice_Canvas.SetActive(false);
         }
         
-        GetInventory();
     }
 
 
