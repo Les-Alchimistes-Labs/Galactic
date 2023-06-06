@@ -198,9 +198,12 @@ public class Enemy : MonoBehaviour
 
         return false; // No collision detected
     }
+
+
     
     
-    
+
+
 
     [PunRPC]
     void reset_pos(int temp, int posH)
@@ -291,6 +294,7 @@ public class Enemy : MonoBehaviour
     [PunRPC]
     void update_CanMove()
     {
+        Game_Manager.desactivateAccessObjectFinalLevel += 1;
         foreach (var player in Players)
         {
             if (player.Personnage != null)

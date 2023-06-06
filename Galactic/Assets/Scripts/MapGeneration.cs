@@ -398,9 +398,8 @@ public class MapGenerator : MonoBehaviour {
                         }
                         else
                         {
-                            rock = Instantiate(rockPrefab,
-                                new Vector3(indiceX + 145 - diffx, 0, indiceY + 199), Quaternion.identity);
-                            rock.transform.SetParent(transform);
+                            //rock = Instantiate(rockPrefab,new Vector3(indiceX + 145 - diffx, 0, indiceY + 199), Quaternion.identity);
+                            //rock.transform.SetParent(transform);
                         }
                         break;
 

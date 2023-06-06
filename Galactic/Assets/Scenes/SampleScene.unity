@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.01440346, g: 0.057880603, b: 0.10578638, a: 1}
+  m_IndirectSpecularColor: {r: 0.01440346, g: 0.05788061, b: 0.10578639, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1189,8 +1189,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 160.86, y: 57.561}
-  m_SizeDelta: {x: 316.72, y: 106.734}
+  m_AnchoredPosition: {x: 55.2, y: 26}
+  m_SizeDelta: {x: 130, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &40900429
 MonoBehaviour:
@@ -5042,7 +5042,7 @@ GameObject:
   - component: {fileID: 172190027}
   m_Layer: 5
   m_Name: MinMap
-  m_TagString: Untagged
+  m_TagString: PlayerUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8802,7 +8802,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 286, y: 0}
+  m_AnchoredPosition: {x: 114.2, y: 0}
   m_SizeDelta: {x: 150, y: 60}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &302749330
@@ -8827,7 +8827,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8297a2bf97dbbba468bd2518d003a876, type: 3}
-    m_FontSize: 17
+    m_FontSize: 13
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -8984,6 +8984,10 @@ PrefabInstance:
     - target: {fileID: 2043766576707788879, guid: 6880aedbde411a748bb1bfe7575d030f, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2043766576707788879, guid: 6880aedbde411a748bb1bfe7575d030f, type: 3}
+      propertyPath: m_TagString
+      value: PlayerUI
       objectReference: {fileID: 0}
     - target: {fileID: 2043766576707788882, guid: 6880aedbde411a748bb1bfe7575d030f, type: 3}
       propertyPath: exp_slider
@@ -22510,7 +22514,9 @@ MonoBehaviour:
   Canonnier_prefab: {fileID: 7342648624235579213, guid: 23311d8f59a3e9940bbfe545f852d49e, type: 3}
   Hacker_prefab: {fileID: 2642393307959838465, guid: f201ea7cfcab03c4e8cc92dd7c742f8d, type: 3}
   GUI: {fileID: 1849510645}
-  PlayerUI: {fileID: 306502015}
+  PlayerGUI: {fileID: 306502015}
+  PlayerGUI1: {fileID: 1917747996}
+  PlayerGUI2: {fileID: 172190026}
   Level: 0
   PauseMenu: {fileID: 1816642999}
   MenuButton: {fileID: 828875730}
@@ -29570,11 +29576,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4019006643437076945, guid: 79aa0072a7b33b546843928f09cf2907, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 500
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 4019006643437076945, guid: 79aa0072a7b33b546843928f09cf2907, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 300
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4019006643437076945, guid: 79aa0072a7b33b546843928f09cf2907, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29606,7 +29612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4019006643437076945, guid: 79aa0072a7b33b546843928f09cf2907, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 291
+      value: 142.5
       objectReference: {fileID: 0}
     - target: {fileID: 4019006643437076945, guid: 79aa0072a7b33b546843928f09cf2907, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -54243,11 +54249,11 @@ GameObject:
   - component: {fileID: 1917747997}
   m_Layer: 5
   m_Name: Canvas_PrincipleWeapon
-  m_TagString: Untagged
+  m_TagString: PlayerUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1917747997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63257,7 +63263,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7378300213511189451, guid: 07ff34218b5ea5b47a44684e3b91b943, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378300213511189493, guid: 07ff34218b5ea5b47a44684e3b91b943, type: 3}
+      propertyPath: orthographic size
+      value: 15.585082
       objectReference: {fileID: 0}
     - target: {fileID: 7378300213511189494, guid: 07ff34218b5ea5b47a44684e3b91b943, type: 3}
       propertyPath: m_RootOrder
