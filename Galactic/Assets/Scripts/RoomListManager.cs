@@ -29,7 +29,7 @@ public class RoomListManager : MonoBehaviourPunCallbacks
         {
             GameObject newroom = Instantiate(roomNamePrefab, gridLayout);
 
-            newroom.GetComponentInChildren<Text>().text = room.Name + "\n"+"number of players: " + room.PlayerCount;
+            newroom.GetComponentInChildren<Text>().text = room.Name + "(" + room.PlayerCount +")";
             
             newroom.transform.SetParent(gridLayout);
         }

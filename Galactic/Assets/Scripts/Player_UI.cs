@@ -27,7 +27,6 @@ public class Player_UI : MonoBehaviour
     // About items
     public static Item[]? inv = new Item[8];
     public static Item? PrincipleWeapon;
-    public static int? pos;
     
     
     
@@ -45,7 +44,7 @@ public class Player_UI : MonoBehaviour
     
     void Update()
     {
-        if (_player2 is not null)
+        if (_player2 != null)
         {
             switch (_player2.Personnage)
             {
@@ -68,7 +67,6 @@ public class Player_UI : MonoBehaviour
                     
             inv = _player2.Personnage.Get_Inventory();
             PrincipleWeapon = _player2.Personnage.pricipale_Weapon;
-            pos = _player2.Personnage.PosInv;
         }
 
 

@@ -410,11 +410,6 @@ public class MapGenerator : MonoBehaviour {
         }
     }
 
-    public void Update()
-    {
-        
-    }
-
     private PhotonView _photonView;
     void Start()
     {

@@ -33,9 +33,11 @@ public class Game_Manager : MonoBehaviourPunCallbacks
     
     public GameObject MenuButton;
     private bool touch_MenuButton;
+    
 
     public static int desactivateAccessObjectFinalLevel = 0;
-    
+
+
     void Start()
     {
         Choice_Canvas.SetActive(false);
@@ -70,8 +72,7 @@ public class Game_Manager : MonoBehaviourPunCallbacks
         TouchButton = false;
     }
 
-    
-    public void GetInventory()
+    void GetInventory()
     {
         if (TouchButton)
         {
@@ -141,8 +142,7 @@ public void Select_Soldat()
         {
             PauseMenu.SetActive(false);
         }
-
-        desactivateAccessObjectFinalLevel = GameObject.FindGameObjectsWithTag("intermidateboss").Length % 4; 
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             //QuitApplication();
