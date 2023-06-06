@@ -112,35 +112,19 @@ public class Player2 : MonoBehaviour
 
 					if (Input.GetKeyDown("1"))
 					{
-						Personnage.PosInv = 0;
-					}
-					else if (Input.GetKeyDown("2"))
-					{
 						Personnage.PosInv = 1;
 					}
-					else if (Input.GetKeyDown("3"))
+					if (Input.GetKeyDown("2"))
 					{
 						Personnage.PosInv = 2;
 					}
-					else if (Input.GetKeyDown("4"))
+					if (Input.GetKeyDown("3"))
 					{
 						Personnage.PosInv = 3;
 					}
-					if (Input.GetKeyDown("5"))
+					if (Input.GetKeyDown("4"))
 					{
 						Personnage.PosInv = 4;
-					}
-					else if (Input.GetKeyDown("6"))
-					{
-						Personnage.PosInv = 5;
-					}
-					else if (Input.GetKeyDown("7"))
-					{
-						Personnage.PosInv = 6;
-					}
-					else if (Input.GetKeyDown("8"))
-					{
-						Personnage.PosInv = 7;
 					}
 
 					if (!Personnage.IsAlive() || transform.position.y < -5)
@@ -389,113 +373,10 @@ public class Player2 : MonoBehaviour
 		}
 
 	}
-	
-	/*
 
-	public void OnTriggerEnter(Collider other)
+	public void OnDestroy()
 	{
-		if (other.tag == "Enemy")
-		{
-			Personnage.canMove = false;
-			Debug.Log($"in and {Personnage.canMove}");
-			Personnage.inFight = true;
-			anim.SetInteger ("AnimationPar", 0);
-				
-		}
-		else if (other.tag == "Respawn" && Personnage != null)
-		{
-			Personnage.InSafeZone = true;
-			Debug.Log($"in and {Personnage.InSafeZone}");
-		}
-
-		else if ((other.tag == "Equipement" && (Input.GetKey("e") || Input.GetKeyDown("e"))))
-		{
-
-			Item item = other.gameObject.GetComponent<ItemInGame>().Item;
-			bool take =Personnage.Took(item);
-			if (take)
-			{
-				itemOnWorld.AddNewItem(item.Name);
-				if (!other.GetComponent<PhotonView>().IsMine)
-				{
-					// Transférez la propriété au client local
-					other.GetComponent<PhotonView>().TransferOwnership(PhotonNetwork.LocalPlayer);
-				}
-
-// Supprimez le GameObject en tant que propriétaire ou MasterClient
-				PhotonNetwork.Destroy(other.gameObject);
-				//_photonView.RPC("delobj", RpcTarget.MasterClient,other.gameObject.GetComponent<PhotonView>().ViewID);
-
-			}
-
-		}
-			
-
-
-
+		GameObject manager = GameObject.FindGameObjectWithTag("GameManager");
+		manager.GetComponent<Game_Manager>();
 	}
-		
-		
-	public void OnTriggerStay(Collider other)
-	{
-		if ((other.tag == "Equipement" && (Input.GetKey("e") || Input.GetKeyDown("e"))))
-		{
-
-			Item item = other.gameObject.GetComponent<ItemInGame>().Item;
-			bool take =Personnage.Took(item);
-			if (take && item!=null)
-			{
-				itemOnWorld.AddNewItem(item.Name);
-				if (!other.gameObject.GetComponent<PhotonView>().IsMine)
-				{
-					// Transférez la propriété au client local
-					other.gameObject.GetComponent<PhotonView>().TransferOwnership(PhotonNetwork.LocalPlayer);
-				}
-
-// Supprimez le GameObject en tant que propriétaire ou MasterClient
-				PhotonNetwork.Destroy(other.gameObject);
-				
-				//_photonView.RPC("delobj", RpcTarget.MasterClient,other.gameObject.GetComponent<PhotonView>().ViewID);
-
-			}
-
-
-		}
-		else if (other.tag == "Enemy")
-		{
-			Personnage.canMove = false;
-			Personnage.inFight = true;
-			anim.SetInteger ("AnimationPar", 0);
-				
-		}
-			
-
-
-
-	}
-
-	[PunRPC]
-	void delobj(int id)
-	{
-		PhotonNetwork.Destroy(PhotonView.Find(id));
-	}
-
-	public void OnTriggerExit(Collider other)
-	{
-		if (other.tag == "Enemy")
-		{
-			Personnage.canMove = true;
-			Personnage.inFight = false;
-			Debug.Log($"out and {Personnage.canMove}");
-		}
-		if (other.tag == "Respawn")
-		{
-				
-			Personnage.InSafeZone = false;
-			Debug.Log($"out and {Personnage.InSafeZone}");
-		}
-
-	}
-
-*/
 }
