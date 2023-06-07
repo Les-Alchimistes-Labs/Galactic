@@ -110,35 +110,35 @@ public class Player2 : MonoBehaviour
 						}
 					}
 
-					if (Input.GetKeyDown("1"))
+					if (Input.GetKey("1"))
 					{
 						Personnage.PosInv = 0;
 					}
-					else if (Input.GetKeyDown("2"))
+					else if (Input.GetKey("2"))
 					{
 						Personnage.PosInv = 1;
 					}
-					else if (Input.GetKeyDown("3"))
+					else if (Input.GetKey("3"))
 					{
 						Personnage.PosInv = 2;
 					}
-					else if (Input.GetKeyDown("4"))
+					else if (Input.GetKey("4"))
 					{
 						Personnage.PosInv = 3;
 					}
-					if (Input.GetKeyDown("5"))
+					if (Input.GetKey("5"))
 					{
 						Personnage.PosInv = 4;
 					}
-					else if (Input.GetKeyDown("6"))
+					else if (Input.GetKey("6"))
 					{
 						Personnage.PosInv = 5;
 					}
-					else if (Input.GetKeyDown("7"))
+					else if (Input.GetKey("7"))
 					{
 						Personnage.PosInv = 6;
 					}
-					else if (Input.GetKeyDown("8"))
+					else if (Input.GetKey("8"))
 					{
 						Personnage.PosInv = 7;
 					}

@@ -33,7 +33,7 @@ public abstract class Personnage : Update
         get { return _posInv;}
         set
         {
-            if (value < Inventory.Length && value>0)
+            if (value < Inventory.Length && value>=0)
                 _posInv = value;
         }
     }

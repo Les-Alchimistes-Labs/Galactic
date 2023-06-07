@@ -16,6 +16,28 @@ namespace personnage_class.Personage.Monsters
             Inventory[0] = new Gun(100, Damage, Boost);
             Change_Weapon_Equipped(0);
 
+            
+            int i = 1;
+            while (i > 0)
+            {
+                Inventory[i] = new Kit_Heal(1, 100 * level * Boost);
+                i--;
+            }
+
+            int nb_Food = Random.Range(2, 7), nb_Boost = inventorySize - nb_Food;
+            while (nb_Boost > 0)
+            {
+                Inventory[nb_Boost - 1] =
+                    new Potion_Boost("Potion_Stamina", 50, false, 0, EnumsItem.Boost, Boost * level);
+                nb_Boost--;
+            }
+
+            while (nb_Food > 0)
+            {
+                Inventory[nb_Boost + nb_Food] = new Food("Hamburger", 50, life * level);
+                nb_Food--;
+            }
+
         }
 
 
