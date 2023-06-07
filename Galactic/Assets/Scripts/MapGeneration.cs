@@ -241,7 +241,7 @@ public class MapGenerator : MonoBehaviour {
 
     public void GenerateMap(int[,] matrixLevel)
     {
-       
+        
         matrixCase = new Case().ConvertMatrix(matrixLevel);
 
         for (int indiceX = 0; indiceX < matrixCase.GetLength(0); indiceX++)
@@ -401,40 +401,36 @@ public class MapGenerator : MonoBehaviour {
             }
         }
     }
+
+
+    private int convert(string val)
+    {
+        int res = 0;
+        foreach (var v in val)
+        {
+            res =res *10 + (int)v;
+        }
+        return res;
+    }
+    
     
 
     private PhotonView _photonView;
+    public int[,] map;
     void Start()
     {
-        Random.InitState((int)System.DateTime.Now.Ticks);
+        Random.InitState(convert(PhotonNetwork.CurrentRoom.Name+"alsjdh flakshj asf;lakjsd;flkaj;sldkjf;alskdjf"));
         level = 0;
         _photonView = GetComponent<PhotonView>();
         biomeUse = new bool[] { false, false, false, false };
         int[,] matrixLevelWithRiver = GenerateMatrixLevel(matrixLevel);
-        if (!PhotonNetwork.IsMasterClient)
-        {
-            // Retrieve the value from the master client and assign it to the variable
-           // _photonView.RPC("RequestArray", RpcTarget.MasterClient);
-        }
-        GenerateMap(matrixLevelWithRiver);
-        
-        
+        map = matrixLevelWithRiver;
+        bool test = map == matrixLevelWithRiver;
+        GenerateMap(map);
 
 
-    }
 
-    [PunRPC]
-    private void RequestArray(PhotonMessageInfo info)
-    {
-        _photonView.RPC("SendArray", info.Sender, matrixLevel);
-    }
 
-    [PunRPC]
-    private void SendArray(int[,] array)
-    {
-        // Récupère le tableau envoyé par le "master"
-        matrixLevel = array;
-        
     }
     
     

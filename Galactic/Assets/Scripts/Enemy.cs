@@ -306,7 +306,8 @@ public class Enemy : MonoBehaviour
     [PunRPC]
     void update_CanMove()
     {
-        Game_Manager.desactivateAccessObjectFinalLevel += 1;
+        if (_monstre.Type() == EnumType.IntermediateMonster)
+            Game_Manager.desactivateAccessObjectFinalLevel += 1;
         foreach (var player in Players)
         {
             if (player.Personnage != null)
