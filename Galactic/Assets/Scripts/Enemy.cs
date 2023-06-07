@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 using Photon.Realtime;
 using personnage_class.Personage.Monsters;
 using UnityEngine.EventSystems;
+using static Game_Manager;
 
 public class Enemy : MonoBehaviour
 {
@@ -306,6 +307,16 @@ public class Enemy : MonoBehaviour
     [PunRPC]
     void update_CanMove()
     {
+        desactivateAccessObjectFinalLevel++;
+        if (desactivateAccessObjectFinalLevel >= 3)
+        {
+            // delete all door
+            GameObject[] doors = GameObject.FindGameObjectsWithTag("door");
+            foreach (GameObject door in doors)
+            {
+                Destroy(door);
+            }
+        }
         if (_monstre.Type() == EnumType.IntermediateMonster)
             Game_Manager.desactivateAccessObjectFinalLevel += 1;
         foreach (var player in Players)
