@@ -30,7 +30,7 @@ public class Game_Manager : MonoBehaviourPunCallbacks
     public GameObject PlayerGUI1;
     public GameObject PlayerGUI2;
     private GameObject test;
-    public int Level;
+    public static int Level;
     public GameObject PauseMenu;
     public Text healFromThisPlanet;
     
@@ -47,7 +47,7 @@ public class Game_Manager : MonoBehaviourPunCallbacks
         attack = false;
         heal_Boost = false;
         changeGun = false;
-        Level = 0;
+        Level = 100;
         TouchButton = false;
         touch_MenuButton = false;
         healOrder = "";

@@ -24,9 +24,9 @@ public class EnemyGenerator : MonoBehaviour
         _level = level;
         _png = prefab;
         GameObject gamemanager = GameObject.Find("GameManager");
-        if (gamemanager.GetComponent<Game_Manager>().Level > level)
+        if (Game_Manager.Level> level)
         {
-            _level = gamemanager.GetComponent<Game_Manager>().Level;
+            _level = Game_Manager.Level;
         }
         switch (Monster)
         {
@@ -42,7 +42,12 @@ public class EnemyGenerator : MonoBehaviour
                 _active_monster =  PhotonNetwork.Instantiate(_png.name,new Vector3(x ,2,z),Quaternion.identity, 0); //new Vector3(_transform.position.x ,_transform.position.y,_transform.position.z) , _transform.rotation, 0);
                 _active_monster.GetComponent<Enemy>().level = _level;
                 break;
+            default:
+                _active_monster =  PhotonNetwork.Instantiate(_png.name,new Vector3(x ,2,z),Quaternion.identity, 0); //new Vector3(_transform.position.x ,_transform.position.y,_transform.position.z) , _transform.rotation, 0);
+                _active_monster.GetComponent<Enemy>().level = _level;
+                break;
         }
+
     }
     
 }

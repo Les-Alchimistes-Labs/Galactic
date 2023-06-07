@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
 {
     public EnumMonster Monster ;
 
-    private Personnage _monstre;
+    public Personnage _monstre;
     public GameObject _active_monster;
     private List<Player2> Players;
     private List<GameObject> PlayersG;
@@ -27,23 +27,27 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         _photonView = GetComponent<PhotonView>();
         _pos = 0;
         PlayersG = new List<GameObject>();
         Players = new List<Player2>();
         PPlayers = new List<Personnage>();
-        level = 0;
+        level = 2;
         waita = false;
         switch (Monster)
         {
             case EnumMonster.LittelMonster :
                 _monstre = new LittelMonster("a");
+                ((Monster)_monstre).Improve( 3);
                 break;
             case EnumMonster.BossIntermediate :
                 _monstre = new BossIntermediate("a");
+                ((Monster)_monstre).Improve( 30);
                 break;
             case EnumMonster.BossFinal :
                 _monstre = new BossFinal("a");
+                ((Monster)_monstre).Improve( 70);
                 break;
         }
         
@@ -68,10 +72,6 @@ public class Enemy : MonoBehaviour
     {
         if (_monstre != null)
         {
-            if (_monstre.level < level)
-            {
-                _monstre.level = level;
-            }
             if (Players.Count != 0 && _monstre.IsAlive())
             {
                 transform.transform.LookAt(Players[0].transform);

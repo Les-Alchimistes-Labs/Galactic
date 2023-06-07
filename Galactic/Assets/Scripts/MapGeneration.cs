@@ -419,7 +419,7 @@ public class MapGenerator : MonoBehaviour {
     public int[,] map;
     void Start()
     {
-        Random.InitState(convert(PhotonNetwork.CurrentRoom.Name+"alsjdh flakshj asf;lakjsd;flkaj;sldkjf;alskdjf"));
+        Random.InitState(convert(PhotonNetwork.CurrentRoom.Name+"alsjdVCXSDFh flakshj asf;lakjsd;flkaj;sldkjf;alskdjffahlkshdf;qwjef;alkjsdf;lkqj,.zxmcmzn,mzaAWEASDFASDFF4AESDFES"));
         level = 0;
         _photonView = GetComponent<PhotonView>();
         biomeUse = new bool[] { false, false, false, false };

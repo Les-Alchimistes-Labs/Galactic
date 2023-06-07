@@ -15,6 +15,11 @@ namespace personnage_class.Personage
         public List<Personnage> Players = new List<Personnage>();
 
 
+        public void Improve(int level)
+        {
+            Life *= level;
+            
+        }
 
         public override bool Add_Life(int i)
         {
