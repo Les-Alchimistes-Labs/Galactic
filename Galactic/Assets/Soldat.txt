@@ -1,0 +1,6 @@
+type:Soldat
+name:test
+level:4
+xp:16
+life:34
+inventory: Banana

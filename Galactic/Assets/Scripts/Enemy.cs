@@ -152,10 +152,27 @@ public class Enemy : MonoBehaviour
     
     public void Heal(Personnage heros)
     {
-        int life = (int)(heros.Getlife * 0.2);
-        while (heros.Add_Life(life) == false)
-            life -= 1;
-        heros.Add_Life(life);
+        int heal = (int)(heros.Getlife * 0.2);
+        while (heros.Add_Life(heal) == false)
+            heal -= 1;
+        string str = "";
+        switch (heros)
+        {
+            case Sniper:
+                str = "Sniper";
+                break;
+            case Soldat:
+                str = "Soldat";
+                break;
+            case Canonnier:
+                str = "Cannonier";
+                break;
+            case Hacker:
+                str = "Hacker";
+                break;
+        }
+        Game_Manager.healOrder = "the divinity of this planet healed " + str;
+        heros.Add_Life(heal);
     }
     
     
