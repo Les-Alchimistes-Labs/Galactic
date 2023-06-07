@@ -25,6 +25,7 @@ public class MapGenerator : MonoBehaviour {
     public GameObject IntermediateMonster;
     public GameObject GroundfinalBoss;
     public GameObject BossFinalMonster;
+    [SerializeField]
     public GameObject AccessObjectFinalLevel;
     public bool[] biomeUse; 
     public int level;
@@ -350,8 +351,6 @@ public class MapGenerator : MonoBehaviour {
             for (int indiceY = 0; indiceY < monsterRoomMatrix.GetLength(1); indiceY++)
             {
                 GameObject ground;
-                GameObject accessObjectFinalLevel;
-
 
                 switch (matrixCase[indiceX, indiceY])
                 {
@@ -387,32 +386,22 @@ public class MapGenerator : MonoBehaviour {
                             new Vector3(indiceX + 145 - diffx, 0, indiceY + 199), Quaternion.identity);
                         rock.transform.SetParent(transform);
                         break;
-                    case (Case.EnumType.AccessObjectFinalLevel, EnumsItem.Empty):
-                        if(desactivateAccessObjectFinalLevel < 3)
-                        {
-                            accessObjectFinalLevel = Instantiate(AccessObjectFinalLevel,
-                                new Vector3(indiceX + 145 - diffx, 1.5f, indiceY + 199), Quaternion.identity);
-                            accessObjectFinalLevel.transform.SetParent(transform);
-                            Quaternion rotation = Quaternion.Euler(0, 90, 0);
-                            accessObjectFinalLevel.transform.rotation = rotation;
-                        }
-                        else
-                        {
-                            //rock = Instantiate(rockPrefab,new Vector3(indiceX + 145 - diffx, 0, indiceY + 199), Quaternion.identity);
-                            //rock.transform.SetParent(transform);
-                        }
+                    
+                    case (Case.EnumType.AccessObjectFinalLevel,EnumsItem.Empty):
+                        GameObject accessObjectFinalLevel = Instantiate(AccessObjectFinalLevel, new Vector3(indiceX + 145 - diffx, 1.5f, indiceY + 199), Quaternion.identity);
+                        accessObjectFinalLevel.transform.SetParent(transform);
+                        Quaternion rotation = Quaternion.Euler(0, 90, 0);
+                        accessObjectFinalLevel.transform.rotation = rotation;
                         break;
 
-                
+
+
+
                 }
             }
         }
     }
-
-    public void Update()
-    {
-        
-    }
+    
 
     private PhotonView _photonView;
     void Start()
