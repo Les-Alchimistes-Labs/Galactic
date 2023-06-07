@@ -82,7 +82,7 @@ public class Enemy : MonoBehaviour
                         waita = true;
                         StartCoroutine(wait(temp));
                         int posH = -1;
-                        if (PlayersG.Count >= 2)
+                        if (PlayersG.Count >= 2 ) // mettre à 2
                         {
                             posH = Target(PPlayers);
                             
@@ -162,10 +162,10 @@ public class Enemy : MonoBehaviour
                 str = "Sniper";
                 break;
             case Soldat:
-                str = "Soldat";
+                str = "Soldier";
                 break;
             case Canonnier:
-                str = "Cannonier";
+                str = "Gunner";
                 break;
             case Hacker:
                 str = "Hacker";
@@ -192,7 +192,6 @@ public class Enemy : MonoBehaviour
         }
 
         return target;
-        
         
     }
     
