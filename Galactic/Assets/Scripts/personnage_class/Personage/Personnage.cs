@@ -379,7 +379,7 @@ public abstract class Personnage : Update
 
     public bool LevelUp()
     {
-        if (level <= MaxLevel && _xp >= level * _maxxp)
+        if (level <= MaxLevel && _xp >= Maxxp)
         {
             level ++;
             _xp = 0;
@@ -394,10 +394,10 @@ public abstract class Personnage : Update
     {
         while (nb> 0 && level <=  MaxLevel )
         {
-            if (nb + _xp > level * _maxxp  )
+            if (nb + _xp > Maxxp  )
             {
-                nb -= level * _maxxp + _xp;
-                _xp = level * _maxxp; 
+                nb -= Maxxp;
+                _xp =  Maxxp; 
                 if (!LevelUp())
                     break;
             }
