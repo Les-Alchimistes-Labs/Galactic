@@ -25,11 +25,23 @@ public class RoomListManager : MonoBehaviourPunCallbacks
                 }
             }
         }
+
+        for (int i = 0; i < roomList.Count; i++)
+        {
+            for (int j =  i +1; j < roomList.Count; j++)
+            {
+                if (roomList[i].Name == roomList[j].Name)
+                {
+                    roomList.Remove(roomList[j]);
+                }
+            }
+        }
+        
         foreach (var room in roomList)
         {
             GameObject newroom = Instantiate(roomNamePrefab, gridLayout);
 
-            newroom.GetComponentInChildren<Text>().text = room.Name + "\n"+"number of players: " + room.PlayerCount;
+            newroom.GetComponentInChildren<Text>().text = room.Name;
             
             newroom.transform.SetParent(gridLayout);
         }

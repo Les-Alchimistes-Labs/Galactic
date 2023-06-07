@@ -37,7 +37,6 @@ public class Game_Manager : MonoBehaviourPunCallbacks
     public GameObject MenuButton;
     private bool touch_MenuButton;
     public static string healOrder;
-    public static bool touchHealButton;
     public static int desactivateAccessObjectFinalLevel = 0;
     public static Player2 Player2;
 
@@ -51,18 +50,13 @@ public class Game_Manager : MonoBehaviourPunCallbacks
         Level = 0;
         TouchButton = false;
         touch_MenuButton = false;
-        touchHealButton = false;
         healOrder = "";
         Player2 = GetComponent<Player2>();
     }
 
-
-    public void touchOnHealButton()
-    {
-        touchHealButton = true;
-    }
     
-    private void InventoryHealButtonTouch()
+    
+    public void InventoryHealButtonTouch()
     {
         Player2 playerr;
         foreach (var player2 in GameObject.FindGameObjectsWithTag("Player"))
@@ -182,12 +176,6 @@ public void Select_Soldat()
     {
         healFromThisPlanet.text = healOrder;
 
-        if (touchHealButton)
-        {
-            InventoryHealButtonTouch();
-            
-        }
-        
         InBattle();
         GetInventory();
 
