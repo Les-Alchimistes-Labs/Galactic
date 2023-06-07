@@ -37,7 +37,7 @@ public class Game_Manager : MonoBehaviourPunCallbacks
     public GameObject MenuButton;
     private bool touch_MenuButton;
     public static string healOrder;
-    public static int desactivateAccessObjectFinalLevel = 2;
+    public static int desactivateAccessObjectFinalLevel = 0;
     public static Player2 Player2;
 
 

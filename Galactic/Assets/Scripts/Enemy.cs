@@ -307,19 +307,18 @@ public class Enemy : MonoBehaviour
     [PunRPC]
     void update_CanMove()
     {
-        desactivateAccessObjectFinalLevel++;
-        if (desactivateAccessObjectFinalLevel >= 3)
-        {
-            // delete all door
-            GameObject[] doors = GameObject.FindGameObjectsWithTag("door");
-            foreach (GameObject door in doors)
-            {
-                Destroy(door);
-            }
-        }
         if (_monstre.Type() == EnumType.IntermediateMonster)
-            Game_Manager.desactivateAccessObjectFinalLevel += 1;
-        foreach (var player in Players)
+            desactivateAccessObjectFinalLevel++;
+            if (desactivateAccessObjectFinalLevel >= 3)
+            {
+                // delete all door
+                GameObject[] doors = GameObject.FindGameObjectsWithTag("door");
+                foreach (GameObject door in doors)
+                {
+                    Destroy(door);
+                }
+            }
+            foreach (var player in Players)
         {
             if (player.Personnage != null)
             {
