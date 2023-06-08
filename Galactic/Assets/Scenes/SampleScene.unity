@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.01440346, g: 0.05788061, b: 0.10578639, a: 1}
+  m_IndirectSpecularColor: {r: 0.0144034615, g: 0.057880603, b: 0.105786376, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -22591,7 +22591,6 @@ MonoBehaviour:
   PlayerGUI: {fileID: 306502015}
   PlayerGUI1: {fileID: 1917747996}
   PlayerGUI2: {fileID: 172190026}
-  Level: 0
   PauseMenu: {fileID: 1816642999}
   healFromThisPlanet: {fileID: 539911849}
   MenuButton: {fileID: 828875730}
@@ -59347,7 +59346,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2069074387
 MonoBehaviour:
   m_ObjectHideFlags: 0

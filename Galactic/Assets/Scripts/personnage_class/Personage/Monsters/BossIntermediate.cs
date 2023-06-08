@@ -43,35 +43,22 @@ namespace personnage_class.Personage.Monsters
 
         public override void Target(List<Personnage> heros, int find)
         {
-            Personnage target = null;
-            List<Personnage> targets = null;
-            if (find < 20)
-                targets = heros; //attaquer tous les ennemis
-            if (find is >= 20 and < 35)
-            {
-                target = heros[0];
+            var target = heros[0];
+            // trouver le médecin 
+            if (find is >= 0 and < 25)
                 for (int i = 1; i < heros.Count - 1; i++)
                 {
                     if (heros[i].Get_damage() > target.Get_damage())
                         target = heros[i];
                 }
-            }
             else
-            {
-                target = heros[0];
                 for (int i = 1; i < heros.Count - 1; i++)
                 {
                     if (heros[i].Getlife < target.Getlife)
                         target = heros[i];
                 }
-            }
 
-            if (target == null )    
-               Attack(heros[0], targets);
-            else if ( targets.Count == 0)
-            {
-                Attack(target,targets );
-            }
+            Attack(target);
         }
     }
 
