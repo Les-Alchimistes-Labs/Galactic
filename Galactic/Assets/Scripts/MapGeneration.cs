@@ -427,6 +427,7 @@ public class MapGenerator : MonoBehaviour {
         map = matrixLevelWithRiver;
         bool test = map == matrixLevelWithRiver;
         GenerateMap(map);
+        
 
 
 

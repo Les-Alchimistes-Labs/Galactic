@@ -66,7 +66,12 @@ namespace personnage_class.Personage.Monsters
                 }
             }
 
-            Attack(target, targets);
+            if (target == null )    
+               Attack(heros[0], targets);
+            else if ( targets.Count == 0)
+            {
+                Attack(target,targets );
+            }
         }
     }
 
