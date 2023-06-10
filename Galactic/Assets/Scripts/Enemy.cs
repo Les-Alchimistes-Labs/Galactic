@@ -96,7 +96,7 @@ public class Enemy : MonoBehaviour
                     }
 
                 }
-                else if (!CheckCollision(PlayersG[_pos]) || PlayersG[_pos] is null )
+                else if (_pos < PlayersG.Count && !CheckCollision(PlayersG[_pos]) || PlayersG[_pos] is null )
                 {
                     _photonView.RPC("playerkill", RpcTarget.All,_pos);
                 }
