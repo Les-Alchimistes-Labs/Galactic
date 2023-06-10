@@ -75,7 +75,7 @@ public class Enemy : MonoBehaviour
             if (Players.Count != 0 && _monstre.IsAlive())
             {
                 transform.transform.LookAt(Players[0].transform);
-                if (_pos >= Players.Count )
+                if (_pos >= Players.Count && _photonView.IsMine )
                 {
                     if (!waita)
                     {
@@ -88,7 +88,9 @@ public class Enemy : MonoBehaviour
                             posH = Target(PPlayers);
                             
                         }
-                        _photonView.RPC("reset_pos", RpcTarget.All,temp, posH);
+                        int posa;// =((Monster)_monstre).Target(PPlayers,temp);
+                        posa = Random.Range(0, PlayersG.Count);
+                        _photonView.RPC("reset_pos", RpcTarget.All,temp, posH,posa);
                         
 
                     }
@@ -205,9 +207,9 @@ public class Enemy : MonoBehaviour
     
 
     [PunRPC]
-    void reset_pos(int temp, int posH)
+    void reset_pos(int temp, int posH,int posa)
     {
-        int posa =((Monster)_monstre).Target(PPlayers,temp);
+        
         if (  posa != -1 && PlayersG[posa].GetComponent<PhotonView>().IsMine)
             _monstre.Attack(PPlayers[posa]);
         _pos = 0;
@@ -227,7 +229,7 @@ public class Enemy : MonoBehaviour
         if (_pos < Players.Count)
         {
             Players[_pos].Choice = EnumChoice.None;
-            if (posH != -1)
+            if (posH != -1 && PlayersG[posH].GetComponent<PhotonView>().IsMine)
             {
                 Heal(PPlayers[posH]);
             }
