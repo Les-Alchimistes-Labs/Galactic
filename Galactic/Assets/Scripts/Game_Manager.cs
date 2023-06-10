@@ -39,6 +39,7 @@ public class Game_Manager : MonoBehaviourPunCallbacks
     public static string healOrder;
     public static int desactivateAccessObjectFinalLevel = 0;
     public static Player2 Player2;
+    public GameObject Playerturn;
 
 
     void Start()
@@ -106,6 +107,18 @@ public class Game_Manager : MonoBehaviourPunCallbacks
             MyInventory.SetActive(false);
         }
     }
+
+    public void activeturn()
+    {
+        Playerturn.SetActive(true);
+    }
+
+    public void unactiveturn()
+    {
+        Playerturn.SetActive(false);
+    }
+    
+    
 
     public void SelectAttack()
     {

@@ -51,6 +51,8 @@ MonoBehaviour:
   - DestroyGameObject
   - RequestArray
   - SendArray
+  - RequestList
+  - SendList
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

@@ -50,7 +50,9 @@ public class Enemy : MonoBehaviour
                 ((Monster)_monstre).Improve( 70);
                 break;
         }
-        
+        if ( !PhotonNetwork.IsMasterClient)
+            _photonView.RPC("SendList", RpcTarget.MasterClient);
+
         
     }
     
@@ -58,10 +60,8 @@ public class Enemy : MonoBehaviour
     IEnumerator wait(int temp)
     {
         Game_Manager.healOrder = "";
-        print(Time.time);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         waita = false;
-        print(Time.time);
     }
 
     
@@ -75,7 +75,7 @@ public class Enemy : MonoBehaviour
             if (Players.Count != 0 && _monstre.IsAlive())
             {
                 transform.transform.LookAt(Players[0].transform);
-                if (_pos >= Players.Count)
+                if (_pos >= Players.Count )
                 {
                     if (!waita)
                     {
@@ -98,7 +98,7 @@ public class Enemy : MonoBehaviour
                 {
                     _photonView.RPC("playerkill", RpcTarget.All,_pos);
                 }
-                else if (Players[_pos].Choice != EnumChoice.None)
+                else if (Players[_pos].Choice != EnumChoice.None &&  PlayersG[_pos].GetComponent<PhotonView>().IsMine)
                 {
                     switch (Players[_pos].Choice)
                     {
@@ -118,7 +118,8 @@ public class Enemy : MonoBehaviour
                     }
 
                     Players[_pos].Choice = EnumChoice.None;
-                    
+                    if (_pos < PlayersG.Count && PlayersG[_pos].GetComponent<PhotonView>().IsMine)
+                        GameObject.FindGameObjectWithTag("GameManager").GetComponent<Game_Manager>().unactiveturn();
                     _photonView.RPC("update_Enemy", RpcTarget.All, _pos,_monstre.Getlife);
                     
                 }
@@ -206,7 +207,9 @@ public class Enemy : MonoBehaviour
     [PunRPC]
     void reset_pos(int temp, int posH)
     {
-        ((Monster)_monstre).Target(PPlayers,temp);
+        int posa =((Monster)_monstre).Target(PPlayers,temp);
+        if (  posa != -1 && PlayersG[posa].GetComponent<PhotonView>().IsMine)
+            _monstre.Attack(PPlayers[posa]);
         _pos = 0;
 
         for (int i=0 ; i<PPlayers.Count;i++)
@@ -229,6 +232,10 @@ public class Enemy : MonoBehaviour
                 Heal(PPlayers[posH]);
             }
         }
+        
+        if (_pos < PlayersG.Count && PlayersG[_pos].GetComponent<PhotonView>().IsMine)
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<Game_Manager>().activeturn();
+
 
         
 
@@ -244,6 +251,9 @@ public class Enemy : MonoBehaviour
             Players[_pos].Choice = EnumChoice.None;
         }
         _monstre.Remove_Life(- (RemainLife -_monstre.Getlife));
+        if (_pos < PlayersG.Count && PlayersG[_pos].GetComponent<PhotonView>().IsMine)
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<Game_Manager>().activeturn();
+
     }
 
     
@@ -286,6 +296,9 @@ public class Enemy : MonoBehaviour
             PPlayers.Add(other.gameObject.GetComponent<Player2>().Personnage);
             Players.Add(other.gameObject.GetComponent<Player2>());
             PlayersG.Add(other.gameObject);
+            if (_pos < PlayersG.Count && PlayersG[_pos].GetComponent<PhotonView>().IsMine)
+                GameObject.FindGameObjectWithTag("GameManager").GetComponent<Game_Manager>().activeturn();
+
         }
     }
 
@@ -294,16 +307,16 @@ public class Enemy : MonoBehaviour
     {
         if (_monstre.Type() == EnumType.IntermediateMonster)
             desactivateAccessObjectFinalLevel++;
-            if (desactivateAccessObjectFinalLevel >= 3)
+        if (desactivateAccessObjectFinalLevel >= 3)
+        {
+            // delete all door
+            GameObject[] doors = GameObject.FindGameObjectsWithTag("door");
+            foreach (GameObject door in doors)
             {
-                // delete all door
-                GameObject[] doors = GameObject.FindGameObjectsWithTag("door");
-                foreach (GameObject door in doors)
-                {
-                    Destroy(door);
-                }
+                Destroy(door);
             }
-            foreach (var player in Players)
+        }
+        foreach (var player in Players)
         {
             if (player.Personnage != null)
             {
@@ -318,11 +331,38 @@ public class Enemy : MonoBehaviour
     [PunRPC]
     void playerkill(int i)
     {
+        Game_Manager.attack = false;
+        Game_Manager.heal_Boost = false;
+        Game_Manager.changeGun = false;
+        Debug.Log($"Player {PPlayers[i]} leave fight");
             PPlayers.RemoveAt(i);
             Players.RemoveAt(i);
             PlayersG.RemoveAt(i);
-
+            string deb = "";
+            foreach (var v in PlayersG)
+            {
+                if (v != null)
+                {
+                    deb += v.name +" ";
+                }
+            }
+        Debug.Log("list player " + deb);
     }
 
+
+    [PunRPC]
+    void SendList(PhotonMessageInfo info)
+    {
+        _photonView.RPC("RequestList", info.Sender,PlayersG,PPlayers,Players);
+ 
+    }
+
+    [PunRPC]
+    void RequestList(List<GameObject> pg,List<Personnage> pp, List<Player2> p)
+    {
+        PlayersG = pg;
+        PPlayers = pp;
+        Players = p;
+    }
 
 }

@@ -280,7 +280,7 @@ public abstract class Personnage : Update
     }
     
     
-    public virtual void Attack(Personnage victim = null , List<Personnage> victims = null) 
+    public virtual void Attack(Personnage victim = null) 
     {
         victim.Remove_Life( Get_damage());
         if (pricipale_Weapon != null)
@@ -355,10 +355,6 @@ public abstract class Personnage : Update
                     {
                         Life += (item.GetHeal());
                         return true;
-                    }
-                    else
-                    {
-                        Life = MaxLife;
                     }
                     break;
             }       

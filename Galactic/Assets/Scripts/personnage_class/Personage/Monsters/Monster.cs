@@ -57,7 +57,7 @@ namespace personnage_class.Personage
             }
         }
 
-        public override void Attack(Personnage victim = null, List<Personnage> victims = null)
+        public override void Attack(Personnage victim = null)
         {
             int crit = Random.Range(0, 100);
             if (crit < 10)
@@ -66,7 +66,7 @@ namespace personnage_class.Personage
                 victim.Take_Damage(Get_damage());
         }
 
-        public abstract void Target(List<Personnage> heros , int find);
+        public abstract int Target(List<Personnage> heros , int find);
 
 
 

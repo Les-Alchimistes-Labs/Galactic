@@ -16,26 +16,31 @@ namespace personnage_class.Personage.Monsters
 
         }
 
-        public override void Target(List<Personnage> heros, int find)
+        public override int Target(List<Personnage> heros , int find)
         {
             var target = heros[0];
+            int pos = 0;
             // trouver le médecin 
             if (find is >= 0 and < 25)
                 for (int i = 1; i < heros.Count - 1; i++)
                 {
                     if (heros[i].Get_damage() > target.Get_damage())
+                    {
                         target = heros[i];
+                        pos = i;
+                    }
                 }
             else
                 for (int i = 1; i < heros.Count - 1; i++)
                 {
                     if (heros[i].Getlife < target.Getlife)
+                    {
                         target = heros[i];
+                        pos = i;
+                    }
                 }
 
-            Attack(target);
-
-
+            return pos;
         }
     }
 }
